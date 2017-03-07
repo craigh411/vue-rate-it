@@ -1,4 +1,4 @@
-## This repo has been cloned from [vue-star-rating](https://github.com/craigh411/vue-star-rating) and is being used to develop a new more flexible version of the rater which will allow developers to extend the rater to create custom rating components. 
+## Important: This repo has been cloned from [vue-star-rating](https://github.com/craigh411/vue-star-rating) and new commits will now be made here.
 
 # Rating Component for Vue 2.x
 
