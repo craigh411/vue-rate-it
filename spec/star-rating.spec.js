@@ -306,7 +306,7 @@ describe('star-rating component', () => {
          it('should add the inline class to star-rating', () => {
             vm = getViewInstance({ inline: true }).$mount("#app");
 
-            let ratingText = document.getElementsByClassName('star-rating')[0];
+            let ratingText = document.getElementsByClassName('rating')[0];
             expect(ratingText.className).toBe('star-rating inline');
         });
     });

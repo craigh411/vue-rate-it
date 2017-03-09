@@ -1,6 +1,5 @@
 <script type="text/javascript">
-import Polygon from './templates/Polygon.vue';
-
+import Polygon from '../../templates/Polygon.vue';
 export default Polygon.extend({
     data() {
         return {
