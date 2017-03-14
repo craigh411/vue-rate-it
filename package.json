@@ -8,7 +8,6 @@
     "watch-stars": "gulp watch -f=./src/reg/star-rating.js",
     "watch-hearts": "gulp watch -f=./src/reg/heart-rating.js",
     "watch-fa": "gulp watch -f=./src/reg/font-awesome-rating.js",
-    "watch-music": "gulp watch -f=./src/reg/music-rating.js",
     "build-glyphs": "cd build && node font-awesome",
     "gulp": "gulp",
     "push-to-git": "git push",

@@ -13,7 +13,7 @@ export default BaseRating.extend({
     props: {
       fa: {
         type: String,
-        default: 'flash'
+        required: true
       }
     },
     data() {

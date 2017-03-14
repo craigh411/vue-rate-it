@@ -27,63 +27,63 @@
     <div id="app">
 
         <h2>Default</h2>
-        <fa-rating :padding="15"></fa-rating>
+        <fa-rating fa="thumbs-up"></fa-rating>
 
         <h2>Half Glyphs</h2>
-        <fa-rating :increment="0.5" :padding="15"></fa-rating>
+        <fa-rating :increment="0.5" fa="thumbs-up"></fa-rating>
 
         <h2>Red Glyphs</h2>
-        <fa-rating active-color="#9c0000" :padding="15"></fa-rating>
+        <fa-rating active-color="#9c0000" fa="thumbs-up"></fa-rating>
 
         <h2>Vibrant Glyphs</h2>
-        <fa-rating inactive-color="#e1bad9" active-color="#cc1166" :padding="15"></fa-rating>
+        <fa-rating inactive-color="#e1bad9" active-color="#cc1166" fa="thumbs-up"></fa-rating>
 
         <h2>Small Glyphs</h2>
-        <fa-rating :item-size="20" :padding="15"></fa-rating>
+        <fa-rating :item-size="30" fa="thumbs-up"></fa-rating>
 
         <h2>Big Glyphs</h2>
-        <fa-rating :item-size="90" :padding="15"></fa-rating>
+        <fa-rating :item-size="90" fa="thumbs-up"></fa-rating>
 
         <h2>Bordered Glyphs</h2>
-        <fa-rating :border-width="5" :padding="15"></fa-rating>
+        <fa-rating :border-width="5" fa="thumbs-up"></fa-rating>
 
         <h2>Fluid Glyphs</h2>
-        <fa-rating :increment="0.01" :padding="15"></fa-rating>
+        <fa-rating :increment="0.01" fa="thumbs-up"></fa-rating>
 
         <h2>Preset Glyphs</h2>
-        <fa-rating :rating="4" :padding="15"></fa-rating>
+        <fa-rating :rating="4" fa="thumbs-up"></fa-rating>
 
         <h2>Read Only Glyphs</h2>
-        <fa-rating :rating="3.8" :read-only="true" :increment="0.01" :padding="15"></fa-rating>
+        <fa-rating :rating="3.8" :read-only="true" :increment="0.01" fa="thumbs-up"></fa-rating>
 
-        <h2>Lots of fa</h2>
-        <fa-rating :max-rating="10" :item-size="20" :border-width="1" :padding="15"></fa-rating>
+        <h2>Lots of Glyphs</h2>
+        <fa-rating :max-rating="10" :item-size="30" :border-width="1" fa="thumbs-up"></fa-rating>
 
         <h2>Style Rating</h2>
-        <fa-rating text-class="custom-text" :padding="15"></fa-rating>
+        <fa-rating text-class="custom-text" fa="thumbs-up"></fa-rating>
 
         <h2>Hide Rating</h2>
-        <fa-rating :show-rating="false" :padding="15"></fa-rating>
+        <fa-rating :show-rating="false" fa="thumbs-up"></fa-rating>
 
         <h2>Capture Rating</h2>
-        <fa-rating :show-rating="false" @rating-selected="setRating" :padding="15"></fa-rating>
+        <fa-rating :show-rating="false" @rating-selected="setRating" fa="thumbs-up"></fa-rating>
         <div style="margin-top:10px;font-weight:bold;">{{rating}}</div>
 
         <h2>Capture Mouse Over Rating</h2>
         <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
-            <fa-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5" :padding="15"></fa-rating>
+            <fa-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5" fa="thumbs-up"></fa-rating>
         </div>
         <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
 
-        <h2>Resetable fa</h2>
+        <h2>Resetable Glyphs</h2>
         <div style="display:inline-block;">
-            <fa-rating :rating="resetableRating" @rating-selected="syncRating" :padding="15"></fa-rating>
+            <fa-rating :rating="resetableRating" @rating-selected="syncRating" fa="thumbs-up"></fa-rating>
             <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="reset">Reset Rating</a></div>
         </div>
 
       <h2>Inline Glyphs</h2>
         <div style="display:inline-flex;">
-           Rated <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" :padding="15"></fa-rating> by our customers.
+           Rated <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" fa="thumbs-up"></fa-rating> by our customers.
 
         </div>
     </div>
@@ -93,13 +93,13 @@
         el: '#app',
         methods: {
             setRating: function(rating) {
-                this.rating = "You have Selected: " + rating + " fa";
+                this.rating = "You have Selected: " + rating + " glyph";
             },
             showCurrentRating: function(rating) {
-                this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " fa"
+                this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " glyph"
             },
             setCurrentSelectedRating: function(rating) {
-                this.currentSelectedRating = "You have Selected: " + rating + " fa";
+                this.currentSelectedRating = "You have Selected: " + rating + " glyphs";
             },
             reset: function() {
                 this.resetableRating = 0;
