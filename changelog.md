@@ -5,6 +5,14 @@
 ## [Unreleased]
 
 ### Added
+- A new customProps prop for passing through additional props from the base-rating component, which may be required to be passed onto a RatingItem, e.g. font awesome glyphs require the glyph name to be passed, which is done through customProps['glyphs'].
+- Font awesome
+  - build tools to convert font awesome glyphs to paths
+  - A font-awesome-glyph compnent.
+  - A font-awesome-rating component to allow use of font-awesome glyphs for  raters
+- A heart-rating component
+- A new heart component
+- A new Path template for creating paths
 - A new Polygon template has been created for designing different polygons for rating items.
 - A new base component has been created that can be extended.
 - New mixins have bee created for the functionality of the rater and the rating items.

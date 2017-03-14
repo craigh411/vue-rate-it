@@ -34,23 +34,21 @@ export default {
         }
     },
     created() {
-        this.calculatePoints;
+        this.calculatePoints();
         this.grad = Math.random().toString(36).substring(7);
     },
     computed: {
-        calculatePoints() {
-            this.points = this.points.map((point) => {
-                return ((this.size / this.base) * point) + (this.borderWidth * 1.5);
-            });
-        },
         pointsToString() {
             return this.points.join(',');
         },
         getGradId() {
             return 'url(#' + this.grad + ')';
         },
-        getSize() {
-            return parseInt(this.size) + parseInt(this.borderWidth * 3) + this.padding;
+        getWidth() {
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders) + this.padding;
+        },
+        getHeight(){
+          return (this.originalHeight / this.originalWidth) * this.getWidth;
         },
         getFill() {
             return this.fill + "%";
@@ -63,6 +61,11 @@ export default {
                 position: this.getPosition($event),
                 id: this.index
             })
+        },
+        calculatePoints() {
+            this.points = this.points.map((point) => {
+                return ((this.size / this.originalWidth) * point) + (this.borderWidth * (this.borders / 2));
+            });
         },
         getPosition($event) {
             // calculate position in percentage.
@@ -81,7 +84,9 @@ export default {
         return {
             points: [],
             grad: '',
-            base: 50
+            originalWidth: 50,
+            orignalHeight: 50,
+            borders: 1
         }
     }
 }

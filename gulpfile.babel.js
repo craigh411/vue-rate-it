@@ -10,12 +10,13 @@ import vueify from "vueify";
 import uglify from "gulp-uglify";
 import watchify from "watchify";
 import buffer from "vinyl-buffer";
-import {argv} from 'yargs';
+import sourcemaps from "gulp-sourcemaps";
+import { argv } from 'yargs';
 import { Server } from "karma";
 
 console.log(argv.f);
 
-const entry = (argv.f !==undefined) ? argv.f : "./src/reg/star-rating.js";
+const entry = (argv.f !== undefined) ? argv.f : "./src/reg/star-rating.js";
 const dest = "dist"; // destination folder
 
 gulp.task('default', function(done) {
@@ -61,7 +62,11 @@ gulp.task('watch', () => {
             .on('error', err => {
                 gutil.log("Browserify Error", gutil.colors.red(err.message))
             })
-            .pipe(source('star-rating.js'))
+            .pipe(source(entry))
+            .pipe(flatten())
+            .pipe(buffer())
+            .pipe(sourcemaps.init({ loadMaps: true }))
+            .pipe(sourcemaps.write('./maps'))
             .pipe(gulp.dest(dest));
     }
 });

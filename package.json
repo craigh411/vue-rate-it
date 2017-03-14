@@ -5,7 +5,14 @@
   "main": "src/star-rating.vue",
   "scripts": {
     "test": "gulp test",
-    "watch-stars": "gulp watch -f=./src/reg/star-rating.js" 
+    "watch-stars": "gulp watch -f=./src/reg/star-rating.js",
+    "watch-hearts": "gulp watch -f=./src/reg/heart-rating.js",
+    "watch-fa": "gulp watch -f=./src/reg/font-awesome-rating.js",
+    "watch-music": "gulp watch -f=./src/reg/music-rating.js",
+    "build-glyphs": "cd build && node font-awesome",
+    "gulp": "gulp",
+    "push-to-git": "git push",
+    "push": "npm-run-all --sequential gulp push-to-git"
   },
   "repository": {
     "type": "git",
@@ -35,8 +42,10 @@
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
     "browserify-shim": "^3.8.13",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.0",
     "gulp-flatten": "^0.3.1",
+    "gulp-sourcemaps": "^2.4.1",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.8",
     "jasmine": "^2.5.3",
@@ -46,6 +55,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-spec-reporter": "0.0.26",
+    "npm-run-all": "^4.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vue": "^2.1.8",

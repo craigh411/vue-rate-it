@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>Heart Rating Example</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
+    <script src="../../dist/heart-rating.js"></script>
+    <style>
+    body {
+        font-size: 1em;
+        font-family: 'Tahoma', sans-serif;
+    }
+    
+    .custom-text {
+        font-weight: bold;
+        font-size: 1.9em;
+        border: 1px solid #cfcfcf;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        color: #999;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <h2>Default</h2>
+        <heart-rating></heart-rating>
+
+        <h2>Half Hearts</h2>
+        <heart-rating :increment="0.5"></heart-rating>
+
+        <h2>Red Hearts</h2>
+        <heart-rating active-color="#9c0000"></heart-rating>
+
+        <h2>Vibrant Hearts</h2>
+        <heart-rating inactive-color="#e1bad9" active-color="#cc1166"></heart-rating>
+
+        <h2>Small Hearts</h2>
+        <heart-rating :item-size="20"></heart-rating>
+
+        <h2>Big Hearts</h2>
+        <heart-rating :item-size="90"></heart-rating>
+
+        <h2>Bordered Hearts</h2>
+        <heart-rating :border-width="5"></heart-rating>
+
+        <h2>Fluid Hearts</h2>
+        <heart-rating :increment="0.01"></heart-rating>
+
+        <h2>Preset Hearts</h2>
+        <heart-rating :rating="4"></heart-rating>
+
+        <h2>Read Only Hearts</h2>
+        <heart-rating :rating="3.8" :read-only="true" :increment="0.01"></heart-rating>
+
+        <h2>Lots of hearts</h2>
+        <heart-rating :max-rating="10" :item-size="20" :border-width="1"></heart-rating>
+
+        <h2>Style Rating</h2>
+        <heart-rating text-class="custom-text"></heart-rating>
+
+        <h2>Hide Rating</h2>
+        <heart-rating :show-rating="false"></heart-rating>
+
+        <h2>Capture Rating</h2>
+        <heart-rating :show-rating="false" @rating-selected="setRating"></heart-rating>
+        <div style="margin-top:10px;font-weight:bold;">{{rating}}</div>
+
+        <h2>Capture Mouse Over Rating</h2>
+        <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
+            <heart-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5"></heart-rating>
+        </div>
+        <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
+
+        <h2>Resetable hearts</h2>
+        <div style="display:inline-block;">
+            <heart-rating :rating="resetableRating" @rating-selected="syncRating"></heart-rating>
+            <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="reset">Reset Rating</a></div>
+        </div>
+
+      <h2>Inline Hearts</h2>
+        <div style="display:inline-flex;">
+           Rated <heart-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5"></heart-rating> by our customers.
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        methods: {
+            setRating: function(rating) {
+                this.rating = "You have Selected: " + rating + " hearts";
+            },
+            showCurrentRating: function(rating) {
+                this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " hearts"
+            },
+            setCurrentSelectedRating: function(rating) {
+                this.currentSelectedRating = "You have Selected: " + rating + " hearts";
+            },
+            reset: function() {
+                this.resetableRating = 0;
+            },
+            syncRating: function(rating) {
+                this.resetableRating = rating;
+            }
+        },
+        data: {
+            rating: "No Rating Selected",
+            currentRating: "No Rating",
+            currentSelectedRating: "No Current Rating",
+            resetableRating: 3
+        }
+    });
+    </script>
+</body>
+
+</html>

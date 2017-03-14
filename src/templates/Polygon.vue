@@ -1,5 +1,5 @@
 <template>
-    <svg :height="getSize" :width="getSize" @mousemove="mouseMoving" @click="selected">
+    <svg :width="getWidth" :height="getHeight" @mousemove="mouseMoving" @click="selected">
         <linearGradient :id="grad" x1="0" x2="100%" y1="0" y2="0">
             <stop :offset="getFill" :stop-color="activeColor" />
             <stop :offset="getFill" :stop-color="inactiveColor" />

@@ -107,7 +107,8 @@ export default {
             step: 0,
             fillLevel: [],
             currentRating: 0,
-            selectedRating: 0
+            selectedRating: 0,
+            customProps: {}
         }
     }
 }
