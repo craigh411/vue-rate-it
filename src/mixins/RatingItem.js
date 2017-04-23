@@ -28,9 +28,13 @@ export default {
             type: Number,
             default: 0
         },
-        padding: {
+        spacing: {
             type: Number,
             default: 0
+        },
+        customProps: {
+            required: false,
+            type: Object
         }
     },
     created() {
@@ -45,13 +49,16 @@ export default {
             return 'url(#' + this.grad + ')';
         },
         getWidth() {
-            return parseInt(this.size) + parseInt(this.borderWidth * this.borders) + this.padding;
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
         },
-        getHeight(){
-          return (this.originalHeight / this.originalWidth) * this.getWidth;
+        getHeight() {
+            return (this.originalHeight / this.originalWidth) * this.getWidth;
         },
         getFill() {
             return this.fill + "%";
+        },
+        getSpacing() {
+            return (this.spacing + (this.borderWidth / 2)) + "px";
         }
     },
     methods: {
@@ -69,7 +76,7 @@ export default {
         },
         getPosition($event) {
             // calculate position in percentage.
-            var width = (92 / 100) * this.size;
+            var width = (92 / 100) * (this.size+this.borderWidth);
             var position = Math.round((100 / width) * $event.offsetX);
             return (position > 100) ? 100 : position;
         },

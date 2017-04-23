@@ -8,7 +8,7 @@
 - A new customProps prop for passing through additional props from the base-rating component, which may be required to be passed onto a RatingItem, e.g. font awesome glyphs require the glyph name to be passed, which is done through customProps['glyphs'].
 - Font awesome
   - build tools to convert font awesome glyphs to paths
-  - A font-awesome-glyph comopnent.
+  - A font-awesome-glyph component.
   - A font-awesome-rating component to allow use of font-awesome glyphs for  raters
 - A heart-rating component
 - A new heart component

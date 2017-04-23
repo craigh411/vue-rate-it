@@ -11,6 +11,10 @@ export default BaseRating.extend({
         	type: Number,
             default: 5
         },
+        borderWidth:{
+          type: Number,
+          default: 3
+        },
         activeColor: {
             type: String,
             default: "#d80000"
@@ -31,10 +35,3 @@ export default BaseRating.extend({
     }
 });
 </script>
-
-<style scoped>
-.inline {
-    display: inline-flex;
-    margin-left:5px;
-}
-</style>

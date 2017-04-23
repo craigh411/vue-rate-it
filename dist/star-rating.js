@@ -1,168 +1,177 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var inserted = exports.cache = {}
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/dist/";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-function noop () {}
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
 
-exports.insert = function (css) {
-  if (inserted[css]) return noop
-  inserted[css] = true
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  scopeId,
+  cssModules
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
 
-  var elem = document.createElement('style')
-  elem.setAttribute('type', 'text/css')
-
-  if ('textContent' in elem) {
-    elem.textContent = css
-  } else {
-    elem.styleSheet.cssText = css
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
   }
 
-  document.getElementsByTagName('head')[0].appendChild(elem)
-  return function () {
-    document.getElementsByTagName('head')[0].removeChild(elem)
-    inserted[css] = false
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  // inject cssModules
+  if (cssModules) {
+    var computed = Object.create(options.computed || null)
+    Object.keys(cssModules).forEach(function (key) {
+      var module = cssModules[key]
+      computed[key] = function () { return module }
+    })
+    options.computed = computed
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
   }
 }
 
-},{}],2:[function(require,module,exports){
-var Vue // late bind
-var version
-var map = window.__VUE_HOT_MAP__ = Object.create(null)
-var installed = false
-var isBrowserify = false
-var initHookName = 'beforeCreate'
 
-exports.install = function (vue, browserify) {
-  if (installed) return
-  installed = true
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
 
-  Vue = vue.__esModule ? vue.default : vue
-  version = Vue.version.split('.').map(Number)
-  isBrowserify = browserify
+module.exports = Vue;
 
-  // compat with < 2.0.0-alpha.7
-  if (Vue.config._lifecycleHooks.indexOf('init') > -1) {
-    initHookName = 'init'
-  }
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
 
-  exports.compatible = version[0] >= 2
-  if (!exports.compatible) {
-    console.warn(
-      '[HMR] You are using a version of vue-hot-reload-api that is ' +
-      'only compatible with Vue.js core ^2.0.0.'
-    )
-    return
-  }
-}
-
-/**
- * Create a record for a hot module, which keeps track of its constructor
- * and instances
- *
- * @param {String} id
- * @param {Object} options
- */
-
-exports.createRecord = function (id, options) {
-  var Ctor = null
-  if (typeof options === 'function') {
-    Ctor = options
-    options = Ctor.options
-  }
-  makeOptionsHot(id, options)
-  map[id] = {
-    Ctor: Vue.extend(options),
-    instances: []
-  }
-}
-
-/**
- * Make a Component options object hot.
- *
- * @param {String} id
- * @param {Object} options
- */
-
-function makeOptionsHot (id, options) {
-  injectHook(options, initHookName, function () {
-    map[id].instances.push(this)
-  })
-  injectHook(options, 'beforeDestroy', function () {
-    var instances = map[id].instances
-    instances.splice(instances.indexOf(this), 1)
-  })
-}
-
-/**
- * Inject a hook to a hot reloadable component so that
- * we can keep track of it.
- *
- * @param {Object} options
- * @param {String} name
- * @param {Function} hook
- */
-
-function injectHook (options, name, hook) {
-  var existing = options[name]
-  options[name] = existing
-    ? Array.isArray(existing)
-      ? existing.concat(hook)
-      : [existing, hook]
-    : [hook]
-}
-
-function tryWrap (fn) {
-  return function (id, arg) {
-    try { fn(id, arg) } catch (e) {
-      console.error(e)
-      console.warn('Something went wrong during Vue component hot-reload. Full reload required.')
-    }
-  }
-}
-
-exports.rerender = tryWrap(function (id, options) {
-  var record = map[id]
-  if (typeof options === 'function') {
-    options = options.options
-  }
-  record.Ctor.options.render = options.render
-  record.Ctor.options.staticRenderFns = options.staticRenderFns
-  record.instances.slice().forEach(function (instance) {
-    instance.$options.render = options.render
-    instance.$options.staticRenderFns = options.staticRenderFns
-    instance._staticTrees = [] // reset static trees
-    instance.$forceUpdate()
-  })
-})
-
-exports.reload = tryWrap(function (id, options) {
-  if (typeof options === 'function') {
-    options = options.options
-  }
-  makeOptionsHot(id, options)
-  var record = map[id]
-  if (version[1] < 2) {
-    // preserve pre 2.2 behavior for global mixin handling
-    record.Ctor.extendOptions = options
-  }
-  var newCtor = record.Ctor.super.extend(options)
-  record.Ctor.options = newCtor.options
-  record.Ctor.cid = newCtor.cid
-  record.Ctor.prototype = newCtor.prototype
-  if (newCtor.release) {
-    // temporary global mixin strategy used in < 2.0.0-alpha.6
-    newCtor.release()
-  }
-  record.instances.slice().forEach(function (instance) {
-    if (instance.$vnode && instance.$vnode.context) {
-      instance.$vnode.context.$forceUpdate()
-    } else {
-      console.warn('Root or manually mounted instance modified. Full reload required.')
-    }
-  })
-})
-
-},{}],3:[function(require,module,exports){
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+     value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _Rating = __webpack_require__(3);
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+     mixins: [_Rating2.default]
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -215,12 +224,16 @@ exports.default = {
         },
         borderWidth: {
             type: Number,
-            default: 0
+            default: 2
         },
-        padding: {
+        spacing: {
             type: Number,
             default: 0
         }
+    },
+    model: {
+        prop: 'rating',
+        event: 'rating-selected'
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -231,8 +244,9 @@ exports.default = {
 
     methods: {
         setRating: function setRating($event, persist) {
+
             if (!this.readOnly) {
-                var position = $event.position / 100;
+                var position = Math.max(0, $event.position / 100);
                 this.currentRating = ($event.id + position - 1).toFixed(2);
                 this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
                 this.createRating();
@@ -277,13 +291,18 @@ exports.default = {
             step: 0,
             fillLevel: [],
             currentRating: 0,
-            selectedRating: 0
+            selectedRating: 0,
+            customProps: {}
         };
     }
 };
 
-},{}],4:[function(require,module,exports){
-'use strict';
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -318,9 +337,13 @@ exports.default = {
             type: Number,
             default: 0
         },
-        padding: {
+        spacing: {
             type: Number,
             default: 0
+        },
+        customProps: {
+            required: false,
+            type: Object
         }
     },
     created: function created() {
@@ -336,13 +359,16 @@ exports.default = {
             return 'url(#' + this.grad + ')';
         },
         getWidth: function getWidth() {
-            return parseInt(this.size) + parseInt(this.borderWidth * this.borders) + this.padding;
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
         },
         getHeight: function getHeight() {
             return this.originalHeight / this.originalWidth * this.getWidth;
         },
         getFill: function getFill() {
             return this.fill + "%";
+        },
+        getSpacing: function getSpacing() {
+            return this.spacing + this.borderWidth / 2 + "px";
         }
     },
     methods: {
@@ -362,7 +388,7 @@ exports.default = {
         },
         getPosition: function getPosition($event) {
             // calculate position in percentage.
-            var width = 92 / 100 * this.size;
+            var width = 92 / 100 * (this.size + this.borderWidth);
             var position = Math.round(100 / width * $event.offsetX);
             return position > 100 ? 100 : position;
         },
@@ -384,64 +410,456 @@ exports.default = {
     }
 };
 
-},{}],5:[function(require,module,exports){
-(function (global){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".rating-item[data-v-4109320e] {\r\n    display: inline-block;\r\n}\r\n.pointer[data-v-4109320e] {\r\n    cursor: pointer;\r\n}\r\n.rating[data-v-4109320e] {\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n.inline[data-v-4109320e] {\r\n    display: inline-flex;\r\n}\r\n.rating-text[data-v-4109320e] {\r\n    margin-top: 7px;\r\n    margin-left: 7px;\r\n}")
-;(function(){
-'use strict';
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-     value: true
-});
+exports = module.exports = __webpack_require__(6)();
+// imports
 
-var _vue = (typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null);
 
-var _vue2 = _interopRequireDefault(_vue);
+// module
+exports.push([module.i, ".rating-item[data-v-217e3916]{display:inline-block}.pointer[data-v-217e3916]{cursor:pointer}.rating[data-v-217e3916]{display:flex;align-items:center}.inline[data-v-217e3916]{display:inline-flex}.rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}", ""]);
 
-var _Rating = require('../mixins/Rating.js');
+// exports
 
-var _Rating2 = _interopRequireDefault(_Rating);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
-exports.default = _vue2.default.extend({
-     mixins: [_Rating2.default]
-});
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:['rating', {inline: _vm.inline}]},[_c('div',{staticClass:"rating",on:{"mouseleave":_vm.resetRating}},[_vm._l((_vm.maxRating),function(n){return _c('span',{class:[{pointer: !_vm.readOnly }, 'rating-item']},[_c(_vm.type,{tag:"component",attrs:{"fill":_vm.fillLevel[n-1],"size":_vm.itemSize,"index":n,"step":_vm.step,"active-color":_vm.activeColor,"inactive-color":_vm.inactiveColor,"border-color":_vm.borderColor,"border-width":_vm.borderWidth,"padding":_vm.padding},on:{"selected":function($event){_vm.setRating($event, true)},"mouse-move":_vm.setRating}})],1)}),_vm._v(" "),(_vm.showRating)?_c('span',{class:['rating-text', _vm.textClass]},[_vm._v(" "+_vm._s(_vm.currentRating))]):_vm._e()],2)])}
-__vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-4109320e"
-if (module.hot) {(function () {  var hotAPI = require("vueify/node_modules/vue-hot-reload-api")
-  hotAPI.install((typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  module.hot.dispose(__vueify_style_dispose__)
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4109320e", __vue__options__)
-  } else {
-    hotAPI.rerender("data-v-4109320e", __vue__options__)
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(9)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(2),
+  /* template */
+  __webpack_require__(8),
+  /* scopeId */
+  "data-v-217e3916",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ['rating', {
+      inline: _vm.inline
+    }]
+  }, [_c('div', {
+    staticClass: "rating",
+    on: {
+      "mouseleave": _vm.resetRating
+    }
+  }, [_vm._l((_vm.maxRating), function(n) {
+    return _c('span', {
+      class: [{
+        pointer: !_vm.readOnly
+      }, 'rating-item']
+    }, [_c(_vm.type, {
+      tag: "component",
+      attrs: {
+        "fill": _vm.fillLevel[n - 1],
+        "size": _vm.itemSize,
+        "index": n,
+        "step": _vm.step,
+        "active-color": _vm.activeColor,
+        "inactive-color": _vm.inactiveColor,
+        "border-color": _vm.borderColor,
+        "border-width": _vm.borderWidth,
+        "spacing": _vm.spacing,
+        "custom-props": _vm.customProps
+      },
+      on: {
+        "selected": function($event) {
+          _vm.setRating($event, true)
+        },
+        "mouse-move": _vm.setRating
+      }
+    })], 1)
+  }), _vm._v(" "), (_vm.showRating) ? _c('span', {
+    class: ['rating-text', _vm.textClass]
+  }, [_vm._v(" " + _vm._s(_vm.currentRating))]) : _vm._e()], 2)])
+},staticRenderFns: []}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(5);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(10)("79d20f0f", content, true);
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+  Modified by Evan You @yyx990803
+*/
+
+var hasDocument = typeof document !== 'undefined'
+
+if (typeof DEBUG !== 'undefined' && DEBUG) {
+  if (!hasDocument) {
+    throw new Error(
+    'vue-style-loader cannot be used in a non-browser environment. ' +
+    "Use { target: 'node' } in your Webpack config to indicate a server-rendering environment."
+  ) }
+}
+
+var listToStyles = __webpack_require__(11)
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+var stylesInDom = {/*
+  [id: number]: {
+    id: number,
+    refs: number,
+    parts: Array<(obj?: StyleObjectPart) => void>
   }
-})()}
+*/}
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+var head = hasDocument && (document.head || document.getElementsByTagName('head')[0])
+var singletonElement = null
+var singletonCounter = 0
+var isProduction = false
+var noop = function () {}
 
-},{"../mixins/Rating.js":3,"vueify/lib/insert-css":1,"vueify/node_modules/vue-hot-reload-api":2}],6:[function(require,module,exports){
-(function (global){
-;(function(){
-'use strict';
+// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+// tags it will allow on a page
+var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase())
+
+module.exports = function (parentId, list, _isProduction) {
+  isProduction = _isProduction
+
+  var styles = listToStyles(parentId, list)
+  addStylesToDom(styles)
+
+  return function update (newList) {
+    var mayRemove = []
+    for (var i = 0; i < styles.length; i++) {
+      var item = styles[i]
+      var domStyle = stylesInDom[item.id]
+      domStyle.refs--
+      mayRemove.push(domStyle)
+    }
+    if (newList) {
+      styles = listToStyles(parentId, newList)
+      addStylesToDom(styles)
+    } else {
+      styles = []
+    }
+    for (var i = 0; i < mayRemove.length; i++) {
+      var domStyle = mayRemove[i]
+      if (domStyle.refs === 0) {
+        for (var j = 0; j < domStyle.parts.length; j++) {
+          domStyle.parts[j]()
+        }
+        delete stylesInDom[domStyle.id]
+      }
+    }
+  }
+}
+
+function addStylesToDom (styles /* Array<StyleObject> */) {
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var domStyle = stylesInDom[item.id]
+    if (domStyle) {
+      domStyle.refs++
+      for (var j = 0; j < domStyle.parts.length; j++) {
+        domStyle.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        domStyle.parts.push(addStyle(item.parts[j]))
+      }
+      if (domStyle.parts.length > item.parts.length) {
+        domStyle.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j]))
+      }
+      stylesInDom[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement () {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  head.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */) {
+  var update, remove
+  var styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]')
+
+  if (styleElement) {
+    if (isProduction) {
+      // has SSR styles and in production mode.
+      // simply do nothing.
+      return noop
+    } else {
+      // has SSR styles but in dev mode.
+      // for some reason Chrome can't handle source map in server-rendered
+      // style tags - source maps in <style> only works if the style tag is
+      // created and inserted dynamically. So we remove the server rendered
+      // styles and inject new ones.
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  if (isOldIE) {
+    // use singleton mode for IE9.
+    var styleIndex = singletonCounter++
+    styleElement = singletonElement || (singletonElement = createStyleElement())
+    update = applyToSingletonTag.bind(null, styleElement, styleIndex, false)
+    remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true)
+  } else {
+    // use multi-style-tag mode in all other cases
+    styleElement = createStyleElement()
+    update = applyToTag.bind(null, styleElement)
+    remove = function () {
+      styleElement.parentNode.removeChild(styleElement)
+    }
+  }
+
+  update(obj)
+
+  return function updateStyle (newObj /* StyleObjectPart */) {
+    if (newObj) {
+      if (newObj.css === obj.css &&
+          newObj.media === obj.media &&
+          newObj.sourceMap === obj.sourceMap) {
+        return
+      }
+      update(obj = newObj)
+    } else {
+      remove()
+    }
+  }
+}
+
+var replaceText = (function () {
+  var textStore = []
+
+  return function (index, replacement) {
+    textStore[index] = replacement
+    return textStore.filter(Boolean).join('\n')
+  }
+})()
+
+function applyToSingletonTag (styleElement, index, remove, obj) {
+  var css = remove ? '' : obj.css
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = replaceText(index, css)
+  } else {
+    var cssNode = document.createTextNode(css)
+    var childNodes = styleElement.childNodes
+    if (childNodes[index]) styleElement.removeChild(childNodes[index])
+    if (childNodes.length) {
+      styleElement.insertBefore(cssNode, childNodes[index])
+    } else {
+      styleElement.appendChild(cssNode)
+    }
+  }
+}
+
+function applyToTag (styleElement, obj) {
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(25),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _BaseRating = require('../BaseRating.vue');
+var _BaseRating = __webpack_require__(7);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _star = require('./star.vue');
+var _star = __webpack_require__(36);
 
 var _star2 = _interopRequireDefault(_star);
 
@@ -458,32 +876,19 @@ exports.default = _BaseRating2.default.extend({
         };
     }
 });
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (module.hot) {(function () {  var hotAPI = require("vueify/node_modules/vue-hot-reload-api")
-  hotAPI.install((typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1b09db0d", __vue__options__)
-  } else {
-    hotAPI.reload("data-v-1b09db0d", __vue__options__)
-  }
-})()}
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
 
-},{"../BaseRating.vue":5,"./star.vue":7,"vueify/node_modules/vue-hot-reload-api":2}],7:[function(require,module,exports){
-(function (global){
-;(function(){
-'use strict';
+"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Polygon = require('../../templates/Polygon.vue');
+var _Polygon = __webpack_require__(37);
 
 var _Polygon2 = _interopRequireDefault(_Polygon);
 
@@ -499,25 +904,58 @@ exports.default = _Polygon2.default.extend({
         };
     }
 });
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (module.hot) {(function () {  var hotAPI = require("vueify/node_modules/vue-hot-reload-api")
-  hotAPI.install((typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d432f8e6", __vue__options__)
-  } else {
-  }
-})()}
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
 
-},{"../../templates/Polygon.vue":9,"vueify/node_modules/vue-hot-reload-api":2}],8:[function(require,module,exports){
-'use strict';
+"use strict";
 
-var _starRating = require('../raters/stars/star-rating.vue');
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _RatingItem = __webpack_require__(4);
+
+var _RatingItem2 = _interopRequireDefault(_RatingItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+    mixins: [_RatingItem2.default]
+});
+
+/***/ }),
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _starRating = __webpack_require__(18);
 
 var _starRating2 = _interopRequireDefault(_starRating);
 
@@ -525,47 +963,97 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 Vue.component('star-rating', _starRating2.default);
 
-},{"../raters/stars/star-rating.vue":6}],9:[function(require,module,exports){
-(function (global){
-;(function(){
-'use strict';
+/***/ }),
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(26),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
 
-var _vue = (typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null);
+module.exports = Component.exports
 
-var _vue2 = _interopRequireDefault(_vue);
 
-var _RatingItem = require('../mixins/RatingItem.js');
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var _RatingItem2 = _interopRequireDefault(_RatingItem);
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(27),
+  /* template */
+  __webpack_require__(38),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+module.exports = Component.exports
 
-exports.default = _vue2.default.extend({
-	mixins: [_RatingItem2.default]
-});
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{attrs:{"width":_vm.getWidth,"height":_vm.getHeight},on:{"mousemove":_vm.mouseMoving,"click":_vm.selected}},[_c('linearGradient',{attrs:{"id":_vm.grad,"x1":"0","x2":"100%","y1":"0","y2":"0"}},[_c('stop',{attrs:{"offset":_vm.getFill,"stop-color":_vm.activeColor}}),_vm._v(" "),_c('stop',{attrs:{"offset":_vm.getFill,"stop-color":_vm.inactiveColor}})],1),_vm._v(" "),_c('polygon',{attrs:{"points":_vm.pointsToString,"fill":_vm.getGradId,"stroke":_vm.borderColor,"stroke-width":_vm.borderWidth}}),_vm._v(" "),_c('polygon',{attrs:{"points":_vm.pointsToString,"fill":_vm.getGradId}})],1)}
-__vue__options__.staticRenderFns = []
-if (module.hot) {(function () {  var hotAPI = require("vueify/node_modules/vue-hot-reload-api")
-  hotAPI.install((typeof window !== "undefined" ? window['Vue'] : typeof global !== "undefined" ? global['Vue'] : null), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3d10b208", __vue__options__)
-  } else {
-    hotAPI.rerender("data-v-3d10b208", __vue__options__)
-  }
-})()}
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
 
-},{"../mixins/RatingItem.js":4,"vueify/node_modules/vue-hot-reload-api":2}]},{},[8])
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    style: ({
+      display: 'inline-block',
+      'margin-right': _vm.getSpacing
+    })
+  }, [_c('svg', {
+    attrs: {
+      "width": _vm.getWidth,
+      "height": _vm.getHeight
+    },
+    on: {
+      "mousemove": _vm.mouseMoving,
+      "click": _vm.selected
+    }
+  }, [_c('linearGradient', {
+    attrs: {
+      "id": _vm.grad,
+      "x1": "0",
+      "x2": "100%",
+      "y1": "0",
+      "y2": "0"
+    }
+  }, [_c('stop', {
+    attrs: {
+      "offset": _vm.getFill,
+      "stop-color": _vm.activeColor
+    }
+  }), _vm._v(" "), _c('stop', {
+    attrs: {
+      "offset": _vm.getFill,
+      "stop-color": _vm.inactiveColor
+    }
+  })], 1), _vm._v(" "), _c('polygon', {
+    attrs: {
+      "points": _vm.pointsToString,
+      "fill": _vm.getGradId,
+      "stroke": _vm.borderColor,
+      "stroke-width": _vm.borderWidth
+    }
+  }), _vm._v(" "), _c('polygon', {
+    attrs: {
+      "points": _vm.pointsToString,
+      "fill": _vm.getGradId
+    }
+  })], 1)])
+},staticRenderFns: []}
 
-//# sourceMappingURL=maps/star-rating.js.map
+/***/ })
+/******/ ]);
+//# sourceMappingURL=star-rating.js.map

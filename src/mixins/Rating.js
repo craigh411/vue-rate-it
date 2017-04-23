@@ -46,12 +46,16 @@ export default {
         },
         borderWidth: {
             type: Number,
-            default: 0
+            default: 2
         },
-        padding: {
+        spacing: {
             type: Number,
             default: 0
         }
+    },
+    model:{
+      prop: 'rating',
+      event: 'rating-selected'
     },
     created() {
         this.step = this.increment * 100;
@@ -61,8 +65,9 @@ export default {
     },
     methods: {
         setRating($event, persist) {
+
             if (!this.readOnly) {
-                let position = $event.position / 100;
+                let position =  Math.max(0, $event.position / 100);
                 this.currentRating = (($event.id + position) - 1).toFixed(2);
                 this.currentRating = (this.currentRating > this.maxRating) ? this.maxRating : this.currentRating;
                 this.createRating();

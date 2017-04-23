@@ -39,11 +39,12 @@
         <heart-rating inactive-color="#e1bad9" active-color="#cc1166"></heart-rating>
 
         <h2>Small Hearts</h2>
-        <heart-rating :item-size="20"></heart-rating>
+        <heart-rating :item-size="20" :spacing="5"></heart-rating>
 
         <h2>Big Hearts</h2>
-        <heart-rating :item-size="90"></heart-rating>
-
+        <div style="padding-left:5px;">
+        <heart-rating :item-size="90" :border-width="10" :spacing="10" :increment="0.01"></heart-rating>
+</div>
         <h2>Bordered Hearts</h2>
         <heart-rating :border-width="5"></heart-rating>
 

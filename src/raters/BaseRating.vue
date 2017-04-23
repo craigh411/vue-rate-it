@@ -2,7 +2,7 @@
     <div :class="['rating', {inline: inline}]">
         <div @mouseleave="resetRating" class="rating">
             <span v-for="n in maxRating" :class="[{pointer: !readOnly }, 'rating-item']">
-              <component :is="type" :fill="fillLevel[n-1]" :size="itemSize" :index="n" :step="step" :active-color="activeColor" :inactive-color="inactiveColor" :border-color="borderColor" :border-width="borderWidth" :padding="padding" @selected="setRating($event, true)" @mouse-move="setRating" :custom-props="customProps"></component>
+              <component :is="type" :fill="fillLevel[n-1]" :size="itemSize" :index="n" :step="step" :active-color="activeColor" :inactive-color="inactiveColor" :border-color="borderColor" :border-width="borderWidth" :spacing="spacing" @selected="setRating($event, true)" @mouse-move="setRating" :custom-props="customProps"></component>
             </span>
             <span v-if="showRating" :class="['rating-text', textClass]"> {{currentRating}}</span>
         </div>

@@ -11,6 +11,8 @@ import uglify from "gulp-uglify";
 import watchify from "watchify";
 import buffer from "vinyl-buffer";
 import sourcemaps from "gulp-sourcemaps";
+import hmr from "browserify-hmr";
+import shim from "browserify-shim";
 import { argv } from 'yargs';
 import { Server } from "karma";
 
@@ -25,7 +27,8 @@ gulp.task('default', function(done) {
 
         var tasks = files.map(function(entry) {
             return browserify({
-                    entries: [entry]
+                    entries: [entry],
+                    transform: [shim]
                 })
                 .external('vue') // exclude vue from dist files, this will be shimmed globally
                 .bundle()
@@ -42,6 +45,26 @@ gulp.task('default', function(done) {
     })
 });
 
+gulp.task('hmr', () => {
+    const b = browserify({
+        entries: 'docs/assets/app.js',
+        plugin: [hmr, watchify],
+        debug: true
+    })
+
+    b.on('update', bundle);
+    bundle();
+
+    function bundle() {
+        b.bundle()
+            .on('error', err => {
+                gutil.log("Browserify Error", gutil.colors.red(err.message))
+            })
+            .pipe(source('docs/assets/app.js'))
+            .pipe(flatten())
+            .pipe(gulp.dest('docs/public/js'));
+    }
+});
 
 gulp.task('watch', () => {
     const b = browserify({
@@ -54,7 +77,6 @@ gulp.task('watch', () => {
 
     b.external('vue');
     b.on('update', bundle);
-
     bundle();
 
     function bundle() {

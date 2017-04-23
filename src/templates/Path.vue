@@ -1,5 +1,5 @@
 <template>
-    <div :style="{display:'inline-block', 'padding-left': getPadding}">
+    <div :style="{display:'inline-block', 'margin-right': getSpacing}">
         <svg :width="getWidth" :height="getHeight" :viewBox="getViewbox" @mousemove="mouseMoving" @click="selected" style="overflow:visible;">
             <linearGradient :id="grad" x1="0" x2="100%" y1="0" y2="0">
                 <stop :offset="getFill" :stop-color="activeColor" />
@@ -20,9 +20,6 @@ export default Vue.extend({
     computed: {
         getViewbox() {
             return "0 0 " + this.originalWidth + " " + this.originalHeight;
-        },
-        getPadding() {
-            return (this.padding + (this.borderWidth / 2)) + "px";
         }
     },
     methods: {
