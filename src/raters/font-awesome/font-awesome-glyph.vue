@@ -9,8 +9,13 @@ export default Path.extend({
         }
     },
     created() {
-        let glyph = this.customProps.glyph;
-        this.points = [Glyphs[glyph]];
+        this.updateGlyph();
+    },
+    methods: {
+        updateGlyph() {
+            let glyph = this.customProps.glyph.replace(/^fa\-/, "");
+            this.points = [Glyphs[glyph]];
+        }
     },
     data() {
         return {

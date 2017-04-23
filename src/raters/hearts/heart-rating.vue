@@ -7,10 +7,6 @@ export default BaseRating.extend({
         Heart
     },
     props: {
-        padding: {
-        	type: Number,
-            default: 5
-        },
         borderWidth:{
           type: Number,
           default: 3

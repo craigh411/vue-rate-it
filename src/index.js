@@ -3,7 +3,8 @@ import HeartRating from './raters/hearts/heart-rating.vue';
 import FaRating from './raters/font-awesome/font-awesome-rating.vue';
 import ImageRating from './raters/images/image-rating.vue';
 import BaseRating from './raters/BaseRating.vue';
-import mixins from './mixins/index.js'
+import mixins from './mixins/index.js';
+import Glyphs from './raters/font-awesome/glyphs.js';
 
 const raters = {
     StarRating,
@@ -21,5 +22,6 @@ export {
     HeartRating,
     FaRating,
     ImageRating,
-    BaseRating
+    BaseRating,
+    Glyphs
 }
