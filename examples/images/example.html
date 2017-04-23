@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Star Rating Example</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
+    <script src="../../dist/image-rating.js"></script>
+    <style>
+    body {
+        font-size: 1em;
+        font-family: 'Tahoma', sans-serif;
+    }
+    
+    .custom-text {
+        font-weight: bold;
+        font-size: 1.9em;
+        border: 1px solid #cfcfcf;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        color: #999;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h2>Default</h2>
+        <image-rating src="vue_logo.png"  :increment="0.5" :background-opacity="0.2" :item-size="90"></image-rating>
+    </div>
+
+    <script type="text/javascript">
+    new Vue({
+        el: '#app'
+    });
+    </script>
+</body>
+
+</html>

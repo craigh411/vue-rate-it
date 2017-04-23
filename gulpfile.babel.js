@@ -1,35 +1,55 @@
 import gulp from "gulp";
+import gutil from "gulp-util";
 import browserify from "browserify";
+import rename from 'gulp-rename';
+import flatten from 'gulp-flatten';
+import es from 'event-stream';
 import source from "vinyl-source-stream";
 import babelify from "babelify";
 import vueify from "vueify";
 import uglify from "gulp-uglify";
 import watchify from "watchify";
 import buffer from "vinyl-buffer";
+import sourcemaps from "gulp-sourcemaps";
+import hmr from "browserify-hmr";
+import shim from "browserify-shim";
+import { argv } from 'yargs';
 import { Server } from "karma";
 
-const entry = "src/dist.js";
+console.log(argv.f);
+
+const entry = (argv.f !== undefined) ? argv.f : "./src/reg/star-rating.js";
 const dest = "dist"; // destination folder
 
-gulp.task('default', () => {
-    browserify({
-            entries: entry,
-            debug: true
-        })
-        .bundle()
-        .pipe(source('star-rating.min.js'))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest(dest));
+gulp.task('default', function(done) {
+    gulp.src(['./src/reg/**-rating.js'], function(err, files) {
+        if (err) done(err);
+
+        var tasks = files.map(function(entry) {
+            return browserify({
+                    entries: [entry],
+                    transform: [shim]
+                })
+                .external('vue') // exclude vue from dist files, this will be shimmed globally
+                .bundle()
+                .pipe(source(entry))
+                .pipe(flatten())
+                .pipe(rename({
+                    extname: '.min.js'
+                }))
+                .pipe(buffer())
+                .pipe(uglify())
+                .pipe(gulp.dest(dest));
+        });
+        es.merge(tasks).on('end', done);
+    })
 });
 
-gulp.task('watch', () => {
+gulp.task('hmr', () => {
     const b = browserify({
-        entries: entry,
-        plugin: [watchify],
-        debug: true,
-        cache: {},
-        packageCache: {}
+        entries: 'docs/assets/app.js',
+        plugin: [hmr, watchify],
+        debug: true
     })
 
     b.on('update', bundle);
@@ -40,7 +60,35 @@ gulp.task('watch', () => {
             .on('error', err => {
                 gutil.log("Browserify Error", gutil.colors.red(err.message))
             })
-            .pipe(source('star-rating.js'))
+            .pipe(source('docs/assets/app.js'))
+            .pipe(flatten())
+            .pipe(gulp.dest('docs/public/js'));
+    }
+});
+
+gulp.task('watch', () => {
+    const b = browserify({
+        entries: entry,
+        plugin: [watchify],
+        debug: true,
+        cache: {},
+        packageCache: {}
+    });
+
+    b.external('vue');
+    b.on('update', bundle);
+    bundle();
+
+    function bundle() {
+        b.bundle()
+            .on('error', err => {
+                gutil.log("Browserify Error", gutil.colors.red(err.message))
+            })
+            .pipe(source(entry))
+            .pipe(flatten())
+            .pipe(buffer())
+            .pipe(sourcemaps.init({ loadMaps: true }))
+            .pipe(sourcemaps.write('./maps'))
             .pipe(gulp.dest(dest));
     }
 });
@@ -51,6 +99,6 @@ gulp.task('watch', () => {
 gulp.task('test', done => {
     new Server({
         configFile: __dirname + '/karma.conf.js',
-        singleRun: true
+        singleRun: false
     }, done).start();
 });
