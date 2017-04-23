@@ -10,7 +10,8 @@
     "push": "npm-run-all --sequential build:dist push-to-git",
     "build:dist": "webpack --env=dist --progress --hide-modules",
     "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
-    "docs": "webpack-dev-server --content-base ./docs/public --env=docs --open --hot"
+    "docs": "webpack-dev-server --content-base ./docs/public --env=docs --open --hot",
+    "build:docs": "webpack --env=docs --progress --hide-modules"
   },
   "repository": {
     "type": "git",
