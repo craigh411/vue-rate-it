@@ -6,14 +6,12 @@
                 Docs <i class="dropdown icon"></i>
                 <div class="menu">
                     <router-link to="/docs/stars" class="item">Stars</router-link>
-                    <a href="#" to="/articles/create" class="item">Hearts</a>
-                    <a href="#" to="/articles/create" class="item">Font Awesome</a>
-                     <router-link to="/docs/images" class="item">Image Rater</router-link>
-                    <a href="#" to="/articles/create" class="item">Base Rater</a>
-                    <a href="#" to="/articles/create" class="item">Mixins</a>
+                    <router-link to="/docs/hearts" class="item">Hearts</router-link>
+                    <router-link to="/docs/font-awesome" class="item">Font Awesome</router-link>
+                    <router-link to="/docs/images" class="item">Image Rater</router-link>
                 </div>
             </div>
-            <a href="#" class="item"> Create Your Own</a>
+            <router-link to="/extending" class="item"> Extending</router-link>
         </div>
     </div>
 </template>

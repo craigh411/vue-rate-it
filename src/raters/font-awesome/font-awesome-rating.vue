@@ -1,20 +1,19 @@
 <script type="text/javascript">
 import BaseRating from '../BaseRating.vue';
 import FaGlyph from './font-awesome-glyph.vue';
-
 export default BaseRating.extend({
     name: 'Fa-Rating',
     components: {
         FaGlyph
     },
-    created(){
-      this.customProps['glyph'] = this.glyph;
-    },
     props: {
-      glyph: {
-        type: String,
-        required: true
-      }
+        glyph: {
+            type: String,
+            required: true
+        }
+    },
+    created() {
+        this.customProps['glyph'] = this.glyph;
     },
     data() {
         return {
