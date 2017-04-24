@@ -4,7 +4,7 @@
         <div class="ui divider"></div>
         <p>The image rating component allows you to use any image as a rater. Because of the nature of images this component features different customisation options to the pure SVG components.</p>
 
-        <image-rating src="/images/vue_logo.png"></image-rating>
+        <image-rating src="images/vue_logo.png"></image-rating>
 
         <div class="ui segment">
             <!-- HTML generated using hilite.me -->
