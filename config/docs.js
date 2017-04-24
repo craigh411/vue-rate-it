@@ -5,7 +5,7 @@ module.exports = function(env) {
     return {
         entry: './docs/assets/app.js',
         output: {
-            path: path.resolve(__dirname, '../docs/public/js'),
+            path: path.resolve(__dirname, '../docs/js'),
             publicPath: '/js/',
             filename: 'app.js'
         },
