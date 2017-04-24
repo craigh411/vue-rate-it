@@ -4,11 +4,11 @@
         <div class="ui divider"></div>
         <p>The image rating component allows you to use any image as a rater. Because of the nature of images this component features different customisation options to the pure SVG components.</p>
 
-        <image-rating src="images/vue_logo.png"></image-rating>
+        <image-rating src="images/vueLogo.png"></image-rating>
 
         <div class="ui segment">
             <!-- HTML generated using hilite.me -->
-            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vue_logo.png&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff; ">&lt;/image-rating&gt;</span>
+            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff; ">&lt;/image-rating&gt;</span>
 </pre></div>
         </div>
 
@@ -137,10 +137,10 @@
               <h3 class="ui header">Props Example</h3>
         <p>The following is an example of a customised image-rating component:</p>
 
-        <image-rating src="/images/vue_logo.png" :item-size="40" v-model="rating" :increment="0.01"></image-rating>
+        <image-rating src="/images/vueLogo.png" :item-size="40" v-model="rating" :increment="0.01"></image-rating>
 
         <div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vue_logo.png&quot;</span> 
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span> 
               <span style="color: #1e90ff">:item-size=</span><span style="color: #aa5500">&quot;40&quot;</span>
               <span style="color: #1e90ff">:increment=</span><span style="color: #aa5500">&quot;0.01&quot;</span>
               <span style="color: #1e90ff">v-model=</span><span style="color: #aa5500">&quot;rating&quot;</span> <span style="color: #1e90ff; font-weight: bold">&gt;</span>
