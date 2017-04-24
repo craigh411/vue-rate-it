@@ -29,7 +29,7 @@
 
              <h3 class="ui header">Images</h3>
 
-             <image-rating src="/images/vueLogo.png"></image-rating>
+             <image-rating src="images/vueLogo.png"></image-rating>
 
 <div class="ui segment">
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/image-rating&gt;</span>
