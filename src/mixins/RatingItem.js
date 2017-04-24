@@ -33,20 +33,22 @@ export default {
             default: 0
         },
         customProps: {
-            required: false,
-            type: Object
+            type: Object,
+            default: function(){
+                return {}
+            }
         }
     },
     created() {
         this.calculatePoints();
-        this.grad = Math.random().toString(36).substring(7);
+        this.fillId = Math.random().toString(36).substring(7);
     },
     computed: {
         pointsToString() {
             return this.points.join(',');
         },
-        getGradId() {
-            return 'url(#' + this.grad + ')';
+        getFillId() {
+            return 'url(#' + this.fillId + ')';
         },
         getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -78,7 +80,7 @@ export default {
             // calculate position in percentage.
             var width = (92 / 100) * (this.size+this.borderWidth);
             var position = Math.round((100 / width) * $event.offsetX);
-            return (position > 100) ? 100 : position;
+            return Math.min(position, 100);
         },
         selected($event) {
             this.$emit('selected', {
@@ -90,7 +92,7 @@ export default {
     data() {
         return {
             points: [],
-            grad: '',
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1

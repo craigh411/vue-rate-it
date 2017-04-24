@@ -3,7 +3,7 @@
         <div class="ui basic segment" style="font-size:1.1em;">
             <h1 class="ui header">Font Awesome Rating Component</h1>
             <div class="ui divider"></div>
-            <p>vue-rate-it comes with a built in port of <a href="http://fontawesome.io">font-awesome</a> fas. You can check out all the available fas using the form below:<p>
+            <p>vue-rate-it comes with a built in port of <a href="http://fontawesome.io">font-awesome</a> glyphs. You can check out all the available fas using the form below:<p>
             <form class="ui form">
                 <div class="four fields">
                     <div class="field">

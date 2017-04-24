@@ -65,11 +65,11 @@ export default {
     },
     methods: {
         setRating($event, persist) {
-
             if (!this.readOnly) {
                 let position =  Math.max(0, $event.position / 100);
                 this.currentRating = (($event.id + position) - 1).toFixed(2);
                 this.currentRating = (this.currentRating > this.maxRating) ? this.maxRating : this.currentRating;
+                
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;

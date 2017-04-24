@@ -4,10 +4,9 @@
   "description": "A highly customisable rating component for Vue 2.x.",
   "main": "src/star-rating.vue",
   "scripts": {
-    "test": "gulp test",
+    "test": "karma start",
+    "test:watch": "karma start --single-run=false",
     "build-glyphs": "cd build && node font-awesome",
-    "push-to-git": "git push",
-    "push": "npm-run-all --sequential build:dist push-to-git",
     "build:dist": "webpack --env=dist --progress --hide-modules",
     "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
     "docs": "webpack-dev-server --content-base ./docs/public --env=docs --open --hot",

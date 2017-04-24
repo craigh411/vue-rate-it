@@ -1,11 +1,11 @@
 <template>
     <div :style="{display:'inline-block', 'margin-right': getSpacing}">
         <svg :width="getWidth" :height="getHeight" @mousemove="mouseMoving" @click="selected">
-            <mask x="0" y="0" :id="grad">
+            <mask x="0" y="0" :id="fillId">
                 <rect fill="#fff" :width="getFill" height="100%" />
             </mask>
 
-            <image :xlink:href="src" :mask="getGradId" :height="getHeight" :width="getWidth" />
+            <image :xlink:href="src" :mask="getFillId" :height="getHeight" :width="getWidth" />
             <image :xlink:href="src" :height="getHeight" :width="getWidth" :style="getOpacity" />
         </svg>
     </div>

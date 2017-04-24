@@ -244,11 +244,11 @@ exports.default = {
 
     methods: {
         setRating: function setRating($event, persist) {
-
             if (!this.readOnly) {
                 var position = Math.max(0, $event.position / 100);
                 this.currentRating = ($event.id + position - 1).toFixed(2);
                 this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
+
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
@@ -342,21 +342,23 @@ exports.default = {
             default: 0
         },
         customProps: {
-            required: false,
-            type: Object
+            type: Object,
+            default: function _default() {
+                return {};
+            }
         }
     },
     created: function created() {
         this.calculatePoints();
-        this.grad = Math.random().toString(36).substring(7);
+        this.fillId = Math.random().toString(36).substring(7);
     },
 
     computed: {
         pointsToString: function pointsToString() {
             return this.points.join(',');
         },
-        getGradId: function getGradId() {
-            return 'url(#' + this.grad + ')';
+        getFillId: function getFillId() {
+            return 'url(#' + this.fillId + ')';
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -390,7 +392,7 @@ exports.default = {
             // calculate position in percentage.
             var width = 92 / 100 * (this.size + this.borderWidth);
             var position = Math.round(100 / width * $event.offsetX);
-            return position > 100 ? 100 : position;
+            return Math.min(position, 100);
         },
         selected: function selected($event) {
             this.$emit('selected', {
@@ -402,7 +404,7 @@ exports.default = {
     data: function data() {
         return {
             points: [],
-            grad: '',
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -910,7 +912,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('linearGradient', {
     attrs: {
-      "id": _vm.grad,
+      "id": _vm.fillId,
       "x1": "0",
       "x2": "100%",
       "y1": "0",
@@ -929,7 +931,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 1), _vm._v(" "), _c('path', _vm._b({
     attrs: {
       "d": _vm.pointsToString,
-      "fill": _vm.getGradId,
+      "fill": _vm.getFillId,
       "stroke": _vm.borderColor,
       "stroke-width": _vm.borderWidth,
       "vector-effect": "non-scaling-stroke"
@@ -937,7 +939,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, 'path', _vm.pathAttrs)), _vm._v(" "), _c('path', _vm._b({
     attrs: {
       "d": _vm.pointsToString,
-      "fill": _vm.getGradId
+      "fill": _vm.getFillId
     }
   }, 'path', _vm.pathAttrs))], 1)])
 },staticRenderFns: []}
@@ -992,8 +994,14 @@ exports.default = _Path2.default.extend({
         }
     },
     created: function created() {
-        var glyph = this.customProps.glyph;
-        this.points = [_glyphs2.default[glyph]];
+        this.updateGlyph();
+    },
+
+    methods: {
+        updateGlyph: function updateGlyph() {
+            var glyph = this.customProps.glyph.replace(/^fa\-/, "");
+            this.points = [_glyphs2.default[glyph]];
+        }
     },
     data: function data() {
         return {
@@ -1033,15 +1041,14 @@ exports.default = _BaseRating2.default.extend({
     components: {
         FaGlyph: _fontAwesomeGlyph2.default
     },
-    created: function created() {
-        this.customProps['glyph'] = this.glyph;
-    },
-
     props: {
         glyph: {
             type: String,
             required: true
         }
+    },
+    created: function created() {
+        this.customProps['glyph'] = this.glyph;
     },
     data: function data() {
         return {

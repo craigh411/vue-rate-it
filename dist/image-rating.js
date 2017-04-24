@@ -244,11 +244,11 @@ exports.default = {
 
     methods: {
         setRating: function setRating($event, persist) {
-
             if (!this.readOnly) {
                 var position = Math.max(0, $event.position / 100);
                 this.currentRating = ($event.id + position - 1).toFixed(2);
                 this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
+
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
@@ -342,21 +342,23 @@ exports.default = {
             default: 0
         },
         customProps: {
-            required: false,
-            type: Object
+            type: Object,
+            default: function _default() {
+                return {};
+            }
         }
     },
     created: function created() {
         this.calculatePoints();
-        this.grad = Math.random().toString(36).substring(7);
+        this.fillId = Math.random().toString(36).substring(7);
     },
 
     computed: {
         pointsToString: function pointsToString() {
             return this.points.join(',');
         },
-        getGradId: function getGradId() {
-            return 'url(#' + this.grad + ')';
+        getFillId: function getFillId() {
+            return 'url(#' + this.fillId + ')';
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -390,7 +392,7 @@ exports.default = {
             // calculate position in percentage.
             var width = 92 / 100 * (this.size + this.borderWidth);
             var position = Math.round(100 / width * $event.offsetX);
-            return position > 100 ? 100 : position;
+            return Math.min(position, 100);
         },
         selected: function selected($event) {
             this.$emit('selected', {
@@ -402,7 +404,7 @@ exports.default = {
     data: function data() {
         return {
             points: [],
-            grad: '',
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -1025,7 +1027,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "x": "0",
       "y": "0",
-      "id": _vm.grad
+      "id": _vm.fillId
     }
   }, [_c('rect', {
     attrs: {
@@ -1036,7 +1038,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })]), _vm._v(" "), _c('image', {
     attrs: {
       "xlink:href": _vm.src,
-      "mask": _vm.getGradId,
+      "mask": _vm.getFillId,
       "height": _vm.getHeight,
       "width": _vm.getWidth
     }
