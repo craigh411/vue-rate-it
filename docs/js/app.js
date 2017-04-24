@@ -12853,7 +12853,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui divider"
   }), _vm._v(" "), _c('p', [_vm._v("The image rating component allows you to use any image as a rater. Because of the nature of images this component features different customisation options to the pure SVG components.")]), _vm._v(" "), _c('image-rating', {
     attrs: {
-      "src": "/images/vue_logo.png"
+      "src": "images/vueLogo.png"
     }
   }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('h1', {
     staticClass: "ui header"
@@ -12873,7 +12873,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui header"
   }, [_vm._v("Props Example")]), _vm._v(" "), _c('p', [_vm._v("The following is an example of a customised image-rating component:")]), _vm._v(" "), _c('image-rating', {
     attrs: {
-      "src": "/images/vue_logo.png",
+      "src": "/images/vueLogo.png",
       "item-size": 40,
       "increment": 0.01
     },
@@ -12931,7 +12931,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"/images/vue_logo.png\"")]), _c('span', {
+  }, [_vm._v("\"/images/vueLogo.png\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
@@ -13059,7 +13059,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"/images/vue_logo.png\"")]), _vm._v(" \n              "), _c('span', {
+  }, [_vm._v("\"/images/vueLogo.png\"")]), _vm._v(" \n              "), _c('span', {
     staticStyle: {
       "color": "#1e90ff"
     }
@@ -13363,7 +13363,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui header"
   }, [_vm._v("Images")]), _vm._v(" "), _c('image-rating', {
     attrs: {
-      "src": "/images/vue_logo.png"
+      "src": "/images/vueLogo.png"
     }
   }), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
@@ -13555,7 +13555,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"/images/vue_logo.png\"")]), _c('span', {
+  }, [_vm._v("\"/images/vueLogo.png\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
