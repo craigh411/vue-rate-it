@@ -12873,7 +12873,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui header"
   }, [_vm._v("Props Example")]), _vm._v(" "), _c('p', [_vm._v("The following is an example of a customised image-rating component:")]), _vm._v(" "), _c('image-rating', {
     attrs: {
-      "src": "/images/vueLogo.png",
+      "src": "images/vueLogo.png",
       "item-size": 40,
       "increment": 0.01
     },
