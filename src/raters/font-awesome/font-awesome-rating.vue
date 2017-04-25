@@ -10,6 +10,10 @@ export default BaseRating.extend({
         glyph: {
             type: String,
             required: true
+        },
+        activeColor: {
+            type: String,
+            default: '#000'
         }
     },
     created() {

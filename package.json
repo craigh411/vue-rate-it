@@ -2,7 +2,7 @@
   "name": "vue-rate-it",
   "version": "1.0.0",
   "description": "A highly customisable rating component for Vue 2.x.",
-  "main": "src/star-rating.vue",
+  "main": "src/index.js",
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --single-run=false",

@@ -22,6 +22,7 @@ describe('rating mixin', () => {
         expect(props.borderColor).toBe("#999");
         expect(props.borderWidth).toEqual(2);
         expect(props.spacing).toEqual(0);
+         expect(props.fixedPoints).toBe(null);
     })
 
     it('should init the default data', () => {

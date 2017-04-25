@@ -34,13 +34,12 @@ export default {
         },
         customProps: {
             type: Object,
-            default: function(){
+            default: function() {
                 return {}
             }
         }
     },
     created() {
-        this.calculatePoints();
         this.fillId = Math.random().toString(36).substring(7);
     },
     computed: {
@@ -71,14 +70,9 @@ export default {
                 id: this.index
             })
         },
-        calculatePoints() {
-            this.points = this.points.map((point) => {
-                return ((this.size / this.originalWidth) * point) + (this.borderWidth * (this.borders / 2));
-            });
-        },
         getPosition($event) {
             // calculate position in percentage.
-            var width = (92 / 100) * (this.size+this.borderWidth);
+            var width = (92 / 100) * (this.size + this.borderWidth);
             var position = Math.round((100 / width) * $event.offsetX);
             return Math.min(position, 100);
         },
@@ -91,7 +85,6 @@ export default {
     },
     data() {
         return {
-            points: [],
             fillId: '',
             originalWidth: 50,
             orignalHeight: 50,

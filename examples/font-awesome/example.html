@@ -38,17 +38,19 @@
         <h2>Vibrant Glyphs</h2>
         <fa-rating inactive-color="#e1bad9" active-color="#cc1166" glyph="thumbs-up"></fa-rating>
 
+
+        <h2>Fluid Glyphs</h2>
+        <fa-rating :increment="0.01" glyph="thumbs-up"></fa-rating>
+
         <h2>Small Glyphs</h2>
         <fa-rating :item-size="30" glyph="thumbs-up"></fa-rating>
 
         <h2>Big Glyphs</h2>
-        <fa-rating :item-size="190" :spacing="10" :max-rating="3" glyph="thumbs-up" :border-width="10" :increment="0.01"></fa-rating>
+        <fa-rating :item-size="90" :spacing="10" glyph="thumbs-up" :border-width="5" :increment="0.01"></fa-rating>
 
-        <h2>Bordered Glyphs</h2>
-        <fa-rating :border-width="5" glyph="thumbs-up"></fa-rating>
+        <h2>Non-bordered Glyphs</h2>
+        <fa-rating glyph="thumbs-up" :border-width="0"></fa-rating>
 
-        <h2>Fluid Glyphs</h2>
-        <fa-rating :increment="0.01" glyph="thumbs-up"></fa-rating>
 
         <h2>Preset Glyphs</h2>
         <fa-rating :rating="4" glyph="thumbs-up"></fa-rating>
@@ -77,7 +79,7 @@
 
         <h2>Resetable Glyphs</h2>
         <div style="display:inline-block;">
-            <fa-rating :rating="resetableRating" @rating-selected="syncRating" glyph="thumbs-up"></fa-rating>
+            <fa-rating glyph="thumbs-up" v-model="resetableRating" ></fa-rating>
             <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="reset">Reset Rating</a></div>
         </div>
 
@@ -93,7 +95,7 @@
         el: '#app',
         methods: {
             setRating: function(rating) {
-                this.rating = "You have Selected: " + rating + " glyph";
+                this.rating = "You have Selected: " + rating + " glyphs";
             },
             showCurrentRating: function(rating) {
                 this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " glyph"
@@ -104,9 +106,6 @@
             reset: function() {
                 this.resetableRating = 0;
             },
-            syncRating: function(rating) {
-                this.resetableRating = rating;
-            }
         },
         data: {
             rating: "No Rating Selected",

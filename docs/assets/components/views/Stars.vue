@@ -120,6 +120,12 @@
                     <td>""</td>
                 </tr>
                 <tr>
+                    <td>fixed-points</td>
+                    <td>Number</td>
+                    <td>Specify the number of decimal points to display for the rating. If left blank the number of decimal points will be variable based by the current rating.</td>
+                    <td>null</td>
+                </tr>
+                <tr>
                     <td>inline</td>
                     <td>Boolean</td>
                     <td>Sets the star rating to display inline.</td>
@@ -193,17 +199,21 @@
         </table>
         <div class="ui warning message" style="font-size:0.9em;">
             In Vue 2.2 and above you can use <b>v-model</b> instead of listening for the 'rating-selected' event to automatically sync values between the parent and child. </div>
-  
-     <h3 class="ui header">Custom Events Example</h3>
-     	<p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
 
-<div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;star</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/star-rating&gt;</span>
+        <h3 class="ui header">Custom Events Example</h3>
+        <p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
+
+        <div class="ui segment">
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;star</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/star-rating&gt;</span>
 </pre></div>
-</div>
+        </div>
 
-<div class="ui warning message" style="font-size:0.9em;">
-When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do: <br /><span style="font-family:courier;">&lt;star-rating @rating-selected="myMethod"&gt;&lt;/star-rating&gt;</span><br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method: <br /><span style="font-family:courier;">&lt;star-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/star-rating&gt;</span></div>
+        <div class="ui warning message" style="font-size:0.9em;">
+            When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do:
+            <br /><span style="font-family:courier;">&lt;star-rating @rating-selected="myMethod"&gt;&lt;/star-rating&gt;</span>
+            <br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method:
+            <br /><span style="font-family:courier;">&lt;star-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/star-rating&gt;</span></div>
 
     </div>
 </template>

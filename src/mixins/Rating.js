@@ -51,6 +51,10 @@ export default {
         spacing: {
             type: Number,
             default: 0
+        },
+        fixedPoints:{
+            type: Number,
+            default: null
         }
     },
     model:{
@@ -69,7 +73,7 @@ export default {
                 let position =  Math.max(0, $event.position / 100);
                 this.currentRating = (($event.id + position) - 1).toFixed(2);
                 this.currentRating = (this.currentRating > this.maxRating) ? this.maxRating : this.currentRating;
-                
+
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
@@ -97,7 +101,12 @@ export default {
         },
         round() {
             var inv = 1.0 / this.increment;
-            this.currentRating = Math.ceil(this.currentRating * inv) / inv;
+            this.currentRating = Math.min(this.maxRating, Math.ceil(this.currentRating * inv) / inv);
+        }
+    },
+    computed:{
+        formattedRating(){
+            return (this.fixedPoints === null) ? this.currentRating : this.currentRating.toFixed(this.fixedPoints);
         }
     },
     watch: {

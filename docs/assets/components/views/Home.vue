@@ -8,7 +8,7 @@
         <div id="app">
             <h3 class="ui header">Stars</h3>
 
-            <star-rating></star-rating>
+            <star-rating ></star-rating>
             <div class="ui segment">
                 <div class="ui basic segment" style="padding:0;">
                     <!-- HTML generated using hilite.me -->
@@ -18,7 +18,7 @@
             </div>
             <h3 class="ui header">Hearts</h3>
 
-            <heart-rating :spacing="5"></heart-rating>
+            <heart-rating :spacing="5" ></heart-rating>
             <div class="ui segment">
                 <div class="ui basic segment" style="padding:0;">
                     <!-- HTML generated using hilite.me -->
@@ -29,7 +29,7 @@
 
              <h3 class="ui header">Images</h3>
 
-             <image-rating src="images/vueLogo.png"></image-rating>
+             <image-rating src="images/vueLogo.png" ></image-rating>
 
 <div class="ui segment">
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/image-rating&gt;</span>
@@ -39,7 +39,7 @@
 
             <h3 class="ui header">Font Awesome Thumbs-up Glyph</h3>
 
-            <fa-rating glyph="thumbs-up" active-color="#ffcd94"></fa-rating>
+            <fa-rating glyph="thumbs-up" active-color="#ffcd94" ></fa-rating>
             <div class="ui segment">
                 <div class="ui basic segment" style="padding:0;">
                     <!-- HTML generated using hilite.me -->
@@ -51,7 +51,7 @@
             <h1 class="ui header">Setup</h1>
             <div class="ui divider"></div>
             <h2>NPM</h2> To use all vue-rate-it features you will need to install it via npm:
-            <pre class="code">npm install ---</pre>
+            <pre class="code">npm install vue-rate-it</pre>
 
             <p>Once installed you can import all the rating components:</p>
             <div class="ui segment">

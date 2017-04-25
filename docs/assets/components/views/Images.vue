@@ -120,6 +120,12 @@
                     <td>""</td>
                 </tr>
                 <tr>
+                    <td>fixed-points</td>
+                    <td>Number</td>
+                    <td>Specify the number of decimal points to display for the rating. If left blank the number of decimal points will be variable based by the current rating.</td>
+                    <td>null</td>
+                </tr>
+                <tr>
                     <td>inline</td>
                     <td>Boolean</td>
                     <td>Sets the image rating to display inline.</td>
@@ -134,13 +140,14 @@
             </tbody>
         </table>
 
-              <h3 class="ui header">Props Example</h3>
+        <h3 class="ui header">Props Example</h3>
         <p>The following is an example of a customised image-rating component:</p>
 
         <image-rating src="images/vueLogo.png" :item-size="40" v-model="rating" :increment="0.01"></image-rating>
 
         <div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span> 
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">src=</span><span style="color: #aa5500">&quot;/images/vueLogo.png&quot;</span> 
               <span style="color: #1e90ff">:item-size=</span><span style="color: #aa5500">&quot;40&quot;</span>
               <span style="color: #1e90ff">:increment=</span><span style="color: #aa5500">&quot;0.01&quot;</span>
               <span style="color: #1e90ff">v-model=</span><span style="color: #aa5500">&quot;rating&quot;</span> <span style="color: #1e90ff; font-weight: bold">&gt;</span>
@@ -180,27 +187,30 @@
         </table>
         <div class="ui warning message" style="font-size:0.9em;">
             In Vue 2.2 and above you can use <b>v-model</b> instead of listening for the 'rating-selected' event to automatically sync values between the parent and child. </div>
-  
-     <h3 class="ui header">Custom Events Example</h3>
-     	<p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
 
-<div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/image-rating&gt;</span>
+        <h3 class="ui header">Custom Events Example</h3>
+        <p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
+
+        <div class="ui segment">
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;image</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/image-rating&gt;</span>
 </pre></div>
-</div>
+        </div>
 
-<div class="ui warning message" style="font-size:0.9em;">
-When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do: <br /><span style="font-family:courier;">&lt;image-rating @rating-selected="myMethod"&gt;&lt;/image-rating&gt;</span><br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method: <br /><span style="font-family:courier;">&lt;image-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/image-rating&gt;</span></div>
+        <div class="ui warning message" style="font-size:0.9em;">
+            When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do:
+            <br /><span style="font-family:courier;">&lt;image-rating @rating-selected="myMethod"&gt;&lt;/image-rating&gt;</span>
+            <br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method:
+            <br /><span style="font-family:courier;">&lt;image-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/image-rating&gt;</span></div>
 
-<h2 class="ui header">Image Sizing and Aspect Ration</h2>
-<p>The image-rating component automatically calculates image dimensions to maintain aspect ratio, below you can see that using a different image does not result in any distortion:</p>
+        <h2 class="ui header">Image Sizing and Aspect Ration</h2>
+        <p>The image-rating component automatically calculates image dimensions to maintain aspect ratio, below you can see that using a different image does not result in any distortion:</p>
 
         <image-rating src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Diet-Coke-Can.jpg" :increment="0.01"></image-rating>
-<p>Source: <a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Diet-Coke-Can.jpg">https://upload.wikimedia.org/wikipedia/commons/3/3c/Diet-Coke-Can.jpg</a></p>
- 
+        <p>Source: <a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Diet-Coke-Can.jpg">https://upload.wikimedia.org/wikipedia/commons/3/3c/Diet-Coke-Can.jpg</a></p>
 
-<div class="ui warning message">When using images on a transparent background with a small increment, you should try to minimise borders so it appears that the entire image represents one entire rating value. You can adjust the distance between images using the "spacing" prop.</div>
-   </div>
+        <div class="ui warning message">When using images on a transparent background with a small increment, you should try to minimise borders so it appears that the entire image represents one entire rating value. You can adjust the distance between images using the "spacing" prop.</div>
+    </div>
 </template>
 
 <script type="text/javascript">
@@ -211,10 +221,10 @@ export default {
     components: {
         ImageRating
     },
-    data(){
-    	return{
-    		rating: 3.5
-    	}
+    data() {
+        return {
+            rating: 3.5
+        }
     }
 }
 </script>

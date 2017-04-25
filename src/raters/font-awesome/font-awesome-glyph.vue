@@ -10,6 +10,7 @@ export default Path.extend({
     },
     created() {
         this.updateGlyph();
+        this.coords.x1="-2%";
     },
     methods: {
         updateGlyph() {
@@ -24,8 +25,16 @@ export default Path.extend({
             originalHeight: 179,
             pathAttrs: {
                 "transform": "scale(0.1)"
-            }
+            },
         }
     }
 });
 </script>
+
+<style>
+.rating-container.inline {
+    display: inline-flex;
+    margin-left: 5px;
+    margin-right: 1px;
+}
+</style>

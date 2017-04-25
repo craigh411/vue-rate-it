@@ -131,303 +131,6 @@ module.exports = Vue;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-     value: true
-});
-
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _Rating = __webpack_require__(3);
-
-var _Rating2 = _interopRequireDefault(_Rating);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = _vue2.default.extend({
-     mixins: [_Rating2.default]
-});
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    props: {
-        increment: {
-            type: Number,
-            default: 1
-        },
-        rating: {
-            type: Number,
-            default: 0
-        },
-        activeColor: {
-            type: String,
-            default: "#ffd055"
-        },
-        inactiveColor: {
-            type: String,
-            default: "#d8d8d8"
-        },
-        maxRating: {
-            type: Number,
-            default: 5
-        },
-        itemSize: {
-            type: Number,
-            default: 50
-        },
-        showRating: {
-            type: Boolean,
-            default: true
-        },
-        readOnly: {
-            type: Boolean,
-            default: false
-        },
-        textClass: {
-            type: String,
-            default: ""
-        },
-        inline: {
-            type: Boolean,
-            default: false
-        },
-        borderColor: {
-            type: String,
-            default: "#999"
-        },
-        borderWidth: {
-            type: Number,
-            default: 2
-        },
-        spacing: {
-            type: Number,
-            default: 0
-        }
-    },
-    model: {
-        prop: 'rating',
-        event: 'rating-selected'
-    },
-    created: function created() {
-        this.step = this.increment * 100;
-        this.currentRating = this.rating;
-        this.selectedRating = this.rating;
-        this.createRating();
-    },
-
-    methods: {
-        setRating: function setRating($event, persist) {
-            if (!this.readOnly) {
-                var position = Math.max(0, $event.position / 100);
-                this.currentRating = ($event.id + position - 1).toFixed(2);
-                this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
-
-                this.createRating();
-                if (persist) {
-                    this.selectedRating = this.currentRating;
-                    this.$emit('rating-selected', this.selectedRating);
-                } else {
-                    this.$emit('current-rating', this.currentRating);
-                }
-            }
-        },
-        resetRating: function resetRating() {
-            if (!this.readOnly) {
-                this.currentRating = this.selectedRating;
-                this.createRating();
-            }
-        },
-        createRating: function createRating() {
-            this.round();
-            for (var i = 0; i < this.maxRating; i++) {
-                var level = 0;
-                if (i < this.currentRating) {
-                    level = this.currentRating - i > 1 ? 100 : (this.currentRating - i) * 100;
-                }
-                this.$set(this.fillLevel, i, Math.round(level));
-            }
-        },
-        round: function round() {
-            var inv = 1.0 / this.increment;
-            this.currentRating = Math.ceil(this.currentRating * inv) / inv;
-        }
-    },
-    watch: {
-        rating: function rating(val) {
-            this.currentRating = val;
-            this.selectedRating = val;
-            this.createRating();
-        }
-    },
-    data: function data() {
-        return {
-            step: 0,
-            fillLevel: [],
-            currentRating: 0,
-            selectedRating: 0,
-            customProps: {}
-        };
-    }
-};
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = {
-    props: {
-        fill: {
-            type: Number,
-            default: 0
-        },
-        size: {
-            type: Number,
-            default: 50
-        },
-        index: {
-            type: Number,
-            required: true
-        },
-        activeColor: {
-            type: String,
-            required: true
-        },
-        inactiveColor: {
-            type: String,
-            required: true
-        },
-        borderColor: {
-            type: String,
-            default: "#999"
-        },
-        borderWidth: {
-            type: Number,
-            default: 0
-        },
-        spacing: {
-            type: Number,
-            default: 0
-        },
-        customProps: {
-            type: Object,
-            default: function _default() {
-                return {};
-            }
-        }
-    },
-    created: function created() {
-        this.calculatePoints();
-        this.fillId = Math.random().toString(36).substring(7);
-    },
-
-    computed: {
-        pointsToString: function pointsToString() {
-            return this.points.join(',');
-        },
-        getFillId: function getFillId() {
-            return 'url(#' + this.fillId + ')';
-        },
-        getWidth: function getWidth() {
-            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
-        },
-        getHeight: function getHeight() {
-            return this.originalHeight / this.originalWidth * this.getWidth;
-        },
-        getFill: function getFill() {
-            return this.fill + "%";
-        },
-        getSpacing: function getSpacing() {
-            return this.spacing + this.borderWidth / 2 + "px";
-        }
-    },
-    methods: {
-        mouseMoving: function mouseMoving($event) {
-            this.$emit('mouse-move', {
-                event: $event,
-                position: this.getPosition($event),
-                id: this.index
-            });
-        },
-        calculatePoints: function calculatePoints() {
-            var _this = this;
-
-            this.points = this.points.map(function (point) {
-                return _this.size / _this.originalWidth * point + _this.borderWidth * (_this.borders / 2);
-            });
-        },
-        getPosition: function getPosition($event) {
-            // calculate position in percentage.
-            var width = 92 / 100 * (this.size + this.borderWidth);
-            var position = Math.round(100 / width * $event.offsetX);
-            return Math.min(position, 100);
-        },
-        selected: function selected($event) {
-            this.$emit('selected', {
-                id: this.index,
-                position: this.getPosition($event)
-            });
-        }
-    },
-    data: function data() {
-        return {
-            points: [],
-            fillId: '',
-            originalWidth: 50,
-            orignalHeight: 50,
-            borders: 1
-        };
-    }
-};
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(6)();
-// imports
-
-
-// module
-exports.push([module.i, ".rating-item[data-v-217e3916]{display:inline-block}.pointer[data-v-217e3916]{cursor:pointer}.rating[data-v-217e3916]{display:flex;align-items:center}.inline[data-v-217e3916]{display:inline-flex}.rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports) {
 
 /*
@@ -483,87 +186,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(9)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(2),
-  /* template */
-  __webpack_require__(8),
-  /* scopeId */
-  "data-v-217e3916",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    class: ['rating', {
-      inline: _vm.inline
-    }]
-  }, [_c('div', {
-    staticClass: "rating",
-    on: {
-      "mouseleave": _vm.resetRating
-    }
-  }, [_vm._l((_vm.maxRating), function(n) {
-    return _c('span', {
-      class: [{
-        pointer: !_vm.readOnly
-      }, 'rating-item']
-    }, [_c(_vm.type, {
-      tag: "component",
-      attrs: {
-        "fill": _vm.fillLevel[n - 1],
-        "size": _vm.itemSize,
-        "index": n,
-        "step": _vm.step,
-        "active-color": _vm.activeColor,
-        "inactive-color": _vm.inactiveColor,
-        "border-color": _vm.borderColor,
-        "border-width": _vm.borderWidth,
-        "spacing": _vm.spacing,
-        "custom-props": _vm.customProps
-      },
-      on: {
-        "selected": function($event) {
-          _vm.setRating($event, true)
-        },
-        "mouse-move": _vm.setRating
-      }
-    })], 1)
-  }), _vm._v(" "), (_vm.showRating) ? _c('span', {
-    class: ['rating-text', _vm.textClass]
-  }, [_vm._v(" " + _vm._s(_vm.currentRating))]) : _vm._e()], 2)])
-},staticRenderFns: []}
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(5);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(10)("79d20f0f", content, true);
-
-/***/ }),
-/* 10 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -784,6 +407,383 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+     value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _Rating = __webpack_require__(5);
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+     mixins: [_Rating2.default]
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: {
+        increment: {
+            type: Number,
+            default: 1
+        },
+        rating: {
+            type: Number,
+            default: 0
+        },
+        activeColor: {
+            type: String,
+            default: "#ffd055"
+        },
+        inactiveColor: {
+            type: String,
+            default: "#d8d8d8"
+        },
+        maxRating: {
+            type: Number,
+            default: 5
+        },
+        itemSize: {
+            type: Number,
+            default: 50
+        },
+        showRating: {
+            type: Boolean,
+            default: true
+        },
+        readOnly: {
+            type: Boolean,
+            default: false
+        },
+        textClass: {
+            type: String,
+            default: ""
+        },
+        inline: {
+            type: Boolean,
+            default: false
+        },
+        borderColor: {
+            type: String,
+            default: "#999"
+        },
+        borderWidth: {
+            type: Number,
+            default: 2
+        },
+        spacing: {
+            type: Number,
+            default: 0
+        },
+        fixedPoints: {
+            type: Number,
+            default: null
+        }
+    },
+    model: {
+        prop: 'rating',
+        event: 'rating-selected'
+    },
+    created: function created() {
+        this.step = this.increment * 100;
+        this.currentRating = this.rating;
+        this.selectedRating = this.rating;
+        this.createRating();
+    },
+
+    methods: {
+        setRating: function setRating($event, persist) {
+            if (!this.readOnly) {
+                var position = Math.max(0, $event.position / 100);
+                this.currentRating = ($event.id + position - 1).toFixed(2);
+                this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
+
+                this.createRating();
+                if (persist) {
+                    this.selectedRating = this.currentRating;
+                    this.$emit('rating-selected', this.selectedRating);
+                } else {
+                    this.$emit('current-rating', this.currentRating);
+                }
+            }
+        },
+        resetRating: function resetRating() {
+            if (!this.readOnly) {
+                this.currentRating = this.selectedRating;
+                this.createRating();
+            }
+        },
+        createRating: function createRating() {
+            this.round();
+            for (var i = 0; i < this.maxRating; i++) {
+                var level = 0;
+                if (i < this.currentRating) {
+                    level = this.currentRating - i > 1 ? 100 : (this.currentRating - i) * 100;
+                }
+                this.$set(this.fillLevel, i, Math.round(level));
+            }
+        },
+        round: function round() {
+            var inv = 1.0 / this.increment;
+            this.currentRating = Math.min(this.maxRating, Math.ceil(this.currentRating * inv) / inv);
+        }
+    },
+    computed: {
+        formattedRating: function formattedRating() {
+            return this.fixedPoints === null ? this.currentRating : this.currentRating.toFixed(this.fixedPoints);
+        }
+    },
+    watch: {
+        rating: function rating(val) {
+            this.currentRating = val;
+            this.selectedRating = val;
+            this.createRating();
+        }
+    },
+    data: function data() {
+        return {
+            step: 0,
+            fillLevel: [],
+            currentRating: 0,
+            selectedRating: 0,
+            customProps: {}
+        };
+    }
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    props: {
+        fill: {
+            type: Number,
+            default: 0
+        },
+        size: {
+            type: Number,
+            default: 50
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        activeColor: {
+            type: String,
+            required: true
+        },
+        inactiveColor: {
+            type: String,
+            required: true
+        },
+        borderColor: {
+            type: String,
+            default: "#999"
+        },
+        borderWidth: {
+            type: Number,
+            default: 0
+        },
+        spacing: {
+            type: Number,
+            default: 0
+        },
+        customProps: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        }
+    },
+    created: function created() {
+        this.fillId = Math.random().toString(36).substring(7);
+    },
+
+    computed: {
+        pointsToString: function pointsToString() {
+            return this.points.join(',');
+        },
+        getFillId: function getFillId() {
+            return 'url(#' + this.fillId + ')';
+        },
+        getWidth: function getWidth() {
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
+        },
+        getHeight: function getHeight() {
+            return this.originalHeight / this.originalWidth * this.getWidth;
+        },
+        getFill: function getFill() {
+            return this.fill + "%";
+        },
+        getSpacing: function getSpacing() {
+            return this.spacing + this.borderWidth / 2 + "px";
+        }
+    },
+    methods: {
+        mouseMoving: function mouseMoving($event) {
+            this.$emit('mouse-move', {
+                event: $event,
+                position: this.getPosition($event),
+                id: this.index
+            });
+        },
+        getPosition: function getPosition($event) {
+            // calculate position in percentage.
+            var width = 92 / 100 * (this.size + this.borderWidth);
+            var position = Math.round(100 / width * $event.offsetX);
+            return Math.min(position, 100);
+        },
+        selected: function selected($event) {
+            this.$emit('selected', {
+                id: this.index,
+                position: this.getPosition($event)
+            });
+        }
+    },
+    data: function data() {
+        return {
+            fillId: '',
+            originalWidth: 50,
+            orignalHeight: 50,
+            borders: 1
+        };
+    }
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, ".rating-item[data-v-217e3916]{display:inline-block}.pointer[data-v-217e3916]{cursor:pointer}.rating[data-v-217e3916]{display:flex;align-items:center}.inline[data-v-217e3916]{display:inline-flex}.rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(10)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(4),
+  /* template */
+  __webpack_require__(9),
+  /* scopeId */
+  "data-v-217e3916",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ['rating', {
+      inline: _vm.inline
+    }, 'rating-container']
+  }, [_c('div', {
+    staticClass: "rating",
+    on: {
+      "mouseleave": _vm.resetRating
+    }
+  }, [_vm._l((_vm.maxRating), function(n) {
+    return _c('span', {
+      class: [{
+        pointer: !_vm.readOnly
+      }, 'rating-item']
+    }, [_c(_vm.type, {
+      tag: "component",
+      attrs: {
+        "fill": _vm.fillLevel[n - 1],
+        "size": _vm.itemSize,
+        "index": n,
+        "step": _vm.step,
+        "active-color": _vm.activeColor,
+        "inactive-color": _vm.inactiveColor,
+        "border-color": _vm.borderColor,
+        "border-width": _vm.borderWidth,
+        "spacing": _vm.spacing,
+        "custom-props": _vm.customProps
+      },
+      on: {
+        "selected": function($event) {
+          _vm.setRating($event, true)
+        },
+        "mouse-move": _vm.setRating
+      }
+    })], 1)
+  }), _vm._v(" "), (_vm.showRating) ? _c('span', {
+    class: ['rating-text', _vm.textClass]
+  }, [_vm._v(" " + _vm._s(_vm.formattedRating))]) : _vm._e()], 2)])
+},staticRenderFns: []}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(7);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("79d20f0f", content, true);
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
@@ -831,7 +831,7 @@ var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _RatingItem = __webpack_require__(4);
+var _RatingItem = __webpack_require__(6);
 
 var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
@@ -857,14 +857,21 @@ exports.default = _vue2.default.extend({
     computed: {
         getViewbox: function getViewbox() {
             return "0 0 " + this.originalWidth + " " + this.originalHeight;
+        },
+        getFill: function getFill() {
+            // Account for any adjustment to the x1 coordinate of the LinearGradient
+            var adjustment = this.fill / 100 * Math.abs(this.x1Val);
+            return this.x1Val > 0 ? this.fill - adjustment + "%" : this.fill + adjustment + "%";
+        },
+        x1Val: function x1Val() {
+            return parseInt(this.coords.x1.replace("%"));
         }
-    },
-    methods: {
-        calculatePoints: function calculatePoints() {}
     },
     data: function data() {
         return {
-            pathAttrs: {}
+            points: [],
+            pathAttrs: {},
+            coords: { x1: "0%", x2: "100%", y1: "0%", y2: "0%" }
         };
     }
 });
@@ -910,15 +917,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "mousemove": _vm.mouseMoving,
       "click": _vm.selected
     }
-  }, [_c('linearGradient', {
+  }, [_c('linearGradient', _vm._b({
     attrs: {
-      "id": _vm.fillId,
-      "x1": "0",
-      "x2": "100%",
-      "y1": "0",
-      "y2": "0"
+      "id": _vm.fillId
     }
-  }, [_c('stop', {
+  }, 'linearGradient', _vm.coords), [_c('stop', {
     attrs: {
       "offset": _vm.getFill,
       "stop-color": _vm.activeColor
@@ -949,6 +952,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
+
+/* styles */
+__webpack_require__(43)
+
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(21),
@@ -978,11 +985,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _BaseRating = __webpack_require__(7);
+var _BaseRating = __webpack_require__(8);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _heart = __webpack_require__(34);
+var _heart = __webpack_require__(36);
 
 var _heart2 = _interopRequireDefault(_heart);
 
@@ -1074,6 +1081,21 @@ Vue.component('heart-rating', _heartRating2.default);
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 35 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(22),
@@ -1087,6 +1109,25 @@ var Component = __webpack_require__(0)(
 
 module.exports = Component.exports
 
+
+/***/ }),
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(34);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("4c5ef42d", content, true);
 
 /***/ })
 /******/ ]);

@@ -15,6 +15,21 @@
 import Vue from 'vue';
 import RatingItem from '../mixins/RatingItem.js';
 export default Vue.extend({
-    mixins: [RatingItem]
+    mixins: [RatingItem],
+    created() {
+        this.calculatePoints();
+    },
+    methods: {
+        calculatePoints() {
+            this.points = this.points.map((point) => {
+                return ((this.size / this.originalWidth) * point) + (this.borderWidth * (this.borders / 2));
+            });
+        },
+    },
+    data() {
+        return {
+            points: []
+        }
+    }
 });
 </script>

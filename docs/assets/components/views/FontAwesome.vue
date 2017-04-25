@@ -3,49 +3,57 @@
         <div class="ui basic segment" style="font-size:1.1em;">
             <h1 class="ui header">Font Awesome Rating Component</h1>
             <div class="ui divider"></div>
-            <p>vue-rate-it comes with a built in port of <a href="http://fontawesome.io">font-awesome</a> glyphs. You can check out all the available fas using the form below:<p>
-            <form class="ui form">
-                <div class="four fields">
-                    <div class="field">
-                        <label>Glyph</label>
-                        <select class="ui fluid dropdown" v-model="selected">
-                            <option v-for="glyph in glyphs">{{glyph}}</option>
-                        </select>
+            <p>vue-rate-it comes with a built in port of <a href="http://fontawesome.io">font-awesome</a> glyphs. You can check out all the available glyphs using the form below:
+                <p>
+                    <form class="ui form">
+                        <div class="four fields">
+                            <div class="field">
+                                <label>Glyph</label>
+                                <select class="ui fluid dropdown" v-model="selected">
+                                    <option v-for="glyph in glyphs">{{glyph}}</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Spacing</label>
+                                <select class="ui fluid dropdown" v-model="spacing">
+                                    <option v-for="n in 61" :value="n-11">{{n-11}}</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Inactive Color (Hex)</label>
+                                <input class="ui input" type="text" v-model="inactiveColor">
+                            </div>
+                            <div class="field">
+                                <label>Active Color (Hex)</label>
+                                <input class="ui input" type="text" v-model="activeColor">
+                            </div>
+                            <div class="field">
+                                <label>Increment (0.01 - 1)</label>
+                                <input class="ui input" type="text" @input="setIncrement" :value="increment">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="ui segment center aligned">
+                        <component :is="fa" :glyph="selected" :spacing="spacing" :inactive-color="inactiveColor" :active-color="activeColor" :inline="true" :fixed-points="2" :increment="increment"></component>
                     </div>
-                    <div class="field">
-                        <label>Spacing</label>
-                        <select class="ui fluid dropdown" v-model="spacing">
-                            <option v-for="n in 61" :value="n-11">{{n-11}}</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Inactive Color (Hex)</label>
-                        <input class="ui input" type="text" v-model="inactiveColor">
-                    </div>
-                    <div class="field">
-                        <label>Active Color (Hex)</label>
-                        <input class="ui input" type="text" v-model="activeColor">
-                    </div>
-                </div>
-            </form>
-            <div class="ui segment center aligned ">
-                <component :is="fa" :glyph="selected" :spacing="spacing" :inline="true" :inactive-color="inactiveColor" :active-color="activeColor"></component>
-            </div>
 
-<div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">glyph=</span><span style="color: #aa5500">&quot;{{selected}}&quot;</span>  
+                    <div class="ui segment">
+                        <!-- HTML generated using hilite.me -->
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">glyph=</span><span style="color: #aa5500">&quot;{{selected}}&quot;</span>  
            <span style="color: #1e90ff">:spacing=</span><span style="color: #aa5500">&quot;{{spacing}}&quot;</span>  
            <span style="color: #1e90ff">:inactive-</span><span style="color: #1e90ff">color=</span><span style="color: #aa5500">&quot;{{inactiveColor}}&quot;</span> 
-           <span style="color: #1e90ff">:active-color=</span><span style="color: #aa5500">&quot;{{activeColor}}&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+           <span style="color: #1e90ff">:active-color=</span><span style="color: #aa5500">&quot;{{activeColor}}&quot;</span>
+           <span style="color: #1e90ff">:increment=</span><span style="color: #aa5500">&quot;{{increment}}&quot;</span>
+           <span style="color: #1e90ff">:fixed-points=</span><span style="color: #aa5500">&quot;2&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 <span style="color: #1e90ff; ">&lt;/fa-rating&gt;</span>
 </pre></div>
 
-</div>
+                    </div>
 
-            <div class="ui warning message">This Demo <b>does not</b> feature all possible options. Please see below for a list of all the props.</div>
+                    <div class="ui warning message">This Demo <b>does not</b> feature all possible options. Please see below for a list of all the props.</div>
         </div>
 
-             <h1 class="ui header">Setup</h1>
+        <h1 class="ui header">Setup</h1>
         <div class="ui divider"></div>
         The fa-rating component can either be included via NPM (recommended) or CDN.
 
@@ -92,7 +100,7 @@
                 </tr>
             </thead>
             <tbody>
-            	  <tr>
+                <tr>
                     <td>glyph</td>
                     <td>String</td>
                     <td>The name of the font awesome glyph (<b>Requred</b>). This prop accepts the glyph name both with and without the "fa-" prepended, so "thumbs-up" and "fa-thumbs-up" are both acceptable values.</td>
@@ -131,7 +139,7 @@
                     <td>active-color</td>
                     <td>String</td>
                     <td>The color of the highlighted portion of a glyph.</td>
-                    <td>#ffd055</td>
+                    <td>#000</td>
                 </tr>
                 <tr>
                     <td>item-size</td>
@@ -156,6 +164,12 @@
                     <td>String</td>
                     <td>A css class name to style the rating text for a specific fa-rating component</td>
                     <td>""</td>
+                </tr>
+                <tr>
+                    <td>fixed-points</td>
+                    <td>Number</td>
+                    <td>Specify the number of decimal points to display for the rating. If left blank the number of decimal points will be variable based by the current rating.</td>
+                    <td>null</td>
                 </tr>
                 <tr>
                     <td>inline</td>
@@ -231,17 +245,21 @@
         </table>
         <div class="ui warning message" style="font-size:0.9em;">
             In Vue 2.2 and above you can use <b>v-model</b> instead of listening for the 'rating-selected' event to automatically sync values between the parent and child. </div>
-  
-     <h3 class="ui header">Custom Events Example</h3>
-     	<p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
 
-<div class="ui segment">
-<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/fa-rating&gt;</span>
+        <h3 class="ui header">Custom Events Example</h3>
+        <p>The following example shows how to use the "rating-selected" custom event to sync values and is the equivelent to using "v-model" which is only available when using Vue 2.2 and above</p>
+
+        <div class="ui segment">
+            <!-- HTML generated using hilite.me -->
+            <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff;">@</span><span style="color: #1e90ff">rating-selected=</span><span style="color: #aa5500">&quot;rating = $event&quot;</span> <span style="color: #1e90ff">:rating=</span><span style="color: #aa5500">&quot;rating&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/fa-rating&gt;</span>
 </pre></div>
-</div>
+        </div>
 
-<div class="ui warning message" style="font-size:0.9em;">
-When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do: <br /><span style="font-family:courier;">&lt;fa-rating @rating-selected="myMethod"&gt;&lt;/fa-rating&gt;</span><br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method: <br /><span style="font-family:courier;">&lt;fa-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/fa-rating&gt;</span></div>
+        <div class="ui warning message" style="font-size:0.9em;">
+            When writing methods to capture custom events, the rating param is automatically passed to the method, so you can simply do:
+            <br /><span style="font-family:courier;">&lt;fa-rating @rating-selected="myMethod"&gt;&lt;/fa-rating&gt;</span>
+            <br /> If you need to declare methods with multiple paramaters you will need to use $event to pass the rating to the method:
+            <br /><span style="font-family:courier;">&lt;fa-rating @rating-selected="myMethod($event, anotherParam)"&gt;&lt;/fa-rating&gt;</span></div>
     </div>
 </template>
 
@@ -259,6 +277,12 @@ export default {
             this.$set(this.glyphs, this.glyphs.length, item);
         });
     },
+    methods: {
+        setIncrement(event) {
+            let val = event.target.value;
+            this.increment = (isNaN(val) || val === "") ? this.increment : parseFloat(val);
+        }
+    },
     watch: {
         selected() {
             // Not elegant, but otherwise would need to change BaseComponent for docs!
@@ -272,7 +296,8 @@ export default {
         return {
             fa: 'fa-rating',
             inactiveColor: "#cfcfcf",
-            activeColor: "#dcfbcc",
+            activeColor: "#000",
+            increment: 0.5,
             spacing: 0,
             glyphs: [],
             selected: 'thumbs-up',
