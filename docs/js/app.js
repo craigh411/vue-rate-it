@@ -9678,13 +9678,6 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import Home from './components/views/Home.vue';
-//import Stars from './components/views/Stars.vue';
-//import Hearts from './components/views/Hearts.vue';
-//import Images from './components/views/Images.vue';
-//import FA from './components/views/FontAwesome.vue';
-//import Extending from './components/views/Extending.vue';
-
 _vue2.default.use(_vueRouter2.default);
 
 var Home = function Home(resolve) {

@@ -2382,7 +2382,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "href": "https://www.npmjs.com/package/babelify"
     }
-  }, [_vm._v("babelify")]), _vm._v(" transforms to be installed. You will also need to ensure that you have installed and setup"), _c('a', {
+  }, [_vm._v("babelify")]), _vm._v(" transforms to be installed. You will also need to ensure that you have installed and setup "), _c('a', {
     attrs: {
       "href": "https://www.npmjs.com/package/babel-preset-es2015"
     }
