@@ -78,7 +78,7 @@
                         <div class="header">
                             Important
                         </div>
-                        You will need to ensure that you have added <a href="https://www.npmjs.com/package/vue-loader">vue-loader</a> and <a href="https://www.npmjs.com/package/babel-loader">babel-loader</a> to your list of modules if using webpack. If you are using browserify you will require the <a href="https://www.npmjs.com/package/vueify">vueify</a> and <a href="https://www.npmjs.com/package/babelify">babelify</a> transforms to be installed. You will also need to ensure that you have installed and setup<a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a>.
+                        You will need to ensure that you have added <a href="https://www.npmjs.com/package/vue-loader">vue-loader</a> and <a href="https://www.npmjs.com/package/babel-loader">babel-loader</a> to your list of modules if using webpack. If you are using browserify you will require the <a href="https://www.npmjs.com/package/vueify">vueify</a> and <a href="https://www.npmjs.com/package/babelify">babelify</a> transforms to be installed. You will also need to ensure that you have installed and setup <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a>.
                     </div>
 
                     <h3 class="ui header">Using Webpack</h3>
