@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import BaseRating from '../src/raters/BaseRating.vue'
+import {BaseRating} from '../src/index'
 import Star from '../src/raters/stars/star.vue'
 
 Vue.config.productionTip = false;

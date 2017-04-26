@@ -10,7 +10,7 @@
     "build:dist": "webpack --env=dist --progress --hide-modules",
     "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
     "docs": "webpack-dev-server --content-base ./docs --env=docs --open --hot",
-    "build:docs": "webpack --env=docs --progress --hide-modules"
+    "build:docs": "cross-env NODE_ENV=production webpack --env=docs --progress --hide-modules"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "babel-register": "^6.23.0",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
+    "cross-env": "^4.0.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "font-awesome": "^4.7.0",

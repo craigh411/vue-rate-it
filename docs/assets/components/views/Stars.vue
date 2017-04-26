@@ -219,9 +219,7 @@
 </template>
 
 <script type="text/javascript">
-import {
-    StarRating
-} from '../../../../src/index.js';
+import {StarRating} from '../../../../src/index.js';
 export default {
     components: {
         StarRating

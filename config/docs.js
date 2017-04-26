@@ -6,7 +6,7 @@ module.exports = function(env) {
         entry: './docs/assets/app.js',
         output: {
             path: path.resolve(__dirname, '../docs/js'),
-            publicPath: '/js/',
+            publicPath: 'js/',
             filename: 'app.js'
         },
         module: {
@@ -26,4 +26,25 @@ module.exports = function(env) {
             }]
         }
     }
+}
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = '#source-map'
+        // http://vue-loader.vuejs.org/en/workflow/production.html
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ])
 }
