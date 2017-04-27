@@ -5,6 +5,7 @@ import ImageRating from './raters/images/image-rating.vue';
 import BaseRating from './raters/BaseRating.vue';
 import mixins from './mixins/index.js';
 import Glyphs from './raters/font-awesome/glyphs.js';
+import FaBaseGlyph from './raters/font-awesome/FaBaseGlyph.vue';
 
 const raters = {
     StarRating,
@@ -23,5 +24,6 @@ export {
     FaRating,
     ImageRating,
     BaseRating,
-    Glyphs
+    Glyphs,
+    FaBaseGlyph
 }
