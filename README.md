@@ -1,4 +1,4 @@
-# Vue-rate-it - Extensible Rating Components for Vue.js 2
+# Vue-rate-it - Extensible Rating Component for Vue.js 2
 
 
 [![Build Status](https://travis-ci.org/craigh411/vue-rate-it.svg?branch=master)](https://travis-ci.org/craigh411/vue-rate-it)
@@ -14,9 +14,9 @@ Vue-rate-it is an extensible, highly customisable rating system for Vue.js 2. It
 - Customisable styles - Change colours, borders, sizes and spacing.
 - Create read-only ratings.
 - Uses scalable SVG images.
-- Supports v-model for simple syncing (vue 2.2+)
+- Supports v-model for easy syncing (vue 2.2+)
 
-#### [Check out the detailed docs with examples on the vue-rate-it Github Pages](https://craigh411.github.io/vue-rate-it/#/)
+[Check out the detailed docs with examples on the vue-rate-it Github Pages](https://craigh411.github.io/vue-rate-it/#/)
 
 # Getting Started
 
@@ -26,14 +26,19 @@ Below you can see the simple markup required to create a rating comonent:
 
 [![star-rating.png](https://s22.postimg.org/6g6r6q6i9/star-rating-screenshot.png)](https://craigh411.github.io/vue-rate-it/#/docs/stars)
 
+[Try on JSFiddle](https://jsfiddle.net/craig_h_411/cmyqv9nr/)
+
 ```HTML
 <star-rating></star-rating>
 ```
+
+
 
 ### Hearts
 
 [![heart-rating.png](https://s22.postimg.org/ouhaapisx/heart-rating-ss.png)](https://craigh411.github.io/vue-rate-it/#/docs/hearts)
 
+[Try on JSFiddle](https://jsfiddle.net/craig_h_411/zhjxuorw/)
 
 ```HTML
 <heart-rating></heart-rating>
@@ -42,6 +47,7 @@ Below you can see the simple markup required to create a rating comonent:
 
 [![image-rating.png](https://s24.postimg.org/edc6jr3xx/image-rating-ss.png )](https://craigh411.github.io/vue-rate-it/#/docs/images)
 
+[Try on JSFiddle](https://jsfiddle.net/craig_h_411/e2vx9v4r/)
 
 ```HTML
 <image-rating src="/images/vueLogo.png"></image-rating>
@@ -51,6 +57,7 @@ Below you can see the simple markup required to create a rating comonent:
 
 [![fa-thumbs-up.png](https://s24.postimg.org/rrp9fsalx/fa-thumbs-up-ss.png)](https://craigh411.github.io/vue-rate-it/#/docs/font-awesome)
 
+[Try on JSFiddle](https://jsfiddle.net/craig_h_411/rpwtbx63/)
 
 ```HTML
 <fa-rating glyph="thumbs-up" active-color="#ffcd94"></fa-rating>
