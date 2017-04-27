@@ -1,6 +1,7 @@
 <script type="text/javascript">
 import Path from '../../templates/Path.vue';
 import Glyphs from './glyphs.js';
+
 export default Path.extend({
     props: {
         customProps: {
