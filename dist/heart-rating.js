@@ -954,7 +954,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 
 /* styles */
-__webpack_require__(47)
+__webpack_require__(45)
 
 var Component = __webpack_require__(0)(
   /* script */
@@ -990,7 +990,7 @@ var _BaseRating = __webpack_require__(8);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _heart = __webpack_require__(39);
+var _heart = __webpack_require__(38);
 
 var _heart2 = _interopRequireDefault(_heart);
 
@@ -1079,8 +1079,7 @@ Vue.component('heart-rating', _heartRating2.default);
 /* 32 */,
 /* 33 */,
 /* 34 */,
-/* 35 */,
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
@@ -1094,9 +1093,9 @@ exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-lef
 
 
 /***/ }),
+/* 36 */,
 /* 37 */,
-/* 38 */,
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
@@ -1114,20 +1113,19 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 39 */,
 /* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(36);
+var content = __webpack_require__(35);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM

@@ -860,7 +860,7 @@ var _BaseRating = __webpack_require__(8);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _image = __webpack_require__(40);
+var _image = __webpack_require__(39);
 
 var _image2 = _interopRequireDefault(_image);
 
@@ -988,15 +988,14 @@ Vue.component('image-rating', _imageRating2.default);
 /* 36 */,
 /* 37 */,
 /* 38 */,
-/* 39 */,
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(25),
   /* template */
-  __webpack_require__(44),
+  __webpack_require__(43),
   /* scopeId */
   null,
   /* cssModules */
@@ -1007,10 +1006,10 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */,
-/* 44 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

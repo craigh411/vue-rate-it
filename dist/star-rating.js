@@ -862,7 +862,7 @@ var _BaseRating = __webpack_require__(8);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _star = __webpack_require__(41);
+var _star = __webpack_require__(40);
 
 var _star2 = _interopRequireDefault(_star);
 
@@ -891,7 +891,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Polygon = __webpack_require__(42);
+var _Polygon = __webpack_require__(41);
 
 var _Polygon2 = _interopRequireDefault(_Polygon);
 
@@ -991,8 +991,7 @@ Vue.component('star-rating', _starRating2.default);
 /* 37 */,
 /* 38 */,
 /* 39 */,
-/* 40 */,
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
@@ -1010,14 +1009,14 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
   __webpack_require__(28),
   /* template */
-  __webpack_require__(43),
+  __webpack_require__(42),
   /* scopeId */
   null,
   /* cssModules */
@@ -1028,7 +1027,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

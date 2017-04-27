@@ -1018,7 +1018,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _FaBaseGlyph = __webpack_require__(37);
+var _FaBaseGlyph = __webpack_require__(36);
 
 var _FaBaseGlyph2 = _interopRequireDefault(_FaBaseGlyph);
 
@@ -1029,12 +1029,6 @@ var _glyphs2 = _interopRequireDefault(_glyphs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _FaBaseGlyph2.default.extend({
-    props: {
-        customProps: {
-            required: true,
-            type: Object
-        }
-    },
     created: function created() {
         this.updateGlyph();
     },
@@ -1044,16 +1038,6 @@ exports.default = _FaBaseGlyph2.default.extend({
             var glyph = this.customProps.glyph.replace(/^fa\-/, "");
             this.points = [_glyphs2.default[glyph]];
         }
-    },
-    data: function data() {
-        return {
-            points: [],
-            originalWidth: 179,
-            originalHeight: 179,
-            pathAttrs: {
-                "transform": "scale(0.1)"
-            }
-        };
     }
 });
 
@@ -1072,7 +1056,7 @@ var _BaseRating = __webpack_require__(8);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _fontAwesomeGlyph = __webpack_require__(38);
+var _fontAwesomeGlyph = __webpack_require__(37);
 
 var _fontAwesomeGlyph2 = _interopRequireDefault(_fontAwesomeGlyph);
 
@@ -1150,27 +1134,13 @@ exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-lef
 
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)();
-// imports
-
-
-// module
-exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 36 */,
-/* 37 */
+/* 35 */,
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(46)
+__webpack_require__(44)
 
 var Component = __webpack_require__(0)(
   /* script */
@@ -1187,12 +1157,8 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(45)
 
 var Component = __webpack_require__(0)(
   /* script */
@@ -1209,32 +1175,19 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 38 */,
 /* 39 */,
 /* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
-/* 44 */,
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
 var content = __webpack_require__(34);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("1565a4a8", content, true);
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(35);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
