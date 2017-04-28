@@ -828,7 +828,7 @@ module.exports = function listToStyles (parentId, list) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(27),
   /* template */
   null,
   /* scopeId */
@@ -848,7 +848,8 @@ module.exports = Component.exports
 /* 23 */,
 /* 24 */,
 /* 25 */,
-/* 26 */
+/* 26 */,
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -881,7 +882,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -909,7 +910,7 @@ exports.default = _Polygon2.default.extend({
 });
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -966,7 +967,6 @@ exports.default = _vue2.default.extend({
 });
 
 /***/ }),
-/* 29 */,
 /* 30 */,
 /* 31 */,
 /* 32 */,
@@ -996,7 +996,7 @@ Vue.component('star-rating', _starRating2.default);
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(28),
   /* template */
   null,
   /* scopeId */
@@ -1014,7 +1014,7 @@ module.exports = Component.exports
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(29),
   /* template */
   __webpack_require__(42),
   /* scopeId */

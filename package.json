@@ -9,6 +9,7 @@
     "build-glyphs": "cd build && node font-awesome",
     "build:dist": "webpack --env=dist --progress --hide-modules",
     "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
+    "dev:ext": "webpack-dev-server --content-base ./examples/extending --env=extending --open --hot",
     "docs": "webpack-dev-server --content-base ./docs --env=docs --open --hot",
     "build:docs": "cross-env NODE_ENV=production webpack --env=docs --progress --hide-modules"
   },

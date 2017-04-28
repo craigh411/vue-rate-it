@@ -20,7 +20,7 @@ fs.readdir('glyphs', function(err, files) {
             if (itemsProcessed === files.length) {
                var output = pathsString;
                output += "\nexport default " + JSON.stringify(paths);
-                fs.writeFile('../src/raters/font-awesome/glyphs.js', output);
+                fs.writeFile('../glyphs.js', output);
                 //fs.writeFile('../src/raters/font-awesome/glyphs-individual.js', pathsString);
                 console.log('done');
             }

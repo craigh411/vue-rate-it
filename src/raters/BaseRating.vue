@@ -15,7 +15,12 @@ import Rating from '../mixins/Rating.js';
 
 
 export default Vue.extend({
-     mixins: [Rating]
+     mixins: [Rating],
+     data(){
+        return{
+            type: ''
+        }
+     }
 });
 
 </script>

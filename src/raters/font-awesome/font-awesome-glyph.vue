@@ -1,6 +1,6 @@
 <script type="text/javascript">
 import FaBaseGlyph from './FaBaseGlyph.vue';
-import Glyphs from './glyphs.js';
+import Glyphs from '../../../glyphs.js';
 
 export default FaBaseGlyph.extend({
     created() {

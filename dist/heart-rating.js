@@ -958,7 +958,7 @@ __webpack_require__(45)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(22),
+  __webpack_require__(23),
   /* template */
   null,
   /* scopeId */
@@ -976,7 +976,8 @@ module.exports = Component.exports
 /* 19 */,
 /* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1027,7 +1028,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1054,7 +1055,6 @@ exports.default = _Path2.default.extend({
 });
 
 /***/ }),
-/* 24 */,
 /* 25 */,
 /* 26 */,
 /* 27 */,
@@ -1100,7 +1100,7 @@ exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-lef
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(23),
+  __webpack_require__(24),
   /* template */
   null,
   /* scopeId */

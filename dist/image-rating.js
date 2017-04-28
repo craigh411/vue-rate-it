@@ -827,7 +827,7 @@ module.exports = function listToStyles (parentId, list) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(24),
+  __webpack_require__(25),
   /* template */
   null,
   /* scopeId */
@@ -846,7 +846,8 @@ module.exports = Component.exports
 /* 21 */,
 /* 22 */,
 /* 23 */,
-/* 24 */
+/* 24 */,
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -894,7 +895,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -961,7 +962,6 @@ exports.default = _vue2.default.extend({
 });
 
 /***/ }),
-/* 26 */,
 /* 27 */,
 /* 28 */,
 /* 29 */,
@@ -993,7 +993,7 @@ Vue.component('image-rating', _imageRating2.default);
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(26),
   /* template */
   __webpack_require__(43),
   /* scopeId */
