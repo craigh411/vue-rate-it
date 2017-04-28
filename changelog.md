@@ -1,7 +1,7 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
-## [Unreleased]
+## Version 1.1 (2017-04-28)
 - Added export of individual font awesome glyphs.
 - Added extendable base glyph for font-awesome to allow use of glyps without importing all of them.
 - Added new rate-it component for passing custom rating items.
