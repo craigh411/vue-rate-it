@@ -6,6 +6,8 @@ import BaseRating from './raters/BaseRating.vue';
 import RateIt from './raters/rate-it.vue';
 import mixins from './mixins/index.js';
 import FaBaseGlyph from './raters/font-awesome/FaBaseGlyph.vue';
+import Path from './templates/Path.vue';
+import Polygon from './templates/Polygon.vue';
 
 const raters = {
     StarRating,
@@ -25,5 +27,7 @@ export {
     ImageRating,
     BaseRating,
     FaBaseGlyph,
-    RateIt
+    RateIt,
+    Path,
+    Polygon
 }
