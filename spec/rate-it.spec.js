@@ -9,7 +9,7 @@ describe('rate-it', () => {
     });
 
 
-    it('should set the type as the "when" prop', () => {
+    it('should set the type as the "with" prop', () => {
 
         let Component = RateIt.extend({
             props: {

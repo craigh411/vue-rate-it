@@ -262,10 +262,9 @@
 </template>
 
 <script type="text/javascript">
-import {
-    Glyphs,
-    FaRating
-} from '../../../../src/index.js';
+import {FaRating} from '../../../../src/index.js';
+import Glyphs from '../../../../glyphs';
+
 export default {
     components: {
         FaRating
