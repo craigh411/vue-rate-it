@@ -20,7 +20,7 @@ Vue-rate-it is an extensible, highly customisable rating system for Vue.js 2. It
 
 # Getting Started
 
-Below you can see the simple markup required to create a rating comonent:
+Below you can see the simple markup required to create a rating component:
 
 ### Stars
 
@@ -60,7 +60,7 @@ Below you can see the simple markup required to create a rating comonent:
 [Try on JSFiddle](https://jsfiddle.net/craig_h_411/rpwtbx63/)
 
 ```HTML
-<fa-rating glyph="thumbs-up" active-color="#ffcd94"></fa-rating>
+<fa-rating glyph="thumbs-up"></fa-rating>
 ```
 
 ## Setup
