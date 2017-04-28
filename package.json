@@ -19,7 +19,8 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "glyphs.js"
   ],
   "keywords": [
     "rating",
