@@ -110,7 +110,7 @@ module: {
 
 #### Setting up Babel
 
-Wether you are using Browserify or Webpack you will need to make sure you have babel-preset-es2015 installed to correctly transpile the ES2015 code, and have included the following in your .babelrc file in the root of your project:
+Whether you are using Browserify or Webpack you will need to make sure you have babel-preset-es2015 installed to correctly transpile the ES2015 code, and have included the following in your .babelrc file in the root of your project:
 
 ```json
 {
@@ -148,7 +148,7 @@ export default{
 
 ### Using the CDN
 
-It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage:
+It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your web page:
 
 #### Star Rating
 
@@ -212,7 +212,7 @@ export default{
 
 ## Syncing Ratings in Vue 2.1 and below
 
-It isn't possible to use v-model on the component in Vue.js 2.1 and below, however, the following is the equivelent of the `v-model` example above:
+It isn't possible to use v-model on the component in Vue.js 2.1 and below, however, the following is the equivalent of the `v-model` example above:
 
 #### Basic Markup
 
@@ -249,7 +249,4 @@ export default{
 
 ## What Next
 
-Once you have everything up and running, you can check out the detailed docs on the [vue-rate-it docs githib pages](https://craigh411.github.io/vue-rate-it/)
-
-  
-  
+Once you have everything up and running, you can check out the detailed docs on the [vue-rate-it docs github pages](https://craigh411.github.io/vue-rate-it/)
