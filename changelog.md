@@ -1,6 +1,9 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
+## Version 1.1.1 (2017-05-04)
+- Fix typos in README
+
 ## Version 1.1 (2017-04-28)
 - Added export of individual font awesome glyphs.
 - Added extendable base glyph for font-awesome to allow use of glyphs without importing all of them.
