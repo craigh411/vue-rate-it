@@ -1,6 +1,6 @@
 {
   "name": "vue-rate-it",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A highly customisable rating component for Vue 2.x.",
   "main": "src/index.js",
   "scripts": {
