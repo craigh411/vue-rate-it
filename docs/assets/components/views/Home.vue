@@ -95,7 +95,6 @@
     test: <span style="color: #009999">/\.js$/</span>,
     loader: <span style="color: #aa5500">&#39;babel-loader&#39;</span>,
     exclude: <span style="color: #009999">/node_modules\/(?!(vue-rate-it)\/).*/</span>
-  }
   }]
 },
 </pre></div>
@@ -103,7 +102,7 @@
 
                     <h3 class="ui header">Setting up Babel</h3>
 
-                    <p>Wether you are using Browserify or Webpack you will need to make sure you have <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a> installed to correctly transpile the ES2015 code, and have included the following in your .babelrc file in the root of your project:</p>
+                    <p>Wether you are using Browserify or Webpack you will need to make sure you have <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a> installed to correctly transpile the ES2015 code, and have included the following in your <i>.babelrc</i> file in the root of your project:</p>
 
 <div class="ui segment">
                     <!-- HTML generated using hilite.me -->

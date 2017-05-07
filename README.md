@@ -103,7 +103,6 @@ module: {
     test: /\.js$/,
     loader: 'babel-loader',
     exclude: /node_modules\/(?!(vue-rate-it)\/).*/
-  }
   }]
 },
 ```

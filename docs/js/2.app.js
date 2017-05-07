@@ -2090,7 +2090,6 @@ exports.default = {
 //
 //
 //
-//
 
 /***/ }),
 /* 64 */,
@@ -2534,13 +2533,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#009999"
     }
-  }, [_vm._v("/node_modules\\/(?!(vue-rate-it)\\/).*/")]), _vm._v("\n  }\n  }]\n},\n")])])])
+  }, [_vm._v("/node_modules\\/(?!(vue-rate-it)\\/).*/")]), _vm._v("\n  }]\n},\n")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('p', [_vm._v("Wether you are using Browserify or Webpack you will need to make sure you have "), _c('a', {
     attrs: {
       "href": "https://www.npmjs.com/package/babel-preset-es2015"
     }
-  }, [_vm._v("babel-preset-es2015")]), _vm._v(" installed to correctly transpile the ES2015 code, and have included the following in your .babelrc file in the root of your project:")])
+  }, [_vm._v("babel-preset-es2015")]), _vm._v(" installed to correctly transpile the ES2015 code, and have included the following in your "), _c('i', [_vm._v(".babelrc")]), _vm._v(" file in the root of your project:")])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "ui segment"

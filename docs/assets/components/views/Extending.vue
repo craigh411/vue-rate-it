@@ -22,7 +22,7 @@
 </pre></div>
 </div>
 
-<p>Now we have done that we can import the font awesome glyph we want from 'vue-rate-it/glyphs'. We can't use hyphens in constant names in JavaScript, so they have been replaced by hyphens. So let's import the fa-thumbs-up glyph:</p>
+<p>Now we have done that we can import the font awesome glyph we want from 'vue-rate-it/glyphs'. We can't use hyphens in constant names in JavaScript, so they have been replaced with underscores. So let's import the fa-thumbs-up glyph:</p>
 
 <div class="ui segment">
 <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">import</span> {FaBaseGlyph} from <span style="color: #aa5500">&#39;vue-rate-it&#39;</span>;
