@@ -2,11 +2,11 @@
   "name": "vue-rate-it",
   "version": "1.1.2",
   "description": "A highly customisable rating component for Vue 2.x.",
-  "main": "src/index.js",
+  "main": "src/es5/index.js",
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --single-run=false",
-    "transpile": "babel src/mixins --out-dir src/mixins/es5 --ignore es5",
+    "transpile": "babel src --out-dir src/es5 --ignore es5",
     "dist" : "webpack --env=dist --progress --hide-modules",
     "build:glyphs": "cd build && node font-awesome",
     "build:dist": "npm-run-all --parallel dist transpile",
