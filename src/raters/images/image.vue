@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
 import Vue from 'vue';
-import RatingItem from '../../mixins/RatingItem.js';
+import RatingItem from '../../mixins/es5/RatingItem.js';
 export default Vue.extend({
     mixins: [RatingItem],
     created() {
