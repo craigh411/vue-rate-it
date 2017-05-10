@@ -3,7 +3,7 @@
 
 [![Build Status](https://travis-ci.org/craigh411/vue-rate-it.svg?branch=master)](https://travis-ci.org/craigh411/vue-rate-it)
 
-Vue-rate-it is an extensible, highly customisable rating system for Vue.js 2. It includes four built-in rating components for rating with stars, hearts.
+Vue-rate-it is an extensible, highly customisable rating system for Vue.js 2. It includes four built-in rating components for rating with stars, hearts, images or any [Font Awesome](http://fontawesome.io) glyph.
 
 ## Features
 
@@ -89,23 +89,6 @@ import Raters from 'vue-rate-it';
 ##### Important
 
 You will need to ensure that you have added [vue-loader](https://www.npmjs.com/package/vue-loader) and [babel-loader](https://www.npmjs.com/package/babel-loader) to your list of modules if using webpack. If you are using browserify you will require the [vueify](https://www.npmjs.com/package/vueify) and [babelify](https://www.npmjs.com/package/babelify) transforms to be installed. You will also need to ensure that you have installed and setup [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015).
-
-#### Using Webpack
-
-If you are using webpack there's a good chance that you are excluding "node_modules" from being processed by babel-loader, however, vue-rate-it is written in ES2015 and does not export pre-transpiled JS code, so you need to ensure that you have included the following is in your webpack config:
-
-```javascript
-module: {
-  rules: [{
-    test: /\.vue$/,
-    loader: 'vue-loader',
-  }, {
-    test: /\.js$/,
-    loader: 'babel-loader',
-    exclude: /node_modules\/(?!(vue-rate-it)\/).*/
-  }]
-},
-```
 
 #### Setting up Babel
 
