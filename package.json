@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --single-run=false",
-    "transpile": "babel src/mixins --out-dir src/mixins/es5",
+    "transpile": "babel src/mixins --out-dir src/mixins/es5 --ignore es5",
     "dist" : "webpack --env=dist --progress --hide-modules",
     "build:glyphs": "cd build && node font-awesome",
     "build:dist": "npm-run-all --parallel dist transpile",
