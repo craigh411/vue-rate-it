@@ -1,6 +1,10 @@
 import { RateIt } from '../src/index';
 
-
+/**
+ * IMPORTANT
+ * Remember to run "npm run transpile" for this spec when watching, otherwise tests will not run
+ */
+ 
 describe('rate-it', () => {
     it('should require a "with" prop', () => {
         spyOn(console, 'error');

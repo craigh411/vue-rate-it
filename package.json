@@ -2,12 +2,12 @@
   "name": "vue-rate-it",
   "version": "1.1.2",
   "description": "A highly customisable rating component for Vue 2.x.",
-  "main": "src/es5/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "karma start",
     "test:watch": "karma start --single-run=false",
-    "transpile": "babel src --out-dir src/es5 --ignore es5",
-    "dist" : "webpack --env=dist --progress --hide-modules",
+    "transpile": "babel src/mixins --out-dir src/mixins/es5 --ignore es5",
+    "dist": "webpack --env=dist --progress --hide-modules",
     "build:glyphs": "cd build && node font-awesome",
     "build:dist": "npm-run-all --parallel dist transpile",
     "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
@@ -55,7 +55,9 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
+    "karma-runscript-preprocessor": "0.0.5",
     "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^2.0.3",
     "npm-run-all": "^4.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
@@ -66,7 +68,8 @@
     "vueify": "^9.4.0",
     "watchify": "^3.9.0",
     "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^2.2.0",
+    "webpack-shell-plugin": "^0.5.0"
   },
   "browserify": {
     "transform": [

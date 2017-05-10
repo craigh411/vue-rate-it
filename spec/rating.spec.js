@@ -1,5 +1,10 @@
 import Vue from 'vue'
-import Rating from '../src/mixins/Rating.js'
+import Rating from '../src/mixins/es5/Rating.js'
+
+/**
+ * IMPORTANT
+ * Remember to run "npm run transpile" for this spec when watching, otherwise tests will not run
+ */
 
 describe('rating mixin', () => {
     it('should set the default props', () => {

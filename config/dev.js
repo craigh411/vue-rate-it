@@ -1,7 +1,15 @@
 var path = require('path')
 var webpack = require('webpack')
+const WebpackShellPlugin = require('webpack-shell-plugin');
+
+
 
 module.exports = function(env) {
+    var plugins = [];
+    
+    plugins.push(new WebpackShellPlugin({
+        onBuildStart: ['cd ../ && npm run transpile'],
+    }));
     return {
         entry: {
             'heart-rating': './src/reg/heart-rating',
