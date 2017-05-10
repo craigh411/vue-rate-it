@@ -1305,7 +1305,9 @@ var _RatingItem = __webpack_require__(18);
 
 var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
 
 exports.default = {
 	Rating: _Rating2.default,

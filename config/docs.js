@@ -2,6 +2,28 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = function(env) {
+
+    if (process.env.NODE_ENV === 'production') {
+        var devtool = '#source-map'
+            // http://vue-loader.vuejs.org/en/workflow/production.html
+        var plugins = [];
+
+        plugins.push(new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }));
+        plugins.push(new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }));
+        plugins.push(new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }));
+    }
+
     return {
         entry: './docs/assets/app.js',
         output: {
@@ -28,7 +50,7 @@ module.exports = function(env) {
     }
 }
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
     module.exports.devtool = '#source-map'
         // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
@@ -47,4 +69,4 @@ if (process.env.NODE_ENV === 'production') {
             minimize: true
         })
     ])
-}
+}*/

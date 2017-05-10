@@ -1305,7 +1305,9 @@ var _RatingItem = __webpack_require__(18);
 
 var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
 
 exports.default = {
 	Rating: _Rating2.default,
@@ -2072,24 +2074,6 @@ exports.default = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /***/ }),
 /* 64 */,
@@ -2143,25 +2127,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "code"
   }, [_vm._v("npm install vue-rate-it")]), _vm._v(" "), _c('p', [_vm._v("Once installed you can import the rating components like so:")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('p', [_vm._v("You may also import all of the components at once, however, you will still need to register each component individually:\n                ")]), _c('p'), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Using Webpack")]), _vm._v(" "), _c('p', [_vm._v("If you are using webpack there's a good chance that you are excluding \"node_modules\" from being processed by babel-loader, however, vue-rate-it is written in ES2015 and does not export pre-transpiled JS code, so you need to ensure that you have included the following is in your webpack config:")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _c('h3', {
-    staticClass: "ui header"
-  }, [_vm._v("Setting up Babel")]), _vm._v(" "), _vm._m(8), _vm._v(" "), _vm._m(9), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Setting up Babel")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
   }, [_vm._v("Registering the Rating Components")]), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Global Registration")]), _vm._v(" You can register your raters globally by doing the following:\n                    "), _vm._m(10), _vm._v(" "), _c('h4', {
+  }, [_vm._v("Global Registration")]), _vm._v(" You can register your raters globally by doing the following:\n                    "), _vm._m(9), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Local Registration")]), _vm._v(" "), _c('p', [_vm._v("You can register your raters in the components that you want to use them in by doing the following:")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c('h2', {
+  }, [_vm._v("Local Registration")]), _vm._v(" "), _c('p', [_vm._v("You can register your raters in the components that you want to use them in by doing the following:")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c('h2', {
     staticClass: "ui header"
   }, [_vm._v("Using the CDN")]), _vm._v(" "), _c('p', [_vm._v("It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage:")]), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Star Rating")]), _vm._v(" "), _vm._m(12), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Star Rating")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Heart Rating")]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Heart Rating")]), _vm._v(" "), _vm._m(12), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Fa Rating (Font-awesome)")]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Fa Rating (Font-awesome)")]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Image Rating")]), _vm._v(" "), _vm._m(15), _vm._v(" "), _c('h1', {
+  }, [_vm._v("Image Rating")]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c('h1', {
     staticClass: "ui header"
   }, [_vm._v("Syncing Ratings between Parent and Child")]), _vm._v(" "), _c('div', {
     staticClass: "ui divider"
@@ -2204,13 +2186,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui header"
   }, [_vm._v("Using v-model for Syncing in Vue 2.2 and above")]), _vm._v(" "), _c('p', [_vm._v("If you are using Vue 2.2 and above the simplest way to sync the rating is to use v-model:")]), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Basic Markup")]), _vm._v(" "), _vm._m(16), _vm._v(" "), _c('h4', {
+  }, [_vm._v("Basic Markup")]), _vm._v(" "), _vm._m(15), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Complete Example")]), _vm._v(" "), _vm._m(17), _vm._v(" "), _c('h3', [_vm._v("Syncing Ratings in Vue 2.1 and below")]), _vm._v(" "), _c('p', [_vm._v("It isn't possible to use v-model on the component in Vue.js 2.1 and below, however, the following is the equivelent of the v-model example above:")]), _vm._v(" "), _c('h4', {
+  }, [_vm._v("Complete Example")]), _vm._v(" "), _vm._m(16), _vm._v(" "), _c('h3', [_vm._v("Syncing Ratings in Vue 2.1 and below")]), _vm._v(" "), _c('p', [_vm._v("It isn't possible to use v-model on the component in Vue.js 2.1 and below, however, the following is the equivelent of the v-model example above:")]), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Basic Markup")]), _vm._v(" "), _vm._m(18), _vm._v(" "), _c('h4', {
+  }, [_vm._v("Basic Markup")]), _vm._v(" "), _vm._m(17), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Complete Example")]), _vm._v(" "), _vm._m(19), _vm._v(" "), _c('h2', {
+  }, [_vm._v("Complete Example")]), _vm._v(" "), _vm._m(18), _vm._v(" "), _c('h2', {
     staticClass: "ui header"
   }, [_vm._v("What Next")]), _vm._v(" "), _c('div', {
     staticClass: "ui divider"
@@ -2497,43 +2479,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "href": "https://www.npmjs.com/package/babel-preset-es2015"
     }
   }, [_vm._v("babel-preset-es2015")]), _vm._v(".\n                    ")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "ui segment"
-  }, [_c('div', {
-    staticStyle: {
-      "background": "#ffffff",
-      "overflow": "auto",
-      "width": "auto",
-      "border-width": ".1em .1em .1em .8em",
-      "padding": ".2em .6em"
-    }
-  }, [_c('pre', {
-    staticStyle: {
-      "margin": "0",
-      "line-height": "125%"
-    }
-  }, [_vm._v("module: {\n  rules: [{\n    test: "), _c('span', {
-    staticStyle: {
-      "color": "#009999"
-    }
-  }, [_vm._v("/\\.vue$/")]), _vm._v(",\n    loader: "), _c('span', {
-    staticStyle: {
-      "color": "#aa5500"
-    }
-  }, [_vm._v("'vue-loader'")]), _vm._v(",\n  }, {\n    test: "), _c('span', {
-    staticStyle: {
-      "color": "#009999"
-    }
-  }, [_vm._v("/\\.js$/")]), _vm._v(",\n    loader: "), _c('span', {
-    staticStyle: {
-      "color": "#aa5500"
-    }
-  }, [_vm._v("'babel-loader'")]), _vm._v(",\n    exclude: "), _c('span', {
-    staticStyle: {
-      "color": "#009999"
-    }
-  }, [_vm._v("/node_modules\\/(?!(vue-rate-it)\\/).*/")]), _vm._v("\n  }]\n},\n")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('p', [_vm._v("Wether you are using Browserify or Webpack you will need to make sure you have "), _c('a', {
     attrs: {

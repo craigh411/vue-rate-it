@@ -81,24 +81,6 @@
                         You will need to ensure that you have added <a href="https://www.npmjs.com/package/vue-loader">vue-loader</a> and <a href="https://www.npmjs.com/package/babel-loader">babel-loader</a> to your list of modules if using webpack. If you are using browserify you will require the <a href="https://www.npmjs.com/package/vueify">vueify</a> and <a href="https://www.npmjs.com/package/babelify">babelify</a> transforms to be installed. You will also need to ensure that you have installed and setup <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a>.
                     </div>
 
-                    <h3 class="ui header">Using Webpack</h3>
-
-                    <p>If you are using webpack there's a good chance that you are excluding "node_modules" from being processed by babel-loader, however, vue-rate-it is written in ES2015 and does not export pre-transpiled JS code, so you need to ensure that you have included the following is in your webpack config:</p>
-
-                    <div class="ui segment">
-                        <!-- HTML generated using hilite.me -->
-                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">module: {
-  rules: [{
-    test: <span style="color: #009999">/\.vue$/</span>,
-    loader: <span style="color: #aa5500">&#39;vue-loader&#39;</span>,
-  }, {
-    test: <span style="color: #009999">/\.js$/</span>,
-    loader: <span style="color: #aa5500">&#39;babel-loader&#39;</span>,
-    exclude: <span style="color: #009999">/node_modules\/(?!(vue-rate-it)\/).*/</span>
-  }]
-},
-</pre></div>
-                    </div>
 
                     <h3 class="ui header">Setting up Babel</h3>
 
