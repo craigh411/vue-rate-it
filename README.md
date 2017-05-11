@@ -114,6 +114,8 @@ export default{
 }
 ```
 
+**You can find details about all the available props and events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
+
 ### Using the CDN
 
 It is recommended that you use `vue-rate-it` via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your web page. These components are registered automatically:
@@ -169,7 +171,9 @@ new Vue({
 });
 ```
 
-You may also extend and create your own raters using the CDN (see [docs for details](https://craigh411.github.io/vue-rate-it/)).
+You may also extend and create your own raters using the CDN
+
+**You can find details about all the available props and events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
 
 ## Syncing Ratings between Parent and Child
 
