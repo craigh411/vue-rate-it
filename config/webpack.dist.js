@@ -4,27 +4,18 @@ var webpack = require('webpack')
 module.exports = function(env) {
     return {
         entry: {
-            'heart-rating': './src/reg/heart-rating',
-            'star-rating': './src/reg/star-rating',
-            'font-awesome-rating': './src/reg/font-awesome-rating',
-            'image-rating': './src/reg/image-rating',
-            'heart-rating.min': './src/reg/heart-rating',
-            'star-rating.min': './src/reg/star-rating',
-            'font-awesome-rating.min': './src/reg/font-awesome-rating',
-            'image-rating.min': './src/reg/image-rating'
+            'vue-rate-it': './src/index.js'
         },
         output: {
             path: path.resolve(__dirname, '../dist'),
             publicPath: '/dist/',
-            filename: '[name].js'
-        },
-        resolve: {
-            alias: {
-                "vue": "global-vue.js"
-            }
+            filename: '[name].min.js',
+            library: 'VueRateIt',
+            libraryTarget: 'umd',
+            umdNamedDefine: true
         },
         externals: {
-            "vue": "Vue"
+            "vue": "vue"
         },
         module: {
             rules: [{

@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("Vue"));
+	else if(typeof define === 'function' && define.amd)
+		define("VueRateIt", ["Vue"], factory);
+	else if(typeof exports === 'object')
+		exports["VueRateIt"] = factory(require("Vue"));
+	else
+		root["VueRateIt"] = factory(root["Vue"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -63,7 +73,7 @@
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -127,10 +137,32 @@ module.exports = function normalizeComponent (
 /* 1 */
 /***/ (function(module, exports) {
 
-module.exports = Vue;
+module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(10)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(7),
+  /* template */
+  __webpack_require__(9),
+  /* scopeId */
+  "data-v-217e3916",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -186,7 +218,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -407,49 +439,113 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-     value: true
+    value: true
 });
+exports.default = {
+    props: {
+        fill: {
+            type: Number,
+            default: 0
+        },
+        size: {
+            type: Number,
+            default: 50
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        activeColor: {
+            type: String,
+            required: true
+        },
+        inactiveColor: {
+            type: String,
+            required: true
+        },
+        borderColor: {
+            type: String,
+            default: "#999"
+        },
+        borderWidth: {
+            type: Number,
+            default: 0
+        },
+        spacing: {
+            type: Number,
+            default: 0
+        },
+        customProps: {
+            type: Object,
+            default: function _default() {
+                return {};
+            }
+        }
+    },
+    created: function created() {
+        this.fillId = Math.random().toString(36).substring(7);
+    },
 
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _Rating = __webpack_require__(5);
-
-var _Rating2 = _interopRequireDefault(_Rating);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = _vue2.default.extend({
-     mixins: [_Rating2.default],
-     data: function data() {
-          return {
-               type: ''
-          };
-     }
-});
+    computed: {
+        pointsToString: function pointsToString() {
+            return this.points.join(",");
+        },
+        getFillId: function getFillId() {
+            return "url(#" + this.fillId + ")";
+        },
+        getWidth: function getWidth() {
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
+        },
+        getHeight: function getHeight() {
+            return this.originalHeight / this.originalWidth * this.getWidth;
+        },
+        getFill: function getFill() {
+            return this.fill + "%";
+        },
+        getSpacing: function getSpacing() {
+            return this.spacing + this.borderWidth / 2 + "px";
+        }
+    },
+    methods: {
+        mouseMoving: function mouseMoving($event) {
+            this.$emit("mouse-move", {
+                event: $event,
+                position: this.getPosition($event),
+                id: this.index
+            });
+        },
+        getPosition: function getPosition($event) {
+            // calculate position in percentage.
+            var width = 92 / 100 * (this.size + this.borderWidth);
+            var position = Math.round(100 / width * $event.offsetX);
+            return Math.min(position, 100);
+        },
+        selected: function selected($event) {
+            this.$emit("selected", {
+                id: this.index,
+                position: this.getPosition($event)
+            });
+        }
+    },
+    data: function data() {
+        return {
+            fillId: "",
+            originalWidth: 50,
+            orignalHeight: 50,
+            borders: 1
+        };
+    }
+};
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -589,116 +685,52 @@ exports.default = {
 };
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+     value: true
 });
-exports.default = {
-    props: {
-        fill: {
-            type: Number,
-            default: 0
-        },
-        size: {
-            type: Number,
-            default: 50
-        },
-        index: {
-            type: Number,
-            required: true
-        },
-        activeColor: {
-            type: String,
-            required: true
-        },
-        inactiveColor: {
-            type: String,
-            required: true
-        },
-        borderColor: {
-            type: String,
-            default: "#999"
-        },
-        borderWidth: {
-            type: Number,
-            default: 0
-        },
-        spacing: {
-            type: Number,
-            default: 0
-        },
-        customProps: {
-            type: Object,
-            default: function _default() {
-                return {};
-            }
-        }
-    },
-    created: function created() {
-        this.fillId = Math.random().toString(36).substring(7);
-    },
 
-    computed: {
-        pointsToString: function pointsToString() {
-            return this.points.join(",");
-        },
-        getFillId: function getFillId() {
-            return "url(#" + this.fillId + ")";
-        },
-        getWidth: function getWidth() {
-            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
-        },
-        getHeight: function getHeight() {
-            return this.originalHeight / this.originalWidth * this.getWidth;
-        },
-        getFill: function getFill() {
-            return this.fill + "%";
-        },
-        getSpacing: function getSpacing() {
-            return this.spacing + this.borderWidth / 2 + "px";
-        }
-    },
-    methods: {
-        mouseMoving: function mouseMoving($event) {
-            this.$emit("mouse-move", {
-                event: $event,
-                position: this.getPosition($event),
-                id: this.index
-            });
-        },
-        getPosition: function getPosition($event) {
-            // calculate position in percentage.
-            var width = 92 / 100 * (this.size + this.borderWidth);
-            var position = Math.round(100 / width * $event.offsetX);
-            return Math.min(position, 100);
-        },
-        selected: function selected($event) {
-            this.$emit("selected", {
-                id: this.index,
-                position: this.getPosition($event)
-            });
-        }
-    },
-    data: function data() {
-        return {
-            fillId: "",
-            originalWidth: 50,
-            orignalHeight: 50,
-            borders: 1
-        };
-    }
-};
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _Rating = __webpack_require__(6);
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+     mixins: [_Rating2.default],
+     data: function data() {
+          return {
+               type: ''
+          };
+     }
+});
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)();
+exports = module.exports = __webpack_require__(3)();
 // imports
 
 
@@ -706,28 +738,6 @@ exports = module.exports = __webpack_require__(2)();
 exports.push([module.i, ".rating-item[data-v-217e3916]{display:inline-block}.pointer[data-v-217e3916]{cursor:pointer}.rating[data-v-217e3916]{display:flex;align-items:center}.inline[data-v-217e3916]{display:inline-flex}.rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}", ""]);
 
 // exports
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(10)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(4),
-  /* template */
-  __webpack_require__(9),
-  /* scopeId */
-  "data-v-217e3916",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
 
 
 /***/ }),
@@ -782,11 +792,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(7);
+var content = __webpack_require__(8);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("79d20f0f", content, true);
+var update = __webpack_require__(4)("79d20f0f", content, true);
 
 /***/ }),
 /* 11 */
@@ -826,14 +836,33 @@ module.exports = function listToStyles (parentId, list) {
 /* 13 */,
 /* 14 */,
 /* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(31),
+  /* template */
+  __webpack_require__(38),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(29),
   /* template */
   null,
   /* scopeId */
@@ -846,15 +875,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 19 */,
-/* 20 */,
 /* 21 */,
 /* 22 */,
 /* 23 */,
 /* 24 */,
 /* 25 */,
 /* 26 */,
-/* 27 */
+/* 27 */,
+/* 28 */,
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -864,11 +893,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _BaseRating = __webpack_require__(8);
+var _BaseRating = __webpack_require__(2);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _star = __webpack_require__(40);
+var _star = __webpack_require__(37);
 
 var _star2 = _interopRequireDefault(_star);
 
@@ -887,7 +916,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -897,7 +926,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Polygon = __webpack_require__(41);
+var _Polygon = __webpack_require__(16);
 
 var _Polygon2 = _interopRequireDefault(_Polygon);
 
@@ -915,7 +944,7 @@ exports.default = _Polygon2.default.extend({
 });
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -929,7 +958,7 @@ var _vue = __webpack_require__(1);
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _RatingItem = __webpack_require__(6);
+var _RatingItem = __webpack_require__(5);
 
 var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
@@ -972,40 +1001,17 @@ exports.default = _vue2.default.extend({
 });
 
 /***/ }),
-/* 30 */,
-/* 31 */,
 /* 32 */,
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _starRating = __webpack_require__(18);
-
-var _starRating2 = _interopRequireDefault(_starRating);
-
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_vue2.default.component("star-rating", _starRating2.default);
-
-/***/ }),
+/* 33 */,
 /* 34 */,
 /* 35 */,
 /* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(30),
   /* template */
   null,
   /* scopeId */
@@ -1018,25 +1024,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(29),
-  /* template */
-  __webpack_require__(42),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 42 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1087,6 +1075,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })], 1)])
 },staticRenderFns: []}
 
+/***/ }),
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _starRating = __webpack_require__(20);
+
+var _starRating2 = _interopRequireDefault(_starRating);
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_vue2.default.component("star-rating", _starRating2.default);
+
 /***/ })
 /******/ ]);
+});
 //# sourceMappingURL=star-rating.js.map

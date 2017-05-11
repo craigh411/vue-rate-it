@@ -4,7 +4,7 @@
     <title>Heart Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-rate-it@1.0.0/dist/heart-rating.min.js"></script>
+    <script src="../../dist/cdn/vue-rate-it.js"></script>
     <style>
     body {
         font-size: 1em;
@@ -41,12 +41,10 @@
         <h2>Small Hearts</h2>
         <heart-rating :item-size="20" :spacing="5"></heart-rating>
 
-
         <h2>Big Hearts</h2>
         <div style="padding-left:5px;">
-        <heart-rating :item-size="90" :border-width="10" :spacing="10" :increment="0.01"></heart-rating>
-</div>
-
+            <heart-rating :item-size="90" :border-width="10" :spacing="10" :increment="0.01"></heart-rating>
+        </div>
 
         <h2>Preset Hearts</h2>
         <heart-rating :rating="4"></heart-rating>
@@ -79,9 +77,10 @@
             <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="resetableRating = 0">Reset Rating</a></div>
         </div>
 
-      <h2>Inline Hearts</h2>
+        <h2>Inline Hearts</h2>
         <div style="display:inline-flex;">
-           Rated <heart-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" :spacing="2"></heart-rating> by our customers.
+            Rated
+            <heart-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" :spacing="2"></heart-rating> by our customers.
 
         </div>
     </div>
@@ -89,6 +88,9 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
+        components: {
+            'heart-rating': VueRateIt.HeartRating
+        },
         methods: {
             setRating: function(rating) {
                 this.rating = "You have Selected: " + rating + " hearts";

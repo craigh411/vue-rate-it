@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 import Vue from 'vue';
-import Rating from '../mixins/es5/Rating.js';
+import Rating from '../mixins/Rating.js';
 
 
 export default Vue.extend({

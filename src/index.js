@@ -4,7 +4,7 @@ import FaRating from "./raters/font-awesome/font-awesome-rating.vue";
 import ImageRating from "./raters/images/image-rating.vue";
 import BaseRating from "./raters/BaseRating.vue";
 import RateIt from "./raters/rate-it.vue";
-import mixins from "./mixins/es5/index.js";
+import mixins from "./mixins/index.js";
 import FaBaseGlyph from "./raters/font-awesome/FaBaseGlyph.vue";
 import Path from "./templates/Path.vue";
 import Polygon from "./templates/Polygon.vue";

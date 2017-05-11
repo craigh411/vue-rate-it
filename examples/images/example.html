@@ -4,7 +4,7 @@
     <title>Star Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="../../dist/image-rating.js"></script>
+    <script src="../../dist/cdn/vue-rate-it.js"></script>
     <style>
     body {
         font-size: 1em;
@@ -84,6 +84,9 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
+        components: {
+            'image-rating': VueRateIt.ImageRating
+        },
         data: {
             rating: 0,
             currentRating: 0,

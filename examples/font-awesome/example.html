@@ -4,7 +4,7 @@
     <title>Font Awesome Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="../../dist/font-awesome-rating.js"></script>
+    <script src="../../dist/cdn/vue-rate-it.js"></script>
     <style>
     body {
         font-size: 1em;
@@ -38,7 +38,6 @@
         <h2>Vibrant Glyphs</h2>
         <fa-rating inactive-color="#e1bad9" active-color="#cc1166" glyph="thumbs-up"></fa-rating>
 
-
         <h2>Fluid Glyphs</h2>
         <fa-rating :increment="0.01" glyph="thumbs-up"></fa-rating>
 
@@ -50,7 +49,6 @@
 
         <h2>Non-bordered Glyphs</h2>
         <fa-rating glyph="thumbs-up" :border-width="0"></fa-rating>
-
 
         <h2>Preset Glyphs</h2>
         <fa-rating :rating="4" glyph="thumbs-up"></fa-rating>
@@ -79,13 +77,14 @@
 
         <h2>Resetable Glyphs</h2>
         <div style="display:inline-block;">
-            <fa-rating glyph="thumbs-up" v-model="resetableRating" ></fa-rating>
+            <fa-rating glyph="thumbs-up" v-model="resetableRating"></fa-rating>
             <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="reset">Reset Rating</a></div>
         </div>
 
-      <h2>Inline Glyphs</h2>
+        <h2>Inline Glyphs</h2>
         <div style="display:inline-flex;">
-           Rated <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" glyph="thumbs-up"></fa-rating> by our customers.
+            Rated
+            <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" glyph="thumbs-up"></fa-rating> by our customers.
 
         </div>
     </div>
@@ -93,6 +92,9 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
+        components: {
+            'fa-rating': VueRateIt.FaRating
+        },
         methods: {
             setRating: function(rating) {
                 this.rating = "You have Selected: " + rating + " glyphs";
