@@ -1,66 +1,66 @@
 {
-    "name": "vue-rate-it",
-    "version": "1.1.3",
-    "description": "A highly customisable rating component for Vue 2.x.",
-    "main": "dist/vue-rate-it.min.js",
-    "scripts": {
-        "test": "karma start",
-        "test:watch": "karma start --single-run=false",
-        "cdn": "webpack --env=cdn --progress --hide-modules",
-        "dist": "webpack --env=webpack.dist --progress --hide-modules",
-        "build:glyphs": "cd build && node font-awesome",
-        "build:dist": "npm-run-all --parallel cdn dist",
-        "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
-        "dev:ext": "webpack-dev-server --content-base ./examples/extending --env=extending --open --hot",
-        "docs": "webpack-dev-server --content-base ./docs --env=docs --open --hot",
-        "build:docs": "cross-env NODE_ENV=production webpack --env=docs --progress --hide-modules"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/craigh411/vue-rate-it.git"
-    },
-    "files": [
-        "dist",
-        "src",
-        "glyphs.js"
-    ],
-    "keywords": [
-        "rating",
-        "rate",
-        "vue",
-        "vue.js",
-        "vue 2"
-    ],
-    "author": "Craig Humphreys",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/craigh411/vue-rate-it/issues"
-    },
-    "homepage": "https://github.com/craigh411/vue-rate-it#readme",
-    "devDependencies": {
-        "babel-core": "^6.21.0",
-        "babel-loader": "^6.0.0",
-        "babel-preset-es2015": "^6.18.0",
-        "babel-register": "^6.23.0",
-        "cross-env": "^4.0.0",
-        "css-loader": "^0.25.0",
-        "file-loader": "^0.9.0",
-        "font-awesome": "^4.7.0",
-        "jasmine": "^2.5.3",
-        "karma": "^1.4.0",
-        "karma-chrome-launcher": "^2.0.0",
-        "karma-jasmine": "^1.1.0",
-        "karma-phantomjs-launcher": "^1.0.2",
-        "karma-spec-reporter": "0.0.26",
-        "karma-webpack": "^2.0.3",
-        "npm-run-all": "^4.0.2",
-        "vinyl-buffer": "^1.0.0",
-        "vinyl-source-stream": "^1.1.0",
-        "vue": "^2.1.8",
-        "vue-loader": "^11.1.4",
-        "vue-router": "^2.4.0",
-        "vue-template-compiler": "^2.2.1",
-        "webpack": "^2.2.0",
-        "webpack-dev-server": "^2.2.0"
-    }
+  "name": "vue-rate-it",
+  "version": "1.1.4",
+  "description": "A highly customisable rating component for Vue 2.x.",
+  "main": "dist/vue-rate-it.min.js",
+  "scripts": {
+    "test": "karma start",
+    "test:watch": "karma start --single-run=false",
+    "cdn": "webpack --env=cdn --progress --hide-modules",
+    "dist": "webpack --env=webpack.dist --progress --hide-modules",
+    "build:glyphs": "cd build && node font-awesome",
+    "build:dist": "npm-run-all --parallel cdn dist",
+    "dev": "webpack-dev-server --content-base ./examples --env=dev --open --hot",
+    "dev:ext": "webpack-dev-server --content-base ./examples/extending --env=extending --open --hot",
+    "docs": "webpack-dev-server --content-base ./docs --env=docs --open --hot",
+    "build:docs": "cross-env NODE_ENV=production webpack --env=docs --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigh411/vue-rate-it.git"
+  },
+  "files": [
+    "dist",
+    "src",
+    "glyphs.js"
+  ],
+  "keywords": [
+    "rating",
+    "rate",
+    "vue",
+    "vue.js",
+    "vue 2"
+  ],
+  "author": "Craig Humphreys",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craigh411/vue-rate-it/issues"
+  },
+  "homepage": "https://github.com/craigh411/vue-rate-it#readme",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.23.0",
+    "cross-env": "^4.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
+    "jasmine": "^2.5.3",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^2.0.3",
+    "npm-run-all": "^4.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "vue": "^2.1.8",
+    "vue-loader": "^11.1.4",
+    "vue-router": "^2.4.0",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
+  }
 }
