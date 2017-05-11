@@ -518,8 +518,8 @@ exports.default = {
         }
     },
     model: {
-        prop: 'rating',
-        event: 'rating-selected'
+        prop: "rating",
+        event: "rating-selected"
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -538,9 +538,9 @@ exports.default = {
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit('rating-selected', this.selectedRating);
+                    this.$emit("rating-selected", this.selectedRating);
                 } else {
-                    this.$emit('current-rating', this.currentRating);
+                    this.$emit("current-rating", this.currentRating);
                 }
             }
         },
@@ -645,10 +645,10 @@ exports.default = {
 
     computed: {
         pointsToString: function pointsToString() {
-            return this.points.join(',');
+            return this.points.join(",");
         },
         getFillId: function getFillId() {
-            return 'url(#' + this.fillId + ')';
+            return "url(#" + this.fillId + ")";
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -665,7 +665,7 @@ exports.default = {
     },
     methods: {
         mouseMoving: function mouseMoving($event) {
-            this.$emit('mouse-move', {
+            this.$emit("mouse-move", {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
@@ -678,7 +678,7 @@ exports.default = {
             return Math.min(position, 100);
         },
         selected: function selected($event) {
-            this.$emit('selected', {
+            this.$emit("selected", {
                 id: this.index,
                 position: this.getPosition($event)
             });
@@ -686,7 +686,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            fillId: '',
+            fillId: "",
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -1075,7 +1075,7 @@ var _fontAwesomeGlyph2 = _interopRequireDefault(_fontAwesomeGlyph);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _BaseRating2.default.extend({
-    name: 'Fa-Rating',
+    name: "Fa-Rating",
     components: {
         FaGlyph: _fontAwesomeGlyph2.default
     },
@@ -1086,15 +1086,15 @@ exports.default = _BaseRating2.default.extend({
         },
         activeColor: {
             type: String,
-            default: '#000'
+            default: "#000"
         }
     },
     created: function created() {
-        this.customProps['glyph'] = this.glyph;
+        this.customProps["glyph"] = this.glyph;
     },
     data: function data() {
         return {
-            type: 'fa-glyph'
+            type: "fa-glyph"
         };
     }
 });
@@ -1117,9 +1117,13 @@ var _fontAwesomeRating = __webpack_require__(15);
 
 var _fontAwesomeRating2 = _interopRequireDefault(_fontAwesomeRating);
 
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-Vue.component('fa-rating', _fontAwesomeRating2.default);
+_vue2.default.component("fa-rating", _fontAwesomeRating2.default);
 
 /***/ }),
 /* 31 */,

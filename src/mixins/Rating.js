@@ -52,14 +52,14 @@ export default {
             type: Number,
             default: 0
         },
-        fixedPoints:{
+        fixedPoints: {
             type: Number,
             default: null
         }
     },
-    model:{
-      prop: 'rating',
-      event: 'rating-selected'
+    model: {
+        prop: "rating",
+        event: "rating-selected"
     },
     created() {
         this.step = this.increment * 100;
@@ -70,16 +70,16 @@ export default {
     methods: {
         setRating($event, persist) {
             if (!this.readOnly) {
-                let position =  Math.max(0, $event.position / 100);
+                let position = Math.max(0, $event.position / 100);
                 this.currentRating = (($event.id + position) - 1).toFixed(2);
                 this.currentRating = (this.currentRating > this.maxRating) ? this.maxRating : this.currentRating;
 
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit('rating-selected', this.selectedRating);
+                    this.$emit("rating-selected", this.selectedRating);
                 } else {
-                    this.$emit('current-rating', this.currentRating);
+                    this.$emit("current-rating", this.currentRating);
                 }
             }
         },
@@ -104,8 +104,8 @@ export default {
             this.currentRating = Math.min(this.maxRating, Math.ceil(this.currentRating * inv) / inv);
         }
     },
-    computed:{
-        formattedRating(){
+    computed: {
+        formattedRating() {
             return (this.fixedPoints === null) ? this.currentRating : this.currentRating.toFixed(this.fixedPoints);
         }
     },
@@ -123,6 +123,6 @@ export default {
             currentRating: 0,
             selectedRating: 0,
             customProps: {}
-        }
+        };
     }
-}
+};

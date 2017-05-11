@@ -35,7 +35,7 @@ export default {
         customProps: {
             type: Object,
             default: function() {
-                return {}
+                return {};
             }
         }
     },
@@ -44,10 +44,10 @@ export default {
     },
     computed: {
         pointsToString() {
-            return this.points.join(',');
+            return this.points.join(",");
         },
         getFillId() {
-            return 'url(#' + this.fillId + ')';
+            return "url(#" + this.fillId + ")";
         },
         getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -64,11 +64,11 @@ export default {
     },
     methods: {
         mouseMoving($event) {
-            this.$emit('mouse-move', {
+            this.$emit("mouse-move", {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
-            })
+            });
         },
         getPosition($event) {
             // calculate position in percentage.
@@ -77,18 +77,18 @@ export default {
             return Math.min(position, 100);
         },
         selected($event) {
-            this.$emit('selected', {
+            this.$emit("selected", {
                 id: this.index,
                 position: this.getPosition($event)
-            })
+            });
         }
     },
     data() {
         return {
-            fillId: '',
+            fillId: "",
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
-        }
+        };
     }
-}
+};

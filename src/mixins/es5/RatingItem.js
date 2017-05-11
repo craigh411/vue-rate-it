@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -50,10 +50,10 @@ exports.default = {
 
     computed: {
         pointsToString: function pointsToString() {
-            return this.points.join(',');
+            return this.points.join(",");
         },
         getFillId: function getFillId() {
-            return 'url(#' + this.fillId + ')';
+            return "url(#" + this.fillId + ")";
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -70,7 +70,7 @@ exports.default = {
     },
     methods: {
         mouseMoving: function mouseMoving($event) {
-            this.$emit('mouse-move', {
+            this.$emit("mouse-move", {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
@@ -83,7 +83,7 @@ exports.default = {
             return Math.min(position, 100);
         },
         selected: function selected($event) {
-            this.$emit('selected', {
+            this.$emit("selected", {
                 id: this.index,
                 position: this.getPosition($event)
             });
@@ -91,7 +91,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            fillId: '',
+            fillId: "",
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1

@@ -1,3 +1,4 @@
-import HeartRating from '../raters/hearts/heart-rating.vue';
+import HeartRating from "../raters/hearts/heart-rating.vue";
+import Vue from "vue";
 
-Vue.component('heart-rating', HeartRating);
+Vue.component("heart-rating", HeartRating);

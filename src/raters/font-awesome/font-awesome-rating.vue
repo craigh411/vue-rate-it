@@ -1,8 +1,8 @@
 <script type="text/javascript">
-import BaseRating from '../BaseRating.vue';
-import FaGlyph from './font-awesome-glyph.vue';
+import BaseRating from "../BaseRating.vue";
+import FaGlyph from "./font-awesome-glyph.vue";
 export default BaseRating.extend({
-    name: 'Fa-Rating',
+    name: "Fa-Rating",
     components: {
         FaGlyph
     },
@@ -13,15 +13,15 @@ export default BaseRating.extend({
         },
         activeColor: {
             type: String,
-            default: '#000'
+            default: "#000"
         }
     },
     created() {
-        this.customProps['glyph'] = this.glyph;
+        this.customProps["glyph"] = this.glyph;
     },
     data() {
         return {
-            type: 'fa-glyph'
+            type: "fa-glyph"
         }
     }
 });

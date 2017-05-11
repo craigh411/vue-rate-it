@@ -63,8 +63,8 @@ exports.default = {
         }
     },
     model: {
-        prop: 'rating',
-        event: 'rating-selected'
+        prop: "rating",
+        event: "rating-selected"
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -83,9 +83,9 @@ exports.default = {
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit('rating-selected', this.selectedRating);
+                    this.$emit("rating-selected", this.selectedRating);
                 } else {
-                    this.$emit('current-rating', this.currentRating);
+                    this.$emit("current-rating", this.currentRating);
                 }
             }
         },
