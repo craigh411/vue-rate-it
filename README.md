@@ -86,28 +86,14 @@ You may also import all of the components at once, however, you will still need 
 import Raters from 'vue-rate-it';
 ```
 
-##### Important
-
-You will need to ensure that you have added [vue-loader](https://www.npmjs.com/package/vue-loader) and [babel-loader](https://www.npmjs.com/package/babel-loader) to your list of modules if using webpack. If you are using browserify you will require the [vueify](https://www.npmjs.com/package/vueify) and [babelify](https://www.npmjs.com/package/babelify) transforms to be installed. You will also need to ensure that you have installed and setup [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015).
-
-#### Setting up Babel
-
-Whether you are using Browserify or Webpack you will need to make sure you have babel-preset-es2015 installed to correctly transpile the ES2015 code, and have included the following in your .babelrc file in the root of your project:
-
-```json
-{
-  "presets": ["es2015"]
-}
-```
-
 ### Registering the Rating Components
 
 #### Global Registration
 
 You can register your raters globally by doing the following:
-import Raters from 'vue-star-rating';
 
 ```javascript
+import Raters from 'vue-star-rating';
 Vue.component('star-rating', Raters.StarRating);
 Vue.component('heart-rating', Raters.HeartRating);
 Vue.component('fa-rating', Raters.FaRating);
@@ -130,30 +116,60 @@ export default{
 
 ### Using the CDN
 
-It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your web page:
+It is recommended that you use `vue-rate-it` via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your web page. These components are registered automatically:
 
 #### Star Rating
 
 ```HTML
-<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/star-rating.min.js">
+<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/star-rating.min.js">
 ```
 
 #### Heart Rating
 ```HTML
-<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/heart-rating.min.js">
+<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/heart-rating.min.js">
 ```
 
 #### Fa Rating (Font-awesome)
 
 ```HTML
-<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/fa-rating.min.js">
+<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/fa-rating.min.js">
 ```
 
 #### Image Rating
 
 ```HTML
-<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/image-rating.min.js">
+<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/image-rating.min.js">
 ```
+
+#### All Features
+
+You may also include all features and raters via CDN by doing:
+
+```HTML
+<link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/vue-rate-it.min.js">
+```
+
+These raters are not automatically registered, so you will need to register them yourself by doing:
+
+```javascript
+Vue.component('star-rating', VueRateIt.StarRating);
+Vue.component('heart-rating', VueRateIt.HeartRating);
+Vue.component('image-rating', VueRateIt.ImageRating);
+Vue.component('fa-rating', VueRateIt.FaRating);
+```
+
+You may also register them in your view model:
+
+```javascript
+new Vue({
+  el: "#app",
+  components:{
+    'star-rating': VueRateIt.StarRating
+  }
+});
+```
+
+You may also extend and create your own raters using the CDN (see [docs for details](https://craigh411.github.io/vue-rate-it/)).
 
 ## Syncing Ratings between Parent and Child
 
@@ -177,7 +193,7 @@ The first thing you will want to do is sync your ratings between the parent and 
 </template>
 
 <script type="text/javascript">   
-import HeartRating from 'vue-rate-it';
+import {HeartRating} from 'vue-rate-it';
 
 export default{
   components: {
@@ -214,7 +230,7 @@ It isn't possible to use v-model on the component in Vue.js 2.1 and below, howev
 </template>
 
 <script type="text/javascript">   
-import HeartRating from 'vue-rate-it';
+import {HeartRating} from 'vue-rate-it';
 
 export default{
   components: {
