@@ -74,26 +74,6 @@
 
                     </div>
 
-                    <div class="ui warning message" style="font-size:0.9em;">
-                        <div class="header">
-                            Important
-                        </div>
-                        You will need to ensure that you have added <a href="https://www.npmjs.com/package/vue-loader">vue-loader</a> and <a href="https://www.npmjs.com/package/babel-loader">babel-loader</a> to your list of modules if using webpack. If you are using browserify you will require the <a href="https://www.npmjs.com/package/vueify">vueify</a> and <a href="https://www.npmjs.com/package/babelify">babelify</a> transforms to be installed. You will also need to ensure that you have installed and setup <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a>.
-                    </div>
-
-
-                    <h3 class="ui header">Setting up Babel</h3>
-
-                    <p>Wether you are using Browserify or Webpack you will need to make sure you have <a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a> installed to correctly transpile the ES2015 code, and have included the following in your <i>.babelrc</i> file in the root of your project:</p>
-
-<div class="ui segment">
-                    <!-- HTML generated using hilite.me -->
-                    <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">{
-  <span style="color: #1e90ff; font-weight: bold">&quot;presets&quot;</span>: [<span style="color: #aa5500">&quot;es2015&quot;</span>]
-}
-</pre></div>
-</div>
-
                     <h3 class="ui header">Registering the Rating Components</h3>
 
                     <h4 class="ui header">Global Registration</h4> You can register your raters globally by doing the following:
@@ -125,34 +105,67 @@ Vue.component(<span style="color: #aa5500">&#39;image-rating&#39;</span>, Raters
                     </div>
 
                     <h2 class="ui header">Using the CDN</h2>
-                    <p>It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage:</p>
+                    <p>It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage. These components are registered automatically:</p>
 
                     <h3 class="ui header">Star Rating</h3>
                     <div class="ui segment">
                         <!-- HTML generated using hilite.me -->
-                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/star-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/cdn/star-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 </pre></div>
                     </div>
 
                     <h3 class="ui header">Heart Rating</h3>
                     <div class="ui segment">
                         <!-- HTML generated using hilite.me -->
-                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/heart-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/cdn/heart-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 </pre></div>
                     </div>
                     <h3 class="ui header">Fa Rating (Font-awesome)</h3>
                     <div class="ui segment">
                         <!-- HTML generated using hilite.me -->
-                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/fa-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/cdn/fa-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 </pre></div>
                     </div>
 
                     <h3 class="ui header">Image Rating</h3>
                     <div class="ui segment">
                         <!-- HTML generated using hilite.me -->
-                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/image-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/cdn/image-rating.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 </pre></div>
                     </div>
+
+                    <h3 class="ui header">All Features</h3>
+                    You may also add all vue-rate-it features and raters via CDN by doing:
+                    <div class="ui segment">
+                        <!-- HTML generated using hilite.me -->
+                        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;link</span> <span style="color: #1e90ff">rel=</span><span style="color: #aa5500">&quot;stylesheet&quot;</span> <span style="color: #1e90ff">href=</span><span style="color: #aa5500">&quot;https://unpkg.com/vue-rate-it/dist/cdn/vue-rate-it.min.js&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
+</pre></div>
+                    </div>
+
+<h4 class="ui header">Registering the Raters</h4>
+
+<p>When importing all features via CDN, the raters are not automatically registered, so you will need to register them yourself by doing:</p>
+<div class="ui segment">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">Vue.component(<span style="color: #aa5500">&#39;star-rating&#39;</span>, VueRateIt.StarRating);
+Vue.component(<span style="color: #aa5500">&#39;heart-rating&#39;</span>, VueRateIt.HeartRating);
+Vue.component(<span style="color: #aa5500">&#39;image-rating&#39;</span>, VueRateIt.ImageRating);
+Vue.component(<span style="color: #aa5500">&#39;fa-rating&#39;</span>, VueRateIt.FaRating);
+</pre></div>
+</div>
+
+<p>You may also register them in your view model:</p>
+
+<div class="ui segment">
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">new</span> Vue({
+  el: <span style="color: #aa5500">&quot;#app&quot;</span>,
+  components:{
+    <span style="color: #aa5500">&#39;star-rating&#39;</span>: VueRateIt.StarRating
+  }
+});
+</pre></div>
+</div>
+
+
 
                     <h1 class="ui header">Syncing Ratings between Parent and Child</h1>
                     <div class="ui divider"></div>

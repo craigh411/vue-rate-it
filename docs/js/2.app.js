@@ -111,10 +111,10 @@ exports.default = {
 
     computed: {
         pointsToString: function pointsToString() {
-            return this.points.join(',');
+            return this.points.join(",");
         },
         getFillId: function getFillId() {
-            return 'url(#' + this.fillId + ')';
+            return "url(#" + this.fillId + ")";
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -131,7 +131,7 @@ exports.default = {
     },
     methods: {
         mouseMoving: function mouseMoving($event) {
-            this.$emit('mouse-move', {
+            this.$emit("mouse-move", {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
@@ -144,7 +144,7 @@ exports.default = {
             return Math.min(position, 100);
         },
         selected: function selected($event) {
-            this.$emit('selected', {
+            this.$emit("selected", {
                 id: this.index,
                 position: this.getPosition($event)
             });
@@ -152,7 +152,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            fillId: '',
+            fillId: "",
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -525,8 +525,8 @@ exports.default = {
         }
     },
     model: {
-        prop: 'rating',
-        event: 'rating-selected'
+        prop: "rating",
+        event: "rating-selected"
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -545,9 +545,9 @@ exports.default = {
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit('rating-selected', this.selectedRating);
+                    this.$emit("rating-selected", this.selectedRating);
                 } else {
-                    this.$emit('current-rating', this.currentRating);
+                    this.$emit("current-rating", this.currentRating);
                 }
             }
         },
@@ -779,7 +779,7 @@ var _fontAwesomeGlyph2 = _interopRequireDefault(_fontAwesomeGlyph);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _BaseRating2.default.extend({
-    name: 'Fa-Rating',
+    name: "Fa-Rating",
     components: {
         FaGlyph: _fontAwesomeGlyph2.default
     },
@@ -790,15 +790,15 @@ exports.default = _BaseRating2.default.extend({
         },
         activeColor: {
             type: String,
-            default: '#000'
+            default: "#000"
         }
     },
     created: function created() {
-        this.customProps['glyph'] = this.glyph;
+        this.customProps["glyph"] = this.glyph;
     },
     data: function data() {
         return {
-            type: 'fa-glyph'
+            type: "fa-glyph"
         };
     }
 });
@@ -1294,7 +1294,7 @@ exports.Polygon = _Polygon2.default;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _Rating = __webpack_require__(22);
@@ -1305,13 +1305,11 @@ var _RatingItem = __webpack_require__(18);
 
 var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { default: obj };
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-	Rating: _Rating2.default,
-	RatingItem: _RatingItem2.default
+    Rating: _Rating2.default,
+    RatingItem: _RatingItem2.default
 };
 
 /***/ }),
@@ -2074,6 +2072,19 @@ exports.default = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 64 */,
@@ -2125,25 +2136,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "ui divider"
   }), _vm._v(" "), _c('h2', [_vm._v("NPM")]), _vm._v(" "), _c('p', [_vm._v("It is recommended that you install vue-rate-it via npm:")]), _vm._v(" "), _c('pre', {
     staticClass: "code"
-  }, [_vm._v("npm install vue-rate-it")]), _vm._v(" "), _c('p', [_vm._v("Once installed you can import the rating components like so:")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('p', [_vm._v("You may also import all of the components at once, however, you will still need to register each component individually:\n                ")]), _c('p'), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _c('h3', {
-    staticClass: "ui header"
-  }, [_vm._v("Setting up Babel")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _vm._m(8), _vm._v(" "), _c('h3', {
+  }, [_vm._v("npm install vue-rate-it")]), _vm._v(" "), _c('p', [_vm._v("Once installed you can import the rating components like so:")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('p', [_vm._v("You may also import all of the components at once, however, you will still need to register each component individually:\n                ")]), _c('p'), _vm._m(5), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
   }, [_vm._v("Registering the Rating Components")]), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Global Registration")]), _vm._v(" You can register your raters globally by doing the following:\n                    "), _vm._m(9), _vm._v(" "), _c('h4', {
+  }, [_vm._v("Global Registration")]), _vm._v(" You can register your raters globally by doing the following:\n                    "), _vm._m(6), _vm._v(" "), _c('h4', {
     staticClass: "ui header"
-  }, [_vm._v("Local Registration")]), _vm._v(" "), _c('p', [_vm._v("You can register your raters in the components that you want to use them in by doing the following:")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c('h2', {
+  }, [_vm._v("Local Registration")]), _vm._v(" "), _c('p', [_vm._v("You can register your raters in the components that you want to use them in by doing the following:")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _c('h2', {
     staticClass: "ui header"
-  }, [_vm._v("Using the CDN")]), _vm._v(" "), _c('p', [_vm._v("It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage:")]), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Using the CDN")]), _vm._v(" "), _c('p', [_vm._v("It is recommended that you use vue-rate-it via NPM, however, each rating component does have a dist file available via unpkg. To use the raters via CDN simply include the following in your webpage. These components are registered automatically:")]), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Star Rating")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Star Rating")]), _vm._v(" "), _vm._m(8), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Heart Rating")]), _vm._v(" "), _vm._m(12), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Heart Rating")]), _vm._v(" "), _vm._m(9), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Fa Rating (Font-awesome)")]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('h3', {
+  }, [_vm._v("Fa Rating (Font-awesome)")]), _vm._v(" "), _vm._m(10), _vm._v(" "), _c('h3', {
     staticClass: "ui header"
-  }, [_vm._v("Image Rating")]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c('h1', {
+  }, [_vm._v("Image Rating")]), _vm._v(" "), _vm._m(11), _vm._v(" "), _c('h3', {
+    staticClass: "ui header"
+  }, [_vm._v("All Features")]), _vm._v("\n                    You may also add all vue-rate-it features and raters via CDN by doing:\n                    "), _vm._m(12), _vm._v(" "), _c('h4', {
+    staticClass: "ui header"
+  }, [_vm._v("Registering the Raters")]), _vm._v(" "), _c('p', [_vm._v("When importing all features via CDN, the raters are not automatically registered, so you will need to register them yourself by doing:")]), _vm._v(" "), _vm._m(13), _vm._v(" "), _c('p', [_vm._v("You may also register them in your view model:")]), _vm._v(" "), _vm._m(14), _vm._v(" "), _c('h1', {
     staticClass: "ui header"
   }, [_vm._v("Syncing Ratings between Parent and Child")]), _vm._v(" "), _c('div', {
     staticClass: "ui divider"
@@ -2452,67 +2465,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("'vue-rate-it'")]), _vm._v(";\n")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "ui warning message",
-    staticStyle: {
-      "font-size": "0.9em"
-    }
-  }, [_c('div', {
-    staticClass: "header"
-  }, [_vm._v("\n                            Important\n                        ")]), _vm._v("\n                        You will need to ensure that you have added "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/vue-loader"
-    }
-  }, [_vm._v("vue-loader")]), _vm._v(" and "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/babel-loader"
-    }
-  }, [_vm._v("babel-loader")]), _vm._v(" to your list of modules if using webpack. If you are using browserify you will require the "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/vueify"
-    }
-  }, [_vm._v("vueify")]), _vm._v(" and "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/babelify"
-    }
-  }, [_vm._v("babelify")]), _vm._v(" transforms to be installed. You will also need to ensure that you have installed and setup "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/babel-preset-es2015"
-    }
-  }, [_vm._v("babel-preset-es2015")]), _vm._v(".\n                    ")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("Wether you are using Browserify or Webpack you will need to make sure you have "), _c('a', {
-    attrs: {
-      "href": "https://www.npmjs.com/package/babel-preset-es2015"
-    }
-  }, [_vm._v("babel-preset-es2015")]), _vm._v(" installed to correctly transpile the ES2015 code, and have included the following in your "), _c('i', [_vm._v(".babelrc")]), _vm._v(" file in the root of your project:")])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "ui segment"
-  }, [_c('div', {
-    staticStyle: {
-      "background": "#ffffff",
-      "overflow": "auto",
-      "width": "auto",
-      "border-width": ".1em .1em .1em .8em",
-      "padding": ".2em .6em"
-    }
-  }, [_c('pre', {
-    staticStyle: {
-      "margin": "0",
-      "line-height": "125%"
-    }
-  }, [_vm._v("{\n  "), _c('span', {
-    staticStyle: {
-      "color": "#1e90ff",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("\"presets\"")]), _vm._v(": ["), _c('span', {
-    staticStyle: {
-      "color": "#aa5500"
-    }
-  }, [_vm._v("\"es2015\"")]), _vm._v("]\n}\n")])])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
     staticClass: "ui segment"
   }, [_c('div', {
     staticStyle: {
@@ -2622,7 +2574,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/star-rating.min.js\"")]), _c('span', {
+  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/cdn/star-rating.min.js\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
@@ -2665,7 +2617,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/heart-rating.min.js\"")]), _c('span', {
+  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/cdn/heart-rating.min.js\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
@@ -2708,7 +2660,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/fa-rating.min.js\"")]), _c('span', {
+  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/cdn/fa-rating.min.js\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
@@ -2751,12 +2703,117 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/image-rating.min.js\"")]), _c('span', {
+  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/cdn/image-rating.min.js\"")]), _c('span', {
     staticStyle: {
       "color": "#1e90ff",
       "font-weight": "bold"
     }
   }, [_vm._v(">")]), _vm._v("\n")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "ui segment"
+  }, [_c('div', {
+    staticStyle: {
+      "background": "#ffffff",
+      "overflow": "auto",
+      "width": "auto",
+      "border-width": ".1em .1em .1em .8em",
+      "padding": ".2em .6em"
+    }
+  }, [_c('pre', {
+    staticStyle: {
+      "margin": "0",
+      "line-height": "125%"
+    }
+  }, [_c('span', {
+    staticStyle: {
+      "color": "#1e90ff",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("<link")]), _vm._v(" "), _c('span', {
+    staticStyle: {
+      "color": "#1e90ff"
+    }
+  }, [_vm._v("rel=")]), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("\"stylesheet\"")]), _vm._v(" "), _c('span', {
+    staticStyle: {
+      "color": "#1e90ff"
+    }
+  }, [_vm._v("href=")]), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("\"https://unpkg.com/vue-rate-it/dist/cdn/vue-rate-it.min.js\"")]), _c('span', {
+    staticStyle: {
+      "color": "#1e90ff",
+      "font-weight": "bold"
+    }
+  }, [_vm._v(">")]), _vm._v("\n")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "ui segment"
+  }, [_c('div', {
+    staticStyle: {
+      "background": "#ffffff",
+      "overflow": "auto",
+      "width": "auto",
+      "border-width": ".1em .1em .1em .8em",
+      "padding": ".2em .6em"
+    }
+  }, [_c('pre', {
+    staticStyle: {
+      "margin": "0",
+      "line-height": "125%"
+    }
+  }, [_vm._v("Vue.component("), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("'star-rating'")]), _vm._v(", VueRateIt.StarRating);\nVue.component("), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("'heart-rating'")]), _vm._v(", VueRateIt.HeartRating);\nVue.component("), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("'image-rating'")]), _vm._v(", VueRateIt.ImageRating);\nVue.component("), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("'fa-rating'")]), _vm._v(", VueRateIt.FaRating);\n")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "ui segment"
+  }, [_c('div', {
+    staticStyle: {
+      "background": "#ffffff",
+      "overflow": "auto",
+      "width": "auto",
+      "border-width": ".1em .1em .1em .8em",
+      "padding": ".2em .6em"
+    }
+  }, [_c('pre', {
+    staticStyle: {
+      "margin": "0",
+      "line-height": "125%"
+    }
+  }, [_c('span', {
+    staticStyle: {
+      "color": "#0000aa"
+    }
+  }, [_vm._v("new")]), _vm._v(" Vue({\n  el: "), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("\"#app\"")]), _vm._v(",\n  components:{\n    "), _c('span', {
+    staticStyle: {
+      "color": "#aa5500"
+    }
+  }, [_vm._v("'star-rating'")]), _vm._v(": VueRateIt.StarRating\n  }\n});\n")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "ui segment",

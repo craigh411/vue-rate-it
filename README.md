@@ -114,7 +114,7 @@ export default{
 }
 ```
 
-**You can find details about all the available props and events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
+**You can find details about all the available props, events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
 
 ### Using the CDN
 
@@ -151,7 +151,9 @@ You may also include all features and raters via CDN by doing:
 <link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/vue-rate-it.min.js">
 ```
 
-These raters are not automatically registered, so you will need to register them yourself by doing:
+#### Registering the Raters
+
+When importing all features via CDN, the raters are not automatically registered, so you will need to register them yourself by doing:
 
 ```javascript
 Vue.component('star-rating', VueRateIt.StarRating);
@@ -171,9 +173,7 @@ new Vue({
 });
 ```
 
-You may also extend and create your own raters using the CDN
-
-**You can find details about all the available props and events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
+**You can find details about all the available props, events and options on [the docs github pages](https://craigh411.github.io/vue-rate-it/)**
 
 ## Syncing Ratings between Parent and Child
 
