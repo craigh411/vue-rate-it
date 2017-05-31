@@ -1,4 +1,4 @@
-import FontAwesomeRating from "../raters/font-awesome/font-awesome-rating.vue";
-import Vue from "vue";
+import FontAwesomeRating from '../raters/font-awesome/font-awesome-rating.vue'
+import Vue from 'vue'
 
-Vue.component("fa-rating", FontAwesomeRating);
+Vue.component('fa-rating', FontAwesomeRating)

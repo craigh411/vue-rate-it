@@ -1,6 +1,6 @@
 <script type="text/javascript">
-import BaseRating from '../BaseRating.vue';
-import CImage from './image.vue';
+import BaseRating from '../BaseRating.vue'
+import CImage from './image.vue'
 export default BaseRating.extend({
     name: 'Image-Rating',
     props: {
@@ -11,19 +11,19 @@ export default BaseRating.extend({
         src: {
             type: String,
             required: true
-        },
+        }
     },
     created() {
-        this.customProps['opacity'] = this.backgroundOpacity;
-        this.customProps['src'] = this.src;
+        this.customProps['opacity'] = this.backgroundOpacity
+        this.customProps['src'] = this.src
     },
     components: {
-      CImage
+        CImage
     },
     data() {
         return {
             type: 'c-image'
         }
     }
-});
+})
 </script>

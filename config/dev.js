@@ -6,7 +6,7 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = function(env) {
     var plugins = [];
-    
+
     return {
         entry: {
             'cdn/heart-rating': './src/reg/heart-rating',
@@ -18,7 +18,10 @@ module.exports = function(env) {
         output: {
             path: path.resolve(__dirname, '../dist'),
             publicPath: '/dist/',
-            filename: '[name].js'
+            filename: '[name].js',
+            library: 'VueRateIt',
+            libraryTarget: 'umd',
+            umdNamedDefine: true
         },
         resolve: {
             alias: {

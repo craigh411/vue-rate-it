@@ -1,5 +1,5 @@
 <script type="text/javascript">
-import Path from '../../templates/Path.vue';
+import Path from '../../templates/Path.vue'
 
 export default Path.extend({
     props: {
@@ -9,7 +9,7 @@ export default Path.extend({
         }
     },
     created() {
-      this.coords.x1="-2%";
+        this.coords.x1 = '-2%'
     },
     data() {
         return {
@@ -17,11 +17,11 @@ export default Path.extend({
             originalWidth: 179,
             originalHeight: 179,
             pathAttrs: {
-                "transform": "scale(0.1)"
-            },
+                'transform': 'scale(0.1)'
+            }
         }
     }
-});
+})
 </script>
 
 <style>

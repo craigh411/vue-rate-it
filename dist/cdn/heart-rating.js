@@ -472,7 +472,7 @@ exports.default = {
         },
         borderColor: {
             type: String,
-            default: "#999"
+            default: '#999'
         },
         borderWidth: {
             type: Number,
@@ -495,10 +495,10 @@ exports.default = {
 
     computed: {
         pointsToString: function pointsToString() {
-            return this.points.join(",");
+            return this.points.join(',');
         },
         getFillId: function getFillId() {
-            return "url(#" + this.fillId + ")";
+            return 'url(#' + this.fillId + ')';
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -507,15 +507,15 @@ exports.default = {
             return this.originalHeight / this.originalWidth * this.getWidth;
         },
         getFill: function getFill() {
-            return this.fill + "%";
+            return this.fill + '%';
         },
         getSpacing: function getSpacing() {
-            return this.spacing + this.borderWidth / 2 + "px";
+            return this.spacing + this.borderWidth / 2 + 'px';
         }
     },
     methods: {
         mouseMoving: function mouseMoving($event) {
-            this.$emit("mouse-move", {
+            this.$emit('mouse-move', {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
@@ -528,7 +528,7 @@ exports.default = {
             return Math.min(position, 100);
         },
         selected: function selected($event) {
-            this.$emit("selected", {
+            this.$emit('selected', {
                 id: this.index,
                 position: this.getPosition($event)
             });
@@ -536,7 +536,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            fillId: "",
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -566,11 +566,11 @@ exports.default = {
         },
         activeColor: {
             type: String,
-            default: "#ffd055"
+            default: '#ffd055'
         },
         inactiveColor: {
             type: String,
-            default: "#d8d8d8"
+            default: '#d8d8d8'
         },
         maxRating: {
             type: Number,
@@ -590,7 +590,7 @@ exports.default = {
         },
         textClass: {
             type: String,
-            default: ""
+            default: ''
         },
         inline: {
             type: Boolean,
@@ -598,7 +598,7 @@ exports.default = {
         },
         borderColor: {
             type: String,
-            default: "#999"
+            default: '#999'
         },
         borderWidth: {
             type: Number,
@@ -614,8 +614,8 @@ exports.default = {
         }
     },
     model: {
-        prop: "rating",
-        event: "rating-selected"
+        prop: 'rating',
+        event: 'rating-selected'
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -634,9 +634,9 @@ exports.default = {
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit("rating-selected", this.selectedRating);
+                    this.$emit('rating-selected', this.selectedRating);
                 } else {
-                    this.$emit("current-rating", this.currentRating);
+                    this.$emit('current-rating', this.currentRating);
                 }
             }
         },
@@ -692,7 +692,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-     value: true
+    value: true
 });
 
 var _vue = __webpack_require__(1);
@@ -718,12 +718,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 
 exports.default = _vue2.default.extend({
-     mixins: [_Rating2.default],
-     data: function data() {
-          return {
-               type: ''
-          };
-     }
+    mixins: [_Rating2.default],
+    data: function data() {
+        return {
+            type: ''
+        };
+    }
 });
 
 /***/ }),
@@ -755,7 +755,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "mouseleave": _vm.resetRating
     }
   }, [_vm._l((_vm.maxRating), function(n) {
-    return _c('span', {
+    return _c('div', {
       class: [{
         pointer: !_vm.readOnly
       }, 'rating-item']
@@ -889,22 +889,22 @@ exports.default = _vue2.default.extend({
     mixins: [_RatingItem2.default],
     computed: {
         getViewbox: function getViewbox() {
-            return "0 0 " + this.originalWidth + " " + this.originalHeight;
+            return '0 0 ' + this.originalWidth + ' ' + this.originalHeight;
         },
         getFill: function getFill() {
             // Account for any adjustment to the x1 coordinate of the LinearGradient
             var adjustment = this.fill / 100 * Math.abs(this.x1Val);
-            return this.x1Val > 0 ? this.fill - adjustment + "%" : this.fill + adjustment + "%";
+            return this.x1Val > 0 ? this.fill - adjustment + '%' : this.fill + adjustment + '%';
         },
         x1Val: function x1Val() {
-            return parseInt(this.coords.x1.replace("%"));
+            return parseInt(this.coords.x1.replace('%'));
         }
     },
     data: function data() {
         return {
             points: [],
             pathAttrs: {},
-            coords: { x1: "0%", x2: "100%", y1: "0%", y2: "0%" }
+            coords: { x1: '0%', x2: '100%', y1: '0%', y2: '0%' }
         };
     }
 });
@@ -1026,15 +1026,15 @@ exports.default = _BaseRating2.default.extend({
         },
         activeColor: {
             type: String,
-            default: "#d80000"
+            default: '#d80000'
         },
         inactiveColor: {
             type: String,
-            default: "#ffc4c4"
+            default: '#ffc4c4'
         },
         borderColor: {
             type: String,
-            default: "#8b0000"
+            default: '#8b0000'
         }
     },
     data: function data() {
@@ -1064,7 +1064,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _Path2.default.extend({
     data: function data() {
         return {
-            points: ["M 297.29747 550.86823 C 283.52243 535.43191 249.1268 505.33855 220.86277 483.99412 C 137.11867 420.75228 125.72108 411.5999 91.719238 380.29088 C 29.03471 322.57071 2.413622 264.58086 2.5048478 185.95124 C 2.5493594 147.56739 5.1656152 132.77929 15.914734 110.15398 C 34.151433 71.768267 61.014996 43.244667 95.360052 25.799457 C 119.68545 13.443675 131.6827 7.9542046 172.30448 7.7296236 C 214.79777 7.4947896 223.74311 12.449347 248.73919 26.181459 C 279.1637 42.895777 310.47909 78.617167 316.95242 103.99205 L 320.95052 119.66445 L 330.81015 98.079942 C 386.52632 -23.892986 564.40851 -22.06811 626.31244 101.11153 C 645.95011 140.18758 648.10608 223.6247 630.69256 270.6244 C 607.97729 331.93377 565.31255 378.67493 466.68622 450.30098 C 402.0054 497.27462 328.80148 568.34684 323.70555 578.32901 C 317.79007 589.91654 323.42339 580.14491 297.29747 550.86823 z"],
+            points: ['M 297.29747 550.86823 C 283.52243 535.43191 249.1268 505.33855 220.86277 483.99412 C 137.11867 420.75228 125.72108 411.5999 91.719238 380.29088 C 29.03471 322.57071 2.413622 264.58086 2.5048478 185.95124 C 2.5493594 147.56739 5.1656152 132.77929 15.914734 110.15398 C 34.151433 71.768267 61.014996 43.244667 95.360052 25.799457 C 119.68545 13.443675 131.6827 7.9542046 172.30448 7.7296236 C 214.79777 7.4947896 223.74311 12.449347 248.73919 26.181459 C 279.1637 42.895777 310.47909 78.617167 316.95242 103.99205 L 320.95052 119.66445 L 330.81015 98.079942 C 386.52632 -23.892986 564.40851 -22.06811 626.31244 101.11153 C 645.95011 140.18758 648.10608 223.6247 630.69256 270.6244 C 607.97729 331.93377 565.31255 378.67493 466.68622 450.30098 C 402.0054 497.27462 328.80148 568.34684 323.70555 578.32901 C 317.79007 589.91654 323.42339 580.14491 297.29747 550.86823 z'],
             originalWidth: 700,
             originalHeight: 565
         };
@@ -1150,7 +1150,7 @@ var _vue2 = _interopRequireDefault(_vue);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.component("heart-rating", _heartRating2.default);
+_vue2.default.component('heart-rating', _heartRating2.default);
 
 /***/ })
 /******/ ]);

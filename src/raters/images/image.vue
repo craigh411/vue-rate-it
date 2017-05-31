@@ -12,24 +12,25 @@
 </template>
 
 <script type="text/javascript">
-import Vue from 'vue';
-import RatingItem from '../../mixins/RatingItem.js';
+import Vue from 'vue'
+import RatingItem from '../../mixins/RatingItem.js'
 export default Vue.extend({
     mixins: [RatingItem],
     created() {
-        this.opacity = this.customProps.opacity;
-        this.src = this.customProps.src;
+        this.opacity = this.customProps.opacity
+        this.src = this.customProps.src
 
-        let img = new Image();
+        /* global Image */
+        const img = new Image()
         img.onload = () => {
-           this.originalHeight = img.height;
-           this.originalWidth = img.width;
-        };
-         img.src = this.src;
+            this.originalHeight = img.height
+            this.originalWidth = img.width
+        }
+        img.src = this.src
     },
     computed: {
         getOpacity() {
-            return "opacity:" + this.opacity;
+            return 'opacity:' + this.opacity
         }
     },
     data() {
@@ -41,5 +42,5 @@ export default Vue.extend({
             opacity: 0.1
         }
     }
-});
+})
 </script>

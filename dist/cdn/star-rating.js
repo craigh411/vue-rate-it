@@ -472,7 +472,7 @@ exports.default = {
         },
         borderColor: {
             type: String,
-            default: "#999"
+            default: '#999'
         },
         borderWidth: {
             type: Number,
@@ -495,10 +495,10 @@ exports.default = {
 
     computed: {
         pointsToString: function pointsToString() {
-            return this.points.join(",");
+            return this.points.join(',');
         },
         getFillId: function getFillId() {
-            return "url(#" + this.fillId + ")";
+            return 'url(#' + this.fillId + ')';
         },
         getWidth: function getWidth() {
             return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
@@ -507,15 +507,15 @@ exports.default = {
             return this.originalHeight / this.originalWidth * this.getWidth;
         },
         getFill: function getFill() {
-            return this.fill + "%";
+            return this.fill + '%';
         },
         getSpacing: function getSpacing() {
-            return this.spacing + this.borderWidth / 2 + "px";
+            return this.spacing + this.borderWidth / 2 + 'px';
         }
     },
     methods: {
         mouseMoving: function mouseMoving($event) {
-            this.$emit("mouse-move", {
+            this.$emit('mouse-move', {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
@@ -528,7 +528,7 @@ exports.default = {
             return Math.min(position, 100);
         },
         selected: function selected($event) {
-            this.$emit("selected", {
+            this.$emit('selected', {
                 id: this.index,
                 position: this.getPosition($event)
             });
@@ -536,7 +536,7 @@ exports.default = {
     },
     data: function data() {
         return {
-            fillId: "",
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
@@ -566,11 +566,11 @@ exports.default = {
         },
         activeColor: {
             type: String,
-            default: "#ffd055"
+            default: '#ffd055'
         },
         inactiveColor: {
             type: String,
-            default: "#d8d8d8"
+            default: '#d8d8d8'
         },
         maxRating: {
             type: Number,
@@ -590,7 +590,7 @@ exports.default = {
         },
         textClass: {
             type: String,
-            default: ""
+            default: ''
         },
         inline: {
             type: Boolean,
@@ -598,7 +598,7 @@ exports.default = {
         },
         borderColor: {
             type: String,
-            default: "#999"
+            default: '#999'
         },
         borderWidth: {
             type: Number,
@@ -614,8 +614,8 @@ exports.default = {
         }
     },
     model: {
-        prop: "rating",
-        event: "rating-selected"
+        prop: 'rating',
+        event: 'rating-selected'
     },
     created: function created() {
         this.step = this.increment * 100;
@@ -634,9 +634,9 @@ exports.default = {
                 this.createRating();
                 if (persist) {
                     this.selectedRating = this.currentRating;
-                    this.$emit("rating-selected", this.selectedRating);
+                    this.$emit('rating-selected', this.selectedRating);
                 } else {
-                    this.$emit("current-rating", this.currentRating);
+                    this.$emit('current-rating', this.currentRating);
                 }
             }
         },
@@ -692,7 +692,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-     value: true
+    value: true
 });
 
 var _vue = __webpack_require__(1);
@@ -718,12 +718,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 
 exports.default = _vue2.default.extend({
-     mixins: [_Rating2.default],
-     data: function data() {
-          return {
-               type: ''
-          };
-     }
+    mixins: [_Rating2.default],
+    data: function data() {
+        return {
+            type: ''
+        };
+    }
 });
 
 /***/ }),
@@ -755,7 +755,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "mouseleave": _vm.resetRating
     }
   }, [_vm._l((_vm.maxRating), function(n) {
-    return _c('span', {
+    return _c('div', {
       class: [{
         pointer: !_vm.readOnly
       }, 'rating-item']
@@ -1102,7 +1102,7 @@ var _vue2 = _interopRequireDefault(_vue);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.component("star-rating", _starRating2.default);
+_vue2.default.component('star-rating', _starRating2.default);
 
 /***/ })
 /******/ ]);

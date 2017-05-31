@@ -22,7 +22,7 @@ export default {
         },
         borderColor: {
             type: String,
-            default: "#999"
+            default: '#999'
         },
         borderWidth: {
             type: Number,
@@ -35,60 +35,60 @@ export default {
         customProps: {
             type: Object,
             default: function() {
-                return {};
+                return {}
             }
         }
     },
     created() {
-        this.fillId = Math.random().toString(36).substring(7);
+        this.fillId = Math.random().toString(36).substring(7)
     },
     computed: {
         pointsToString() {
-            return this.points.join(",");
+            return this.points.join(',')
         },
         getFillId() {
-            return "url(#" + this.fillId + ")";
+            return 'url(#' + this.fillId + ')'
         },
         getWidth() {
-            return parseInt(this.size) + parseInt(this.borderWidth * this.borders);
+            return parseInt(this.size) + parseInt(this.borderWidth * this.borders)
         },
         getHeight() {
-            return (this.originalHeight / this.originalWidth) * this.getWidth;
+            return (this.originalHeight / this.originalWidth) * this.getWidth
         },
         getFill() {
-            return this.fill + "%";
+            return this.fill + '%'
         },
         getSpacing() {
-            return (this.spacing + (this.borderWidth / 2)) + "px";
+            return (this.spacing + (this.borderWidth / 2)) + 'px'
         }
     },
     methods: {
         mouseMoving($event) {
-            this.$emit("mouse-move", {
+            this.$emit('mouse-move', {
                 event: $event,
                 position: this.getPosition($event),
                 id: this.index
-            });
+            })
         },
         getPosition($event) {
             // calculate position in percentage.
-            var width = (92 / 100) * (this.size + this.borderWidth);
-            var position = Math.round((100 / width) * $event.offsetX);
-            return Math.min(position, 100);
+            var width = (92 / 100) * (this.size + this.borderWidth)
+            var position = Math.round((100 / width) * $event.offsetX)
+            return Math.min(position, 100)
         },
         selected($event) {
-            this.$emit("selected", {
+            this.$emit('selected', {
                 id: this.index,
                 position: this.getPosition($event)
-            });
+            })
         }
     },
     data() {
         return {
-            fillId: "",
+            fillId: '',
             originalWidth: 50,
             orignalHeight: 50,
             borders: 1
-        };
+        }
     }
-};
+}

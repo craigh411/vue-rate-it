@@ -1,5 +1,5 @@
 <script type="text/javascript">
-import BaseRating from './BaseRating.vue';
+import BaseRating from './BaseRating.vue'
 export default BaseRating.extend({
     name: 'rate-it',
     props: {
@@ -10,13 +10,13 @@ export default BaseRating.extend({
     },
     created() {
         if (this.with !== undefined) {
-            this.type = this.with;
+            this.type = this.with
         }
     },
     watch: {
         with(val) {
-            this.type = val;
+            this.type = val
         }
     }
-});
+})
 </script>

@@ -1,6 +1,6 @@
 <script type="text/javascript">
-import BaseRating from '../BaseRating.vue';
-import Heart from './heart.vue';
+import BaseRating from '../BaseRating.vue'
+import Heart from './heart.vue'
 export default BaseRating.extend({
     name: 'Heart-Rating',
     components: {
@@ -13,15 +13,15 @@ export default BaseRating.extend({
         },
         activeColor: {
             type: String,
-            default: "#d80000"
+            default: '#d80000'
         },
         inactiveColor: {
             type: String,
-            default: "#ffc4c4"
+            default: '#ffc4c4'
         },
         borderColor: {
             type: String,
-            default: "#8b0000"
+            default: '#8b0000'
         }
     },
     data() {
@@ -29,7 +29,7 @@ export default BaseRating.extend({
             type: 'heart'
         }
     }
-});
+})
 </script>
 
 <style>
