@@ -1,6 +1,11 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
+## Version 1.1.5 (2017-05-31)
+- Fixed issue that causes div to be placed inside span.
+- Tidy up.
+- EsLint config changed to use (most) vue defaults.
+
 ## Version 1.1.4 (2017-05-11)
 - Created new pre-transpiled distributable and set it as main entry point.
 - vue-loader, babel-loader, vueify or babelify are no longer required.
