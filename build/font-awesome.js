@@ -18,7 +18,8 @@ fs.readdir('glyphs', function(err, files) {
             //}
 
                //var output = pathsString;
-               var output = "const fa_" + name +" = '" + path[1] + "'\nexport default fa_" + name;
+               var exportName = name.replace(/-/g, "_")
+               var output = "const fa_" + exportName +" = '" + path[1] + "'\nexport default fa_" + exportName;
 
                 fs.writeFile('../glyphs/' + name + '.js', output);
                 //fs.writeFile('../src/raters/font-awesome/glyphs-individual.js', pathsString);
