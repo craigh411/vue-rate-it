@@ -60,8 +60,10 @@ Below you can see the simple markup required to create a rating component:
 [Try on JSFiddle](https://jsfiddle.net/craig_h_411/rpwtbx63/)
 
 ```HTML
-<fa-rating glyph="thumbs-up"></fa-rating>
+<fa-rating v-bind:glyph="thumbsUp"></fa-rating>
 ```
+
+**Note:** The `fa-rating` component requires you to first register the font-awesome glyph you want to use in your Cue instance, which is why this example uses `v-bind` (see: [font-awesome rating component docs](https://craigh411.github.io/vue-rate-it/#/docs/font-awesome))
 
 ## Setup
 
@@ -137,6 +139,8 @@ It is recommended that you use `vue-rate-it` via NPM, however, each rating compo
 <link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/fa-rating.min.js">
 ```
 
+**Note:** The `fa-rating` component CDN is intended for demonstrative purposes only. It contains an entire port of font-awesome glyphs which makes it more than 700kB in size. It is strongly recommended that you use this component via NPM where you can specify the glyphs that you want to import.
+
 #### Image Rating
 
 ```HTML
@@ -150,6 +154,8 @@ You may also include all features and raters via CDN by doing:
 ```HTML
 <link rel="stylesheet" href="https://unpkg.com/vue-rate-it/dist/cdn/vue-rate-it.min.js">
 ```
+
+**Note:** This CDN file is intended for demonstrative purposes only. It contains an entire port of font-awesome glyphs which makes it more than 700kB in size. It is strongly recommended that you use NPM where you can specify any glyphs that you want to import.
 
 #### Registering the Raters
 
