@@ -272,7 +272,7 @@ Vue.component(<span style="color: #aa5500">&#39;fa-rating&#39;</span>, VueRateIt
 
 <script type="text/javascript">
 import Rating from '../../../../src/index.js';
-import ThumbsUp from '../../../../glyphs/thumbs_up.js';
+import ThumbsUp from '../../../../glyphs/thumbs-up.js';
 
 export default {
     components: {
