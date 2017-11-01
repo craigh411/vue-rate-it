@@ -18,7 +18,6 @@ fs.readdir('glyphs', function(err, files) {
             //}
 
                //var output = pathsString;
-               var name = name.replace(/-/g, "_")
                var output = "const fa_" + name +" = '" + path[1] + "'\nexport default fa_" + name;
 
                 fs.writeFile('../glyphs/' + name + '.js', output);
