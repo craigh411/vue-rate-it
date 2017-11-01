@@ -1,6 +1,5 @@
 <script type="text/javascript">
 import FaBaseGlyph from './FaBaseGlyph.vue'
-import Glyphs from '../../../glyphs.js'
 
 export default FaBaseGlyph.extend({
     created() {
@@ -8,8 +7,7 @@ export default FaBaseGlyph.extend({
     },
     methods: {
         updateGlyph() {
-            const glyph = this.customProps.glyph.replace(/^fa\-/, '')
-            this.points = [Glyphs[glyph]]
+            this.points = [this.customProps.glyph]
         }
     }
 })

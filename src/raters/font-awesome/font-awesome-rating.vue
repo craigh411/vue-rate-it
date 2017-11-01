@@ -1,6 +1,7 @@
 <script type="text/javascript">
 import BaseRating from '../BaseRating.vue'
 import FaGlyph from './font-awesome-glyph.vue'
+
 export default BaseRating.extend({
     name: 'Fa-Rating',
     components: {

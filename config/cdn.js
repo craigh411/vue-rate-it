@@ -14,6 +14,7 @@ module.exports = function(env) {
             'cdn/font-awesome-rating.min': './src/reg/font-awesome-rating',
             'cdn/image-rating.min': './src/reg/image-rating',
             'cdn/vue-rate-it.min': './src/index.js'
+
         },
         output: {
             path: path.resolve(__dirname, '../dist'),

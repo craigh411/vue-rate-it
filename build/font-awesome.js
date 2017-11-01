@@ -12,19 +12,19 @@ fs.readdir('glyphs', function(err, files) {
 
             if (path) {
                 // individual paths
-                pathsString += "export const fa_" + name.replace(/-/g, "_") + "='" + path[1]+"';\n";
+               // pathsString += "export const fa_" + name.replace(/-/g, "_") + "='" + path[1]+"';\n";
                 // All paths object
-                paths[name] = path[1];
-            }
+                //paths[name] = path[1];
+            //}
 
-            if (itemsProcessed === files.length) {
-               var output = pathsString;
-               output += "\nexport default " + JSON.stringify(paths);
-                fs.writeFile('../glyphs.js', output);
+               //var output = pathsString;
+               var name = name.replace(/-/g, "_")
+               var output = "const fa_" + name +" = '" + path[1] + "'\nexport default fa_" + name;
+
+                fs.writeFile('../glyphs/' + name + '.js', output);
                 //fs.writeFile('../src/raters/font-awesome/glyphs-individual.js', pathsString);
                 console.log('done');
             }
-            itemsProcessed++;
         })
     })
 });

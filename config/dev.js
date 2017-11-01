@@ -9,6 +9,7 @@ module.exports = function(env) {
 
     return {
         entry: {
+            'cdn/glyphs': './glyphs.js',
             'cdn/heart-rating': './src/reg/heart-rating',
             'cdn/star-rating': './src/reg/star-rating',
             'cdn/font-awesome-rating': './src/reg/font-awesome-rating',

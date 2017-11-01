@@ -4,7 +4,9 @@
     <title>Font Awesome Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="../../dist/cdn/vue-rate-it.js"></script>
+    <script src="../../dist/cdn/font-awesome-rating.min.js"></script>
+
+
     <style>
     body {
         font-size: 1em;
@@ -27,64 +29,64 @@
     <div id="app">
 
         <h2>Default</h2>
-        <fa-rating glyph="thumbs-up"></fa-rating>
+        <fa-rating :glyph="thumbsUp"></fa-rating>
 
         <h2>Half Glyphs</h2>
-        <fa-rating :increment="0.5" glyph="thumbs-up"></fa-rating>
+        <fa-rating :increment="0.5" :glyph="thumbsUp"></fa-rating>
 
         <h2>Red Glyphs</h2>
-        <fa-rating active-color="#9c0000" glyph="thumbs-up"></fa-rating>
+        <fa-rating active-color="#9c0000" :glyph="thumbsUp"></fa-rating>
 
         <h2>Vibrant Glyphs</h2>
-        <fa-rating inactive-color="#e1bad9" active-color="#cc1166" glyph="thumbs-up"></fa-rating>
+        <fa-rating inactive-color="#e1bad9" active-color="#cc1166" :glyph="thumbsUp"></fa-rating>
 
         <h2>Fluid Glyphs</h2>
-        <fa-rating :increment="0.01" glyph="thumbs-up"></fa-rating>
+        <fa-rating :increment="0.01" :glyph="thumbsUp"></fa-rating>
 
         <h2>Small Glyphs</h2>
-        <fa-rating :item-size="30" glyph="thumbs-up"></fa-rating>
+        <fa-rating :item-size="30" :glyph="thumbsUp"></fa-rating>
 
         <h2>Big Glyphs</h2>
-        <fa-rating :item-size="90" :spacing="10" glyph="thumbs-up" :border-width="5" :increment="0.01"></fa-rating>
+        <fa-rating :item-size="90" :spacing="10" :glyph="thumbsUp" :border-width="5" :increment="0.01"></fa-rating>
 
         <h2>Non-bordered Glyphs</h2>
-        <fa-rating glyph="thumbs-up" :border-width="0"></fa-rating>
+        <fa-rating :glyph="thumbsUp" :border-width="0"></fa-rating>
 
         <h2>Preset Glyphs</h2>
-        <fa-rating :rating="4" glyph="thumbs-up"></fa-rating>
+        <fa-rating :rating="4" :glyph="thumbsUp"></fa-rating>
 
         <h2>Read Only Glyphs</h2>
-        <fa-rating :rating="3.8" :read-only="true" :increment="0.01" glyph="thumbs-up"></fa-rating>
+        <fa-rating :rating="3.8" :read-only="true" :increment="0.01" :glyph="thumbsUp"></fa-rating>
 
         <h2>Lots of Glyphs</h2>
-        <fa-rating :max-rating="10" :item-size="30" :border-width="1" glyph="thumbs-up"></fa-rating>
+        <fa-rating :max-rating="10" :item-size="30" :border-width="1" :glyph="thumbsUp"></fa-rating>
 
         <h2>Style Rating</h2>
-        <fa-rating text-class="custom-text" glyph="thumbs-up"></fa-rating>
+        <fa-rating text-class="custom-text" :glyph="thumbsUp"></fa-rating>
 
         <h2>Hide Rating</h2>
-        <fa-rating :show-rating="false" glyph="thumbs-up"></fa-rating>
+        <fa-rating :show-rating="false" :glyph="thumbsUp"></fa-rating>
 
         <h2>Capture Rating</h2>
-        <fa-rating :show-rating="false" @rating-selected="setRating" glyph="thumbs-up"></fa-rating>
+        <fa-rating :show-rating="false" @rating-selected="setRating" :glyph="thumbsUp"></fa-rating>
         <div style="margin-top:10px;font-weight:bold;">{{rating}}</div>
 
         <h2>Capture Mouse Over Rating</h2>
         <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
-            <fa-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5" glyph="thumbs-up"></fa-rating>
+            <fa-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5" :glyph="thumbsUp"></fa-rating>
         </div>
         <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
 
         <h2>Resetable Glyphs</h2>
         <div style="display:inline-block;">
-            <fa-rating glyph="thumbs-up" v-model="resetableRating"></fa-rating>
+            <fa-rating :glyph="thumbsUp" v-model="resetableRating"></fa-rating>
             <div style="padding-top:10px;cursor:pointer;margin-bottom:20px;color: blue;"><a @click="reset">Reset Rating</a></div>
         </div>
 
         <h2>Inline Glyphs</h2>
         <div style="display:inline-flex;">
             Rated
-            <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" glyph="thumbs-up"></fa-rating> by our customers.
+            <fa-rating :inline="true" :item-size="20" :read-only="true" :show-rating="false" :rating="5" :glyph="thumbsUp"></fa-rating> by our customers.
 
         </div>
     </div>
@@ -92,8 +94,8 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
-        components: {
-            'fa-rating': VueRateIt.FaRating
+        created(){
+            this.thumbsUp = this.$glyphs['thumbs-up'];
         },
         methods: {
             setRating: function(rating) {
@@ -109,6 +111,7 @@
                 this.resetableRating = 0;
             },
         },
+
         data: {
             rating: "No Rating Selected",
             currentRating: "No Rating",

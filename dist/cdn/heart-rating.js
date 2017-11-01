@@ -971,11 +971,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 
 /* styles */
-__webpack_require__(41)
+__webpack_require__(40)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(24),
   /* template */
   null,
   /* scopeId */
@@ -993,8 +993,7 @@ module.exports = Component.exports
 /* 21 */,
 /* 22 */,
 /* 23 */,
-/* 24 */,
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1008,7 +1007,7 @@ var _BaseRating = __webpack_require__(2);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _heart = __webpack_require__(35);
+var _heart = __webpack_require__(34);
 
 var _heart2 = _interopRequireDefault(_heart);
 
@@ -1045,7 +1044,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1072,13 +1071,13 @@ exports.default = _Path2.default.extend({
 });
 
 /***/ }),
+/* 26 */,
 /* 27 */,
 /* 28 */,
 /* 29 */,
 /* 30 */,
 /* 31 */,
-/* 32 */,
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
@@ -1092,13 +1091,13 @@ exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-lef
 
 
 /***/ }),
-/* 34 */,
-/* 35 */
+/* 33 */,
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(26),
+  __webpack_require__(25),
   /* template */
   null,
   /* scopeId */
@@ -1111,24 +1110,25 @@ module.exports = Component.exports
 
 
 /***/ }),
+/* 35 */,
 /* 36 */,
 /* 37 */,
 /* 38 */,
 /* 39 */,
-/* 40 */,
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(33);
+var content = __webpack_require__(32);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var update = __webpack_require__(4)("4c5ef42d", content, true);
 
 /***/ }),
+/* 41 */,
 /* 42 */,
 /* 43 */,
 /* 44 */,
