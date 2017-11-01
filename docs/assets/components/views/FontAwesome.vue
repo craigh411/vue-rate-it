@@ -9,7 +9,7 @@
                         <div class="field">
                             <label>Glyph</label>
                             <select class="ui fluid dropdown" v-model="selected">
-                                <option v-for="glyph in glyphs">{{glyph}}</option>
+                                <option v-for="glyph in glyphNames">{{glyph}}</option>
                             </select>
                         </div>
                         <div class="field">
@@ -33,12 +33,12 @@
                     </div>
                 </form>
                 <div class="ui segment center aligned">
-                    <component :is="fa" :glyph="selected" :spacing="spacing" :inactive-color="inactiveColor" :active-color="activeColor" :inline="true" :fixed-points="2" :increment="increment"></component>
+                    <component :is="fa" :glyph="glyphPath" :spacing="spacing" :inactive-color="inactiveColor" :active-color="activeColor" :inline="true" :fixed-points="2" :increment="increment"></component>
                 </div>
 
                 <div class="ui segment">
                     <!-- HTML generated using hilite.me -->
-                    <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">glyph=</span><span style="color: #aa5500">&quot;{{selected}}&quot;</span>  
+                    <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">:glyph=</span><span style="color: #aa5500">&quot;{{selected}}&quot;</span>  
            <span style="color: #1e90ff">:spacing=</span><span style="color: #aa5500">&quot;{{spacing}}&quot;</span>  
            <span style="color: #1e90ff">:inactive-</span><span style="color: #1e90ff">color=</span><span style="color: #aa5500">&quot;{{inactiveColor}}&quot;</span> 
            <span style="color: #1e90ff">:active-color=</span><span style="color: #aa5500">&quot;{{activeColor}}&quot;</span>
@@ -56,19 +56,44 @@
     The fa-rating component can either be included via NPM (recommended) or CDN.
 
     <h2 class="ui header">NPM</h2>
-    <p>Using the fa-rating component via NPM is simple, once vue-rate-it has been installed you simply need to import it into your component:</p>
+    <p>Once vue-rate-it has been installed you need to import it into your component along with the icon you want to use. You will then need to register the icon in your view instance to use on the comopnent:</p>
 
     <div class="ui segment">
         <!-- HTML generated using hilite.me -->
         <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">import</span> {FaRating} from <span style="color: #aa5500">&#39;vue-rate-it&#39;</span>;
+<span style="color: #0000aa">import</span> {ThumbsUp} from <span style="color: #aa5500">&#39;vue-rate-it/glyphs/thumbs-up&#39;</span>;
 
 <span style="color: #0000aa">export</span> <span style="color: #0000aa">default</span>{
   components:{
     FaRating
+  },
+  created(){
+    // register the icon
+    this.thumbsUp = ThumbsUp
+  },
+  data(){
+    return{
+      thumbsUp: '' // declare the icon
+    } 
   } 
 }
 </pre></div>
 
+
+
+    </div>
+
+Then you can use it like:
+
+    <div class="ui segment">
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">:glyph=</span><span style="color: #aa5500">&quot;thumbsUp&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff; ">&lt;/fa-rating&gt;</span>
+</pre></div>
+    </div>
+
+    <div class="ui info message" style="font-size:0.9em;">
+        <div class="header">Registering Glyphs</div>
+        <p><i class="info circle icon"></i> Font awesome glyphs can be registered using the path 'vue-rate/glyphs/{glyph}'. The glyph file names are the same are the font-awesome glyph names excluding the preceeding 'fa'. so to import the start font awesome icon ('fa-star') you would use: <span style="font-family:'courier new'">import Star from 'vue-rate-it/glyphs/star'</span>.</p>
     </div>
 
     <h2 class="ui header">CDN</h2>
@@ -80,7 +105,31 @@
 </pre></div>
     </div>
 
-    <p>It is automatically registered so there is no need to do anything else.</p>
+    <p>It is automatically registered so there is no need to register it yourself. You can access the glyphs by doing <span style="font-family:'courier new'">VueRateit.Glyphs['glyph-name']</span>, where glyph name is the name of the glyph minus the preceeding 'fa': </p>
+
+    <div class="ui segment">
+        <!-- HTML generated using hilite.me -->
+        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">
+<span style="color: #0000aa">new</span> <span style="color: #0000aa">Vue</span>({
+  el: '#app',
+  created(){
+    // register the icon
+    this.thumbsUp = VueRateIt.Glyphs['thumbs-up']
+  },
+  data(){
+    return{
+      thumbsUp: '' // declare the icon
+    } 
+  } 
+});
+
+</pre></div>
+</div>
+
+    <div class="ui error message" style="font-size:0.9em;">
+        <div class="header">CDN file size</div>
+        <p><i class="info warning circle icon"></i> The CDN for this component is intended for demonstrative purposes only and includes an entire port of font-awesome glyphs, which makes it over 700kB in size! For that reason it is strongly recommended that you do not use the CDN for this component.</p>
+    </div>
 
     <h1 class="ui header">Documentation</h1>
     <div class="ui divider"></div>
@@ -199,11 +248,11 @@
     <h3 class="ui header">Props Example</h3>
     <p>The following is an example of a customised fa-rating component:</p>
 
-    <fa-rating glyph="thumbs-up" :item-size="30" active-color="#ddfbcc" v-model="rating" :increment="0.5"></fa-rating>
+    <fa-rating :glyph="thumbsUp" :item-size="30" active-color="#ddfbcc" v-model="rating" :increment="0.5"></fa-rating>
 
     <div class="ui segment">
         <!-- HTML generated using hilite.me -->
-        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span>   <span style="color: #1e90ff">glyph=</span><span style="color: #aa5500">&quot;thumbs-up&quot;</span> 
+        <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span>   <span style="color: #1e90ff">:glyph=</span><span style="color: #aa5500">&quot;thumbs-up&quot;</span> 
              <span style="color: #1e90ff">:item-size=</span><span style="color: #aa5500">&quot;30&quot;</span> 
              <span style="color: #1e90ff">active-color=</span><span style="color: #aa5500">&quot;#ddfbcc&quot;</span>
              <span style="color: #1e90ff">:increment=</span><span style="color: #aa5500">&quot;0.5&quot;</span> 
@@ -270,14 +319,23 @@ export default {
         FaRating
     },
     created() {
-        Object.keys(Glyphs).forEach(item => {
-            this.$set(this.glyphs, this.glyphs.length, item);
-        });
+        this.glyphs = Glyphs
+        this.thumbsUp = Glyphs['thumbs-up'];
     },
     methods: {
         setIncrement(event) {
             let val = event.target.value;
             this.increment = (isNaN(val) || val === "") ? this.increment : parseFloat(val);
+        }
+    },
+    computed:{
+        glyphPath(){
+            return this.glyphs[this.selected];
+        },
+        glyphNames(){
+           return Object.keys(Glyphs).map(item => {
+                return item;
+            });
         }
     },
     watch: {
@@ -298,7 +356,8 @@ export default {
             spacing: 0,
             glyphs: [],
             selected: 'thumbs-up',
-            rating: 3.5
+            rating: 3.5,
+            thumbsUp: ''
         }
     }
 }

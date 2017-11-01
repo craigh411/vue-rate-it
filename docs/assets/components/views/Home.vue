@@ -40,13 +40,21 @@
 
             <h3 class="ui header">Font Awesome Thumbs-up Glyph</h3>
 
-            <fa-rating glyph="thumbs-up" active-color="#ffcd94"></fa-rating>
+            <fa-rating :glyph="thumbsUp" active-color="#ffcd94"></fa-rating>
             <div class="ui segment">
                 <div class="ui basic segment" style="padding:0;">
                     <!-- HTML generated using hilite.me -->
-                    <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">glyph=</span><span style="color: #aa5500">&quot;thumbs-up&quot;</span> <span style="color: #1e90ff">active-color=</span><span style="color: #aa5500">&quot;#ffcd94&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/fa-rating&gt;</span>
+                    <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #1e90ff; font-weight: bold">&lt;fa</span><span style="color: #1e90ff">-rating</span> <span style="color: #1e90ff">:glyph=</span><span style="color: #aa5500">&quot;thumbsUp&quot;</span> <span style="color: #1e90ff">active-color=</span><span style="color: #aa5500">&quot;#ffcd94&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span><span style="color: #1e90ff;">&lt;/fa-rating&gt;</span>
 </pre></div>
+
                 </div>
+
+
+            </div>
+
+            <div class="ui info message" style="font-size:0.9em;">
+                <div class="header">Registering Icons</div>
+                <p><i class="info circle icon"></i> vue-rate-it comes with a port of font awesome icons. Before you can use an icon you must register it in your vue instance. See the <router-link to="docs/font-awesome">Font Awesome Rater Docs</router-link> for more info.</p>
             </div>
 
             <h1 class="ui header">Setup</h1>
@@ -264,6 +272,8 @@ Vue.component(<span style="color: #aa5500">&#39;fa-rating&#39;</span>, VueRateIt
 
 <script type="text/javascript">
 import Rating from '../../../../src/index.js';
+import ThumbsUp from '../../../../glyphs/thumbs_up.js';
+
 export default {
     components: {
         'heart-rating': Rating.HeartRating,
@@ -271,9 +281,13 @@ export default {
         'fa-rating': Rating.FaRating,
         'image-rating': Rating.ImageRating,
     },
+    created(){
+        this.thumbsUp = ThumbsUp;
+    },
     data() {
         return {
-            rating: 3
+            rating: 3,
+            thumbsUp: ''
         }
     }
 }

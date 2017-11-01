@@ -79,7 +79,7 @@ Finally we need to add our thumbs-up-glyph component to the data attribute so we
 
 <span style="color: #1e90ff; font-weight: bold">&lt;script </span><span style="color: #1e90ff">type=</span><span style="color: #aa5500">&quot;text/javascript&quot;</span><span style="color: #1e90ff; font-weight: bold">&gt;</span>
 <span style="color: #0000aa">import</span> {RateIt} from <span style="color: #aa5500">&#39;vue-rate-it&#39;</span>;
-<span style="color: #0000aa">import</span> ThumbsUpGlyph from <span style="color: #aa5500">&#39;./comoponents/thumbs-up-glyph.vue&#39;</span>
+<span style="color: #0000aa">import</span> ThumbsUpGlyph from <span style="color: #aa5500">&#39;./components/thumbs-up-glyph.vue&#39;</span>
 
 <span style="color: #0000aa">export</span> <span style="color: #0000aa">default</span>{
   components:{
