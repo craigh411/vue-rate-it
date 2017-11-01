@@ -93,7 +93,7 @@ Then you can use it like:
 
     <div class="ui info message" style="font-size:0.9em;">
         <div class="header">Registering Glyphs</div>
-        <p><i class="info circle icon"></i> Font awesome glyphs can be registered using the path 'vue-rate/glyphs/{glyph}'. The glyph file names are the same are the font-awesome glyph names excluding the preceeding 'fa'. so to import the start font awesome icon ('fa-star') you would use: <span style="font-family:'courier new'">import Star from 'vue-rate-it/glyphs/star'</span>.</p>
+        <p><i class="info circle icon"></i> Font awesome glyphs can be registered using the path 'vue-rate-it/glyphs/{glyph}'. The glyph file names are the same are the font-awesome glyph names excluding the preceeding 'fa'. so to import the start font awesome icon ('fa-star') you would use: <span style="font-family:'courier new'">import Star from 'vue-rate-it/glyphs/star'</span>.</p>
     </div>
 
     <h2 class="ui header">CDN</h2>

@@ -2541,7 +2541,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "header"
   }, [_vm._v("Registering Glyphs")]), _vm._v(" "), _c('p', [_c('i', {
     staticClass: "info circle icon"
-  }), _vm._v(" Font awesome glyphs can be registered using the path 'vue-rate/glyphs/{glyph}'. The glyph file names are the same are the font-awesome glyph names excluding the preceeding 'fa'. so to import the start font awesome icon ('fa-star') you would use: "), _c('span', {
+  }), _vm._v(" Font awesome glyphs can be registered using the path 'vue-rate-it/glyphs/{glyph}'. The glyph file names are the same are the font-awesome glyph names excluding the preceeding 'fa'. so to import the start font awesome icon ('fa-star') you would use: "), _c('span', {
     staticStyle: {
       "font-family": "'courier new'"
     }
