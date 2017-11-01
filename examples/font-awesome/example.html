@@ -4,7 +4,7 @@
     <title>Font Awesome Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="../../dist/cdn/font-awesome-rating.min.js"></script>
+    <script src="../../dist/cdn/vue-rate-it.min.js"></script>
 
 
     <style>
@@ -94,8 +94,11 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
+        components:{
+            'fa-rating': VueRateIt.FaRating
+        },
         created(){
-            this.thumbsUp = this.$glyphs['thumbs-up'];
+            this.thumbsUp = VueRateIt.Glyphs['thumbs-up'];
         },
         methods: {
             setRating: function(rating) {
@@ -116,7 +119,8 @@
             rating: "No Rating Selected",
             currentRating: "No Rating",
             currentSelectedRating: "No Current Rating",
-            resetableRating: 3
+            resetableRating: 3,
+            thumbsUp: ''
         }
     });
     </script>

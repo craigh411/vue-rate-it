@@ -13,7 +13,7 @@ module.exports = function(env) {
             'cdn/star-rating.min': './src/reg/star-rating',
             'cdn/font-awesome-rating.min': './src/reg/font-awesome-rating',
             'cdn/image-rating.min': './src/reg/image-rating',
-            'cdn/vue-rate-it.min': './src/index.js'
+            'cdn/vue-rate-it.min': './src/reg/index.js'
 
         },
         output: {

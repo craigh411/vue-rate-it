@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -836,14 +836,16 @@ module.exports = function listToStyles (parentId, list) {
 /* 13 */,
 /* 14 */,
 /* 15 */,
-/* 16 */
+/* 16 */,
+/* 17 */,
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(30),
+  __webpack_require__(29),
   /* template */
-  __webpack_require__(37),
+  null,
   /* scopeId */
   null,
   /* cssModules */
@@ -854,17 +856,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */,
-/* 18 */,
 /* 19 */,
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(28),
+  __webpack_require__(31),
   /* template */
-  null,
+  __webpack_require__(38),
   /* scopeId */
   null,
   /* cssModules */
@@ -882,7 +882,8 @@ module.exports = Component.exports
 /* 25 */,
 /* 26 */,
 /* 27 */,
-/* 28 */
+/* 28 */,
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -896,7 +897,7 @@ var _BaseRating = __webpack_require__(2);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _star = __webpack_require__(36);
+var _star = __webpack_require__(37);
 
 var _star2 = _interopRequireDefault(_star);
 
@@ -915,7 +916,7 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -925,7 +926,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Polygon = __webpack_require__(16);
+var _Polygon = __webpack_require__(20);
 
 var _Polygon2 = _interopRequireDefault(_Polygon);
 
@@ -943,7 +944,7 @@ exports.default = _Polygon2.default.extend({
 });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1000,17 +1001,17 @@ exports.default = _vue2.default.extend({
 });
 
 /***/ }),
-/* 31 */,
 /* 32 */,
 /* 33 */,
 /* 34 */,
 /* 35 */,
-/* 36 */
+/* 36 */,
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(29),
+  __webpack_require__(30),
   /* template */
   null,
   /* scopeId */
@@ -1023,7 +1024,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1075,24 +1076,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 38 */,
 /* 39 */,
 /* 40 */,
 /* 41 */,
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _starRating = __webpack_require__(20);
+var _starRating = __webpack_require__(18);
 
 var _starRating2 = _interopRequireDefault(_starRating);
 
