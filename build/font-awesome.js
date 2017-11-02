@@ -11,19 +11,11 @@ fs.readdir('glyphs', function(err, files) {
             var path = /d\=\"(.*?)\"/g.exec(line);
 
             if (path) {
-                // individual paths
-               // pathsString += "export const fa_" + name.replace(/-/g, "_") + "='" + path[1]+"';\n";
-                // All paths object
-                //paths[name] = path[1];
-            //}
-
-               //var output = pathsString;
                var exportName = name.replace(/-/g, "_")
                var output = "const fa_" + exportName +" = '" + path[1] + "'\nexport default fa_" + exportName;
 
                 fs.writeFile('../glyphs/' + name + '.js', output);
-                //fs.writeFile('../src/raters/font-awesome/glyphs-individual.js', pathsString);
-                console.log('done');
+                console.log(name + '.js created');
             }
         })
     })
