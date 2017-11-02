@@ -63,7 +63,7 @@ Below you can see the simple markup required to create a rating component:
 <fa-rating v-bind:glyph="thumbsUp"></fa-rating>
 ```
 
-**Note:** The `fa-rating` component requires you to first register the font-awesome glyph you want to use in your Cue instance, which is why this example uses `v-bind` (see: [font-awesome rating component docs](https://craigh411.github.io/vue-rate-it/#/docs/font-awesome))
+**Note:** The `fa-rating` component requires you to first register the font-awesome glyph you want to use in your Vue instance, which is why this example uses `v-bind` (see: [font-awesome rating component docs](https://craigh411.github.io/vue-rate-it/#/docs/font-awesome))
 
 ## Setup
 
