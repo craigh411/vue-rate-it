@@ -1,10 +1,10 @@
 <template>
-    <div :class="['rating', {inline: inline}, 'rating-container']">
-        <div @mouseleave="resetRating" class="rating">
-            <div v-for="n in maxRating" :class="[{pointer: !readOnly }, 'rating-item']">
+    <div :class="['vue-rate-it-rating', {'vue-rate-it-inline': inline}, 'vue-rate-it-rating-container']">
+        <div @mouseleave="resetRating" class="vue-rate-it-rating">
+            <div v-for="n in maxRating" :class="[{'vue-rate-it-pointer': !readOnly }, 'vue-rate-it-rating-item']">
               <component :is="type" :fill="fillLevel[n-1]" :size="itemSize" :index="n" :step="step" :active-color="activeColor" :inactive-color="inactiveColor" :border-color="borderColor" :border-width="borderWidth" :spacing="spacing" @selected="setRating($event, true)" @mouse-move="setRating" :custom-props="customProps"></component>
             </div>
-            <span v-if="showRating" :class="['rating-text', textClass]"> {{formattedRating}}</span>
+            <span v-if="showRating" :class="['vue-rate-it-rating-text', textClass]"> {{formattedRating}}</span>
         </div>
     </div>
 </template>
@@ -25,20 +25,20 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.rating-item {
+.vue-rate-it-rating-item {
     display: inline-block;
 }
-.pointer {
+.vue-rate-it-pointer {
     cursor: pointer;
 }
-.rating {
+.vue-rate-it-rating {
     display: flex;
     align-items: center;
 }
-.inline {
+.vue-rate-it-inline {
     display: inline-flex;
 }
-.rating-text {
+.vue-rate-it-rating-text {
     margin-top: 7px;
     margin-left: 7px;
 }
