@@ -2,7 +2,21 @@
     <div :class="['vue-rate-it-rating', {'vue-rate-it-rtl':rtl}, {'vue-rate-it-inline': inline}, 'vue-rate-it-rating-container']">
         <div @mouseleave="resetRating" class="vue-rate-it-rating">
             <div v-for="n in maxRating" :class="[{'vue-rate-it-pointer': !readOnly }, 'vue-rate-it-rating-item']">
-              <component :is="type" :fill="fillLevel[n-1]" :size="itemSize" :index="n" :step="step" :active-color="activeColor" :inactive-color="inactiveColor" :border-color="borderColor" :border-width="borderWidth" :spacing="spacing" @selected="setRating($event, true)" @mouse-move="setRating" :custom-props="customProps"></component>
+              <component 
+              :is="type" 
+              :fill="fillLevel[n-1]" 
+              :size="itemSize" 
+              :index="n" 
+              :step="step" 
+              :active-color="activeColor" 
+              :inactive-color="inactiveColor" 
+              :border-color="borderColor" 
+              :border-width="borderWidth" 
+              :spacing="spacing" 
+              @selected="setRating($event, true)" 
+              @mouse-move="setRating" 
+              :custom-props="customProps" 
+              :rtl="rtl"></component>
             </div>
             <span v-if="showRating" :class="['vue-rate-it-rating-text', textClass]"> {{formattedRating}}</span>
         </div>

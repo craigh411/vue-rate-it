@@ -2,8 +2,8 @@
     <div :style="{display:'inline-block', 'margin-right': getSpacing}">
         <svg :width="getWidth" :height="getHeight" :viewBox="getViewbox" @mousemove="mouseMoving" @click="selected" style="overflow:visible;">
             <linearGradient :id="fillId" v-bind="coords">
-                <stop :offset="getFill" :stop-color="activeColor" />
-                <stop :offset="getFill" :stop-color="inactiveColor" />
+                <stop :offset="getFill" :stop-color="(rtl) ? inactiveColor : activeColor" />
+                <stop :offset="getFill" :stop-color="(rtl) ? activeColor : inactiveColor" />
             </linearGradient>
 
             <path v-bind="pathAttrs" :d="pointsToString" :fill="getFillId" :stroke="borderColor" :stroke-width="borderWidth" vector-effect="non-scaling-stroke" />
@@ -24,7 +24,9 @@ export default Vue.extend({
         getFill() {
             // Account for any adjustment to the x1 coordinate of the LinearGradient
             const adjustment = (this.fill / 100) * Math.abs(this.x1Val)
-            return (this.x1Val > 0) ? (this.fill - adjustment) + '%' : (this.fill + adjustment) + '%'
+            const adjustedFill = (this.x1Val > 0) ? (this.fill - adjustment) : (this.fill + adjustment)
+            return (this.rtl) ? 100 - adjustedFill + '%' : adjustedFill + '%'
+
         },
         x1Val() {
             return parseInt(this.coords.x1.replace('%'))

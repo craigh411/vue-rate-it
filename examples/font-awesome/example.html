@@ -4,7 +4,7 @@
     <title>Font Awesome Rating Example</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <script src="https://unpkg.com/vue@2.2.1/dist/vue.js"></script>
-    <script src="../../dist/cdn/vue-rate-it.min.js"></script>
+    <script src="../../dist/cdn/font-awesome-rating.js"></script>
 
 
     <style>
@@ -61,6 +61,9 @@
         <h2>Lots of Glyphs</h2>
         <fa-rating :max-rating="10" :item-size="30" :border-width="1" :glyph="thumbsUp"></fa-rating>
 
+        <h2 style="direction:rtl;">rtl (right-to-left) Glyphs</h2>
+        <fa-rating :glyph="thumbsUp" :increment="0.01" :rtl="true"></fa-rating>
+
         <h2>Style Rating</h2>
         <fa-rating text-class="custom-text" :glyph="thumbsUp"></fa-rating>
 
@@ -94,9 +97,6 @@
     <script type="text/javascript">
     new Vue({
         el: '#app',
-        components:{
-            'fa-rating': VueRateIt.FaRating
-        },
         created(){
             this.thumbsUp = VueRateIt.Glyphs['thumbs-up'];
         },

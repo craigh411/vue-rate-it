@@ -1,14 +1,13 @@
 <template>
-    <div :style="{display:'inline-block', 'margin-right': getSpacing}">
-        <svg :width="getWidth" :height="getHeight" @mousemove="mouseMoving" @click="selected">
+        <svg :width="getWidth" :height="getHeight" @mousemove="mouseMoving" @click="selected" style="overflow:visible;">
             <linearGradient :id="fillId" x1="0" x2="100%" y1="0" y2="0">
-                <stop :offset="getFill" :stop-color="activeColor" />
-                <stop :offset="getFill" :stop-color="inactiveColor" />
+                <stop :offset="getFill" :stop-color="(rtl) ? inactiveColor : activeColor" />
+                <stop :offset="getFill" :stop-color="(rtl) ? activeColor : inactiveColor" />
             </linearGradient>
             <polygon :points="pointsToString" :fill="getFillId" :stroke="borderColor" :stroke-width="borderWidth" />
             <polygon :points="pointsToString" :fill="getFillId" />
         </svg>
-    </div>
+
 </template>
 
 <script type="text/javascript">
@@ -18,6 +17,7 @@ export default Vue.extend({
     mixins: [RatingItem],
     created() {
         this.calculatePoints()
+        console.log(this.rtl);
     },
     methods: {
         calculatePoints() {

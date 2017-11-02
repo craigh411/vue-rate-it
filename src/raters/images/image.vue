@@ -2,7 +2,7 @@
     <div :style="{display:'inline-block', 'margin-right': getSpacing}">
         <svg :width="getWidth" :height="getHeight" @mousemove="mouseMoving" @click="selected">
             <mask x="0" y="0" :id="fillId">
-                <rect fill="#fff" :width="getFill" height="100%" />
+                <rect fill="#fff" :width="getFill" height="100%" :x="getX" />
             </mask>
 
             <image :xlink:href="src" :mask="getFillId" :height="getHeight" :width="getWidth" />
@@ -31,6 +31,12 @@ export default Vue.extend({
     computed: {
         getOpacity() {
             return 'opacity:' + this.opacity
+        },
+        getFill(){
+            return this.fill + '%';
+        },
+        getX(){
+            return (this.rtl) ? 100 - this.fill + '%' : 0;
         }
     },
     data() {
