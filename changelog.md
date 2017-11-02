@@ -1,6 +1,11 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
+## Version 2.0.1 (2017-11-02)
+- Change type in README.md
+- Update Changelog for 2.0.0
+- Tidy glyph build script
+
 
 ## Version 2.0.0 (2017-11-01)
 - Solved file size issue by seperating `font-awesome` port.
