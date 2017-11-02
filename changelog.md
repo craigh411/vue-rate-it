@@ -1,6 +1,9 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
+## Unreleased
+- Update class names in BaseRating to avoid name clashes
+
 ## Version 2.0.1 (2017-11-02)
 - Change type in README.md
 - Update Changelog for 2.0.0

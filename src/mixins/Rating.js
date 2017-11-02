@@ -55,6 +55,10 @@ export default {
         fixedPoints: {
             type: Number,
             default: null
+        },
+        rtl: {
+            type: Boolean,
+            default: false
         }
     },
     model: {
