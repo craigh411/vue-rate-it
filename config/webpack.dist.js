@@ -34,6 +34,7 @@ module.exports = function(env) {
             }]
         },
         plugins: [
+            new webpack.optimize.ModuleConcatenationPlugin(), 
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
                 debug: false

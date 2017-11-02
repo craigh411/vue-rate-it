@@ -43,9 +43,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -73,15 +70,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 49);
+/******/ 	return __webpack_require__(__webpack_require__.s = 46);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports) {
-
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
 
 module.exports = function normalizeComponent (
   rawScriptExports,
@@ -141,28 +135,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(10)
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(7),
-  /* template */
-  __webpack_require__(9),
-  /* scopeId */
-  "data-v-217e3916",
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -218,7 +190,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -237,7 +209,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(11)
+var listToStyles = __webpack_require__(7)
 
 /*
 type StyleObject = {
@@ -439,6 +411,28 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(8)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(10),
+  /* template */
+  __webpack_require__(11),
+  /* scopeId */
+  "data-v-217e3916",
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -487,6 +481,10 @@ exports.default = {
             default: function _default() {
                 return {};
             }
+        },
+        rtl: {
+            type: Boolean,
+            default: false
         }
     },
     created: function created() {
@@ -507,7 +505,7 @@ exports.default = {
             return this.originalHeight / this.originalWidth * this.getWidth;
         },
         getFill: function getFill() {
-            return this.fill + '%';
+            return this.rtl ? 100 - this.fill + '%' : this.fill + '%';
         },
         getSpacing: function getSpacing() {
             return this.spacing + this.borderWidth / 2 + 'px';
@@ -524,7 +522,9 @@ exports.default = {
         getPosition: function getPosition($event) {
             // calculate position in percentage.
             var width = 92 / 100 * (this.size + this.borderWidth);
-            var position = Math.round(100 / width * $event.offsetX);
+            var offset = this.rtl ? Math.min($event.offsetX, 45) : Math.max($event.offsetX, 1);
+            var position = Math.round(100 / width * offset);
+
             return Math.min(position, 100);
         },
         selected: function selected($event) {
@@ -611,6 +611,10 @@ exports.default = {
         fixedPoints: {
             type: Number,
             default: null
+        },
+        rtl: {
+            type: Boolean,
+            default: false
         }
     },
     model: {
@@ -627,7 +631,7 @@ exports.default = {
     methods: {
         setRating: function setRating($event, persist) {
             if (!this.readOnly) {
-                var position = Math.max(0, $event.position / 100);
+                var position = this.rtl ? (100 - $event.position) / 100 : $event.position / 100;
                 this.currentRating = ($event.id + position - 1).toFixed(2);
                 this.currentRating = this.currentRating > this.maxRating ? this.maxRating : this.currentRating;
 
@@ -686,120 +690,6 @@ exports.default = {
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _Rating = __webpack_require__(6);
-
-var _Rating2 = _interopRequireDefault(_Rating);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = _vue2.default.extend({
-    mixins: [_Rating2.default],
-    data: function data() {
-        return {
-            type: ''
-        };
-    }
-});
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)();
-// imports
-
-
-// module
-exports.push([module.i, ".rating-item[data-v-217e3916]{display:inline-block}.pointer[data-v-217e3916]{cursor:pointer}.rating[data-v-217e3916]{display:flex;align-items:center}.inline[data-v-217e3916]{display:inline-flex}.rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    class: ['rating', {
-      inline: _vm.inline
-    }, 'rating-container']
-  }, [_c('div', {
-    staticClass: "rating",
-    on: {
-      "mouseleave": _vm.resetRating
-    }
-  }, [_vm._l((_vm.maxRating), function(n) {
-    return _c('div', {
-      class: [{
-        pointer: !_vm.readOnly
-      }, 'rating-item']
-    }, [_c(_vm.type, {
-      tag: "component",
-      attrs: {
-        "fill": _vm.fillLevel[n - 1],
-        "size": _vm.itemSize,
-        "index": n,
-        "step": _vm.step,
-        "active-color": _vm.activeColor,
-        "inactive-color": _vm.inactiveColor,
-        "border-color": _vm.borderColor,
-        "border-width": _vm.borderWidth,
-        "spacing": _vm.spacing,
-        "custom-props": _vm.customProps
-      },
-      on: {
-        "selected": function($event) {
-          _vm.setRating($event, true)
-        },
-        "mouse-move": _vm.setRating
-      }
-    })], 1)
-  }), _vm._v(" "), (_vm.showRating) ? _c('span', {
-    class: ['rating-text', _vm.textClass]
-  }, [_vm._v(" " + _vm._s(_vm.formattedRating))]) : _vm._e()], 2)])
-},staticRenderFns: []}
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(8);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("79d20f0f", content, true);
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports) {
 
 /**
@@ -830,6 +720,137 @@ module.exports = function listToStyles (parentId, list) {
   return styles
 }
 
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(9);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("77372b13", content, true);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, ".vue-rate-it-rating-item[data-v-217e3916]{display:inline-block}.vue-rate-it-pointer[data-v-217e3916]{cursor:pointer}.vue-rate-it-rating[data-v-217e3916]{display:flex;align-items:center}.vue-rate-it-inline[data-v-217e3916]{display:inline-flex}.vue-rate-it-rating-text[data-v-217e3916]{margin-top:7px;margin-left:7px}.vue-rate-it-rtl[data-v-217e3916]{direction:rtl}.vue-rate-it-rtl .vue-rate-it-rating-text[data-v-217e3916]{margin-right:10px;direction:rtl}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _Rating = __webpack_require__(6);
+
+var _Rating2 = _interopRequireDefault(_Rating);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+    mixins: [_Rating2.default],
+    data: function data() {
+        return {
+            type: ''
+        };
+    }
+});
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    class: ['vue-rate-it-rating', {
+      'vue-rate-it-rtl': _vm.rtl
+    }, {
+      'vue-rate-it-inline': _vm.inline
+    }, 'vue-rate-it-rating-container']
+  }, [_c('div', {
+    staticClass: "vue-rate-it-rating",
+    on: {
+      "mouseleave": _vm.resetRating
+    }
+  }, [_vm._l((_vm.maxRating), function(n) {
+    return _c('div', {
+      class: [{
+        'vue-rate-it-pointer': !_vm.readOnly
+      }, 'vue-rate-it-rating-item']
+    }, [_c(_vm.type, {
+      tag: "component",
+      attrs: {
+        "fill": _vm.fillLevel[n - 1],
+        "size": _vm.itemSize,
+        "index": n,
+        "step": _vm.step,
+        "active-color": _vm.activeColor,
+        "inactive-color": _vm.inactiveColor,
+        "border-color": _vm.borderColor,
+        "border-width": _vm.borderWidth,
+        "spacing": _vm.spacing,
+        "custom-props": _vm.customProps,
+        "rtl": _vm.rtl
+      },
+      on: {
+        "selected": function($event) {
+          _vm.setRating($event, true)
+        },
+        "mouse-move": _vm.setRating
+      }
+    })], 1)
+  }), _vm._v(" "), (_vm.showRating) ? _c('span', {
+    class: ['vue-rate-it-rating-text', _vm.textClass]
+  }, [_vm._v(" " + _vm._s(_vm.formattedRating))]) : _vm._e()], 2)])
+},staticRenderFns: []}
 
 /***/ }),
 /* 12 */
@@ -894,7 +915,8 @@ exports.default = _vue2.default.extend({
         getFill: function getFill() {
             // Account for any adjustment to the x1 coordinate of the LinearGradient
             var adjustment = this.fill / 100 * Math.abs(this.x1Val);
-            return this.x1Val > 0 ? this.fill - adjustment + '%' : this.fill + adjustment + '%';
+            var adjustedFill = this.x1Val > 0 ? this.fill - adjustment : this.fill + adjustment;
+            return this.rtl ? 100 - adjustedFill + '%' : adjustedFill + '%';
         },
         x1Val: function x1Val() {
             return parseInt(this.coords.x1.replace('%'));
@@ -936,15 +958,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": _vm.fillId
     }
-  }, 'linearGradient', _vm.coords), [_c('stop', {
+  }, 'linearGradient', _vm.coords, false), [_c('stop', {
     attrs: {
       "offset": _vm.getFill,
-      "stop-color": _vm.activeColor
+      "stop-color": (_vm.rtl) ? _vm.inactiveColor : _vm.activeColor
     }
   }), _vm._v(" "), _c('stop', {
     attrs: {
       "offset": _vm.getFill,
-      "stop-color": _vm.inactiveColor
+      "stop-color": (_vm.rtl) ? _vm.activeColor : _vm.inactiveColor
     }
   })], 1), _vm._v(" "), _c('path', _vm._b({
     attrs: {
@@ -954,16 +976,201 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "stroke-width": _vm.borderWidth,
       "vector-effect": "non-scaling-stroke"
     }
-  }, 'path', _vm.pathAttrs)), _vm._v(" "), _c('path', _vm._b({
+  }, 'path', _vm.pathAttrs, false)), _vm._v(" "), _c('path', _vm._b({
     attrs: {
       "d": _vm.pointsToString,
       "fill": _vm.getFillId
     }
-  }, 'path', _vm.pathAttrs))], 1)])
+  }, 'path', _vm.pathAttrs, false))], 1)])
 },staticRenderFns: []}
 
 /***/ }),
 /* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(27),
+  /* template */
+  __webpack_require__(28),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(33)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(35),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(18)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(20),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(19);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("2494179e", content, true);
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _BaseRating = __webpack_require__(4);
+
+var _BaseRating2 = _interopRequireDefault(_BaseRating);
+
+var _heart = __webpack_require__(21);
+
+var _heart2 = _interopRequireDefault(_heart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _BaseRating2.default.extend({
+    name: 'Heart-Rating',
+    components: {
+        Heart: _heart2.default
+    },
+    props: {
+        borderWidth: {
+            type: Number,
+            default: 3
+        },
+        activeColor: {
+            type: String,
+            default: '#d80000'
+        },
+        inactiveColor: {
+            type: String,
+            default: '#ffc4c4'
+        },
+        borderColor: {
+            type: String,
+            default: '#8b0000'
+        }
+    },
+    data: function data() {
+        return {
+            type: 'heart'
+        };
+    }
+});
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(22),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _Path = __webpack_require__(12);
+
+var _Path2 = _interopRequireDefault(_Path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Path2.default.extend({
+    data: function data() {
+        return {
+            points: ['M 297.29747 550.86823 C 283.52243 535.43191 249.1268 505.33855 220.86277 483.99412 C 137.11867 420.75228 125.72108 411.5999 91.719238 380.29088 C 29.03471 322.57071 2.413622 264.58086 2.5048478 185.95124 C 2.5493594 147.56739 5.1656152 132.77929 15.914734 110.15398 C 34.151433 71.768267 61.014996 43.244667 95.360052 25.799457 C 119.68545 13.443675 131.6827 7.9542046 172.30448 7.7296236 C 214.79777 7.4947896 223.74311 12.449347 248.73919 26.181459 C 279.1637 42.895777 310.47909 78.617167 316.95242 103.99205 L 320.95052 119.66445 L 330.81015 98.079942 C 386.52632 -23.892986 564.40851 -22.06811 626.31244 101.11153 C 645.95011 140.18758 648.10608 223.6247 630.69256 270.6244 C 607.97729 331.93377 565.31255 378.67493 466.68622 450.30098 C 402.0054 497.27462 328.80148 568.34684 323.70555 578.32901 C 317.79007 589.91654 323.42339 580.14491 297.29747 550.86823 z'],
+            originalWidth: 700,
+            originalHeight: 565
+        };
+    }
+});
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
@@ -981,16 +1188,45 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 16 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-/* styles */
-__webpack_require__(41)
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _BaseRating = __webpack_require__(4);
+
+var _BaseRating2 = _interopRequireDefault(_BaseRating);
+
+var _star = __webpack_require__(25);
+
+var _star2 = _interopRequireDefault(_star);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _BaseRating2.default.extend({
+    name: 'Star-Rating',
+    components: {
+        Star: _star2.default
+    },
+    data: function data() {
+        return {
+            type: 'star'
+        };
+    }
+});
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(25),
+  __webpack_require__(26),
   /* template */
   null,
   /* scopeId */
@@ -1003,12 +1239,146 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _Polygon = __webpack_require__(15);
+
+var _Polygon2 = _interopRequireDefault(_Polygon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Polygon2.default.extend({
+    data: function data() {
+        return {
+            points: [19.8, 2.2, 6.6, 43.56, 39.6, 17.16, 0, 17.16, 33, 43.56],
+            originalWidth: 43,
+            originalHeight: 43,
+            borders: 3
+        };
+    }
+});
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _vue = __webpack_require__(1);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _RatingItem = __webpack_require__(5);
+
+var _RatingItem2 = _interopRequireDefault(_RatingItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+exports.default = _vue2.default.extend({
+    mixins: [_RatingItem2.default],
+    created: function created() {
+        this.calculatePoints();
+    },
+
+    methods: {
+        calculatePoints: function calculatePoints() {
+            var _this = this;
+
+            this.points = this.points.map(function (point) {
+                return _this.size / _this.originalWidth * point + _this.borderWidth * (_this.borders / 2);
+            });
+        }
+    },
+    data: function data() {
+        return {
+            points: []
+        };
+    }
+});
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('svg', {
+    staticStyle: {
+      "overflow": "visible"
+    },
+    attrs: {
+      "width": _vm.getWidth,
+      "height": _vm.getHeight
+    },
+    on: {
+      "mousemove": _vm.mouseMoving,
+      "click": _vm.selected
+    }
+  }, [_c('linearGradient', {
+    attrs: {
+      "id": _vm.fillId,
+      "x1": "0",
+      "x2": "100%",
+      "y1": "0",
+      "y2": "0"
+    }
+  }, [_c('stop', {
+    attrs: {
+      "offset": _vm.getFill,
+      "stop-color": (_vm.rtl) ? _vm.inactiveColor : _vm.activeColor
+    }
+  }), _vm._v(" "), _c('stop', {
+    attrs: {
+      "offset": _vm.getFill,
+      "stop-color": (_vm.rtl) ? _vm.activeColor : _vm.inactiveColor
+    }
+  })], 1), _vm._v(" "), _c('polygon', {
+    attrs: {
+      "points": _vm.pointsToString,
+      "fill": _vm.getFillId,
+      "stroke": _vm.borderColor,
+      "stroke-width": _vm.borderWidth
+    }
+  }), _vm._v(" "), _c('polygon', {
+    attrs: {
+      "points": _vm.pointsToString,
+      "fill": _vm.getFillId
+    }
+  })], 1)
+},staticRenderFns: []}
+
+/***/ }),
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(27),
+  __webpack_require__(30),
   /* template */
   null,
   /* scopeId */
@@ -1021,12 +1391,58 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 18 */
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _BaseRating = __webpack_require__(4);
+
+var _BaseRating2 = _interopRequireDefault(_BaseRating);
+
+var _fontAwesomeGlyph = __webpack_require__(31);
+
+var _fontAwesomeGlyph2 = _interopRequireDefault(_fontAwesomeGlyph);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _BaseRating2.default.extend({
+    name: 'Fa-Rating',
+    components: {
+        FaGlyph: _fontAwesomeGlyph2.default
+    },
+    props: {
+        glyph: {
+            type: String,
+            required: true
+        },
+        activeColor: {
+            type: String,
+            default: '#000'
+        }
+    },
+    created: function created() {
+        this.customProps['glyph'] = this.glyph;
+    },
+    data: function data() {
+        return {
+            type: 'fa-glyph'
+        };
+    }
+});
+
+/***/ }),
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(29),
+  __webpack_require__(32),
   /* template */
   null,
   /* scopeId */
@@ -1039,48 +1455,63 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 19 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-/* styles */
-__webpack_require__(40)
 
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(22),
-  /* template */
-  null,
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-module.exports = Component.exports
+var _FaBaseGlyph = __webpack_require__(16);
+
+var _FaBaseGlyph2 = _interopRequireDefault(_FaBaseGlyph);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _FaBaseGlyph2.default.extend({
+    created: function created() {
+        this.updateGlyph();
+    },
+
+    methods: {
+        updateGlyph: function updateGlyph() {
+            this.points = [this.customProps.glyph];
+        }
+    }
+});
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(34);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("62348d90", content, true);
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
+
+// exports
 
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(31),
-  /* template */
-  __webpack_require__(38),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 21 */,
-/* 22 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1119,36 +1550,25 @@ exports.default = _Path2.default.extend({
 });
 
 /***/ }),
-/* 23 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(37),
+  /* template */
+  null,
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
 
+module.exports = Component.exports
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _FaBaseGlyph = __webpack_require__(19);
-
-var _FaBaseGlyph2 = _interopRequireDefault(_FaBaseGlyph);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _FaBaseGlyph2.default.extend({
-    created: function created() {
-        this.updateGlyph();
-    },
-
-    methods: {
-        updateGlyph: function updateGlyph() {
-            this.points = [this.customProps.glyph];
-        }
-    }
-});
 
 /***/ }),
-/* 24 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1158,135 +1578,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _BaseRating = __webpack_require__(2);
+var _BaseRating = __webpack_require__(4);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
-var _fontAwesomeGlyph = __webpack_require__(34);
-
-var _fontAwesomeGlyph2 = _interopRequireDefault(_fontAwesomeGlyph);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _BaseRating2.default.extend({
-    name: 'Fa-Rating',
-    components: {
-        FaGlyph: _fontAwesomeGlyph2.default
-    },
-    props: {
-        glyph: {
-            type: String,
-            required: true
-        },
-        activeColor: {
-            type: String,
-            default: '#000'
-        }
-    },
-    created: function created() {
-        this.customProps['glyph'] = this.glyph;
-    },
-    data: function data() {
-        return {
-            type: 'fa-glyph'
-        };
-    }
-});
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _BaseRating = __webpack_require__(2);
-
-var _BaseRating2 = _interopRequireDefault(_BaseRating);
-
-var _heart = __webpack_require__(35);
-
-var _heart2 = _interopRequireDefault(_heart);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _BaseRating2.default.extend({
-    name: 'Heart-Rating',
-    components: {
-        Heart: _heart2.default
-    },
-    props: {
-        borderWidth: {
-            type: Number,
-            default: 3
-        },
-        activeColor: {
-            type: String,
-            default: '#d80000'
-        },
-        inactiveColor: {
-            type: String,
-            default: '#ffc4c4'
-        },
-        borderColor: {
-            type: String,
-            default: '#8b0000'
-        }
-    },
-    data: function data() {
-        return {
-            type: 'heart'
-        };
-    }
-});
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Path = __webpack_require__(12);
-
-var _Path2 = _interopRequireDefault(_Path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Path2.default.extend({
-    data: function data() {
-        return {
-            points: ['M 297.29747 550.86823 C 283.52243 535.43191 249.1268 505.33855 220.86277 483.99412 C 137.11867 420.75228 125.72108 411.5999 91.719238 380.29088 C 29.03471 322.57071 2.413622 264.58086 2.5048478 185.95124 C 2.5493594 147.56739 5.1656152 132.77929 15.914734 110.15398 C 34.151433 71.768267 61.014996 43.244667 95.360052 25.799457 C 119.68545 13.443675 131.6827 7.9542046 172.30448 7.7296236 C 214.79777 7.4947896 223.74311 12.449347 248.73919 26.181459 C 279.1637 42.895777 310.47909 78.617167 316.95242 103.99205 L 320.95052 119.66445 L 330.81015 98.079942 C 386.52632 -23.892986 564.40851 -22.06811 626.31244 101.11153 C 645.95011 140.18758 648.10608 223.6247 630.69256 270.6244 C 607.97729 331.93377 565.31255 378.67493 466.68622 450.30098 C 402.0054 497.27462 328.80148 568.34684 323.70555 578.32901 C 317.79007 589.91654 323.42339 580.14491 297.29747 550.86823 z'],
-            originalWidth: 700,
-            originalHeight: 565
-        };
-    }
-});
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _BaseRating = __webpack_require__(2);
-
-var _BaseRating2 = _interopRequireDefault(_BaseRating);
-
-var _image = __webpack_require__(36);
+var _image = __webpack_require__(38);
 
 var _image2 = _interopRequireDefault(_image);
 
@@ -1320,7 +1616,25 @@ exports.default = _BaseRating2.default.extend({
 });
 
 /***/ }),
-/* 28 */
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(39),
+  /* template */
+  __webpack_require__(40),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1374,6 +1688,12 @@ exports.default = _vue2.default.extend({
     computed: {
         getOpacity: function getOpacity() {
             return 'opacity:' + this.opacity;
+        },
+        getFill: function getFill() {
+            return this.fill + '%';
+        },
+        getX: function getX() {
+            return this.rtl ? 100 - this.fill + '%' : 0;
         }
     },
     data: function data() {
@@ -1388,277 +1708,7 @@ exports.default = _vue2.default.extend({
 });
 
 /***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _BaseRating = __webpack_require__(2);
-
-var _BaseRating2 = _interopRequireDefault(_BaseRating);
-
-var _star = __webpack_require__(37);
-
-var _star2 = _interopRequireDefault(_star);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _BaseRating2.default.extend({
-    name: 'Star-Rating',
-    components: {
-        Star: _star2.default
-    },
-    data: function data() {
-        return {
-            type: 'star'
-        };
-    }
-});
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _Polygon = __webpack_require__(20);
-
-var _Polygon2 = _interopRequireDefault(_Polygon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Polygon2.default.extend({
-    data: function data() {
-        return {
-            points: [19.8, 2.2, 6.6, 43.56, 39.6, 17.16, 0, 17.16, 33, 43.56],
-            originalWidth: 43,
-            originalHeight: 43,
-            borders: 3
-        };
-    }
-});
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _vue = __webpack_require__(1);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _RatingItem = __webpack_require__(5);
-
-var _RatingItem2 = _interopRequireDefault(_RatingItem);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-exports.default = _vue2.default.extend({
-    mixins: [_RatingItem2.default],
-    created: function created() {
-        this.calculatePoints();
-    },
-
-    methods: {
-        calculatePoints: function calculatePoints() {
-            var _this = this;
-
-            this.points = this.points.map(function (point) {
-                return _this.size / _this.originalWidth * point + _this.borderWidth * (_this.borders / 2);
-            });
-        }
-    },
-    data: function data() {
-        return {
-            points: []
-        };
-    }
-});
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)();
-// imports
-
-
-// module
-exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)();
-// imports
-
-
-// module
-exports.push([module.i, ".rating-container.inline{display:inline-flex;margin-left:5px;margin-right:1px}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(23),
-  /* template */
-  null,
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(26),
-  /* template */
-  null,
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(28),
-  /* template */
-  __webpack_require__(39),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(0)(
-  /* script */
-  __webpack_require__(30),
-  /* template */
-  null,
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    style: ({
-      display: 'inline-block',
-      'margin-right': _vm.getSpacing
-    })
-  }, [_c('svg', {
-    attrs: {
-      "width": _vm.getWidth,
-      "height": _vm.getHeight
-    },
-    on: {
-      "mousemove": _vm.mouseMoving,
-      "click": _vm.selected
-    }
-  }, [_c('linearGradient', {
-    attrs: {
-      "id": _vm.fillId,
-      "x1": "0",
-      "x2": "100%",
-      "y1": "0",
-      "y2": "0"
-    }
-  }, [_c('stop', {
-    attrs: {
-      "offset": _vm.getFill,
-      "stop-color": _vm.activeColor
-    }
-  }), _vm._v(" "), _c('stop', {
-    attrs: {
-      "offset": _vm.getFill,
-      "stop-color": _vm.inactiveColor
-    }
-  })], 1), _vm._v(" "), _c('polygon', {
-    attrs: {
-      "points": _vm.pointsToString,
-      "fill": _vm.getFillId,
-      "stroke": _vm.borderColor,
-      "stroke-width": _vm.borderWidth
-    }
-  }), _vm._v(" "), _c('polygon', {
-    attrs: {
-      "points": _vm.pointsToString,
-      "fill": _vm.getFillId
-    }
-  })], 1)])
-},staticRenderFns: []}
-
-/***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -1686,7 +1736,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "fill": "#fff",
       "width": _vm.getFill,
-      "height": "100%"
+      "height": "100%",
+      "x": _vm.getX
     }
   })]), _vm._v(" "), _c('image', {
     attrs: {
@@ -1706,32 +1757,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },staticRenderFns: []}
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(32);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("12ad9e14", content, true);
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(33);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(4)("4c5ef42d", content, true);
-
-/***/ }),
+/* 41 */,
 /* 42 */,
 /* 43 */,
 /* 44 */,
@@ -1745,21 +1771,68 @@ var update = __webpack_require__(4)("4c5ef42d", content, true);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.Polygon = exports.Path = exports.RateIt = exports.FaBaseGlyph = exports.BaseRating = exports.ImageRating = exports.FaRating = exports.HeartRating = exports.StarRating = exports.mixins = undefined;
 
-var _Rating = __webpack_require__(6);
+var _starRating = __webpack_require__(23);
 
-var _Rating2 = _interopRequireDefault(_Rating);
+var _starRating2 = _interopRequireDefault(_starRating);
 
-var _RatingItem = __webpack_require__(5);
+var _heartRating = __webpack_require__(17);
 
-var _RatingItem2 = _interopRequireDefault(_RatingItem);
+var _heartRating2 = _interopRequireDefault(_heartRating);
+
+var _fontAwesomeRating = __webpack_require__(29);
+
+var _fontAwesomeRating2 = _interopRequireDefault(_fontAwesomeRating);
+
+var _imageRating = __webpack_require__(36);
+
+var _imageRating2 = _interopRequireDefault(_imageRating);
+
+var _BaseRating = __webpack_require__(4);
+
+var _BaseRating2 = _interopRequireDefault(_BaseRating);
+
+var _rateIt = __webpack_require__(47);
+
+var _rateIt2 = _interopRequireDefault(_rateIt);
+
+var _index = __webpack_require__(49);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _FaBaseGlyph = __webpack_require__(16);
+
+var _FaBaseGlyph2 = _interopRequireDefault(_FaBaseGlyph);
+
+var _Path = __webpack_require__(12);
+
+var _Path2 = _interopRequireDefault(_Path);
+
+var _Polygon = __webpack_require__(15);
+
+var _Polygon2 = _interopRequireDefault(_Polygon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-    Rating: _Rating2.default,
-    RatingItem: _RatingItem2.default
-};
+var raters = {
+    StarRating: _starRating2.default,
+    HeartRating: _heartRating2.default,
+    FaRating: _fontAwesomeRating2.default,
+    ImageRating: _imageRating2.default
+
+    // export raters by default
+};exports.default = raters;
+exports.mixins = _index2.default;
+exports.StarRating = _starRating2.default;
+exports.HeartRating = _heartRating2.default;
+exports.FaRating = _fontAwesomeRating2.default;
+exports.ImageRating = _imageRating2.default;
+exports.BaseRating = _BaseRating2.default;
+exports.FaBaseGlyph = _FaBaseGlyph2.default;
+exports.RateIt = _rateIt2.default;
+exports.Path = _Path2.default;
+exports.Polygon = _Polygon2.default;
 
 /***/ }),
 /* 47 */
@@ -1790,7 +1863,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _BaseRating = __webpack_require__(2);
+var _BaseRating = __webpack_require__(4);
 
 var _BaseRating2 = _interopRequireDefault(_BaseRating);
 
@@ -1827,69 +1900,21 @@ exports.default = _BaseRating2.default.extend({
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Polygon = exports.Path = exports.RateIt = exports.FaBaseGlyph = exports.BaseRating = exports.ImageRating = exports.FaRating = exports.HeartRating = exports.StarRating = exports.mixins = undefined;
 
-var _starRating = __webpack_require__(18);
+var _Rating = __webpack_require__(6);
 
-var _starRating2 = _interopRequireDefault(_starRating);
+var _Rating2 = _interopRequireDefault(_Rating);
 
-var _heartRating = __webpack_require__(16);
+var _RatingItem = __webpack_require__(5);
 
-var _heartRating2 = _interopRequireDefault(_heartRating);
-
-var _fontAwesomeRating = __webpack_require__(15);
-
-var _fontAwesomeRating2 = _interopRequireDefault(_fontAwesomeRating);
-
-var _imageRating = __webpack_require__(17);
-
-var _imageRating2 = _interopRequireDefault(_imageRating);
-
-var _BaseRating = __webpack_require__(2);
-
-var _BaseRating2 = _interopRequireDefault(_BaseRating);
-
-var _rateIt = __webpack_require__(47);
-
-var _rateIt2 = _interopRequireDefault(_rateIt);
-
-var _index = __webpack_require__(46);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _FaBaseGlyph = __webpack_require__(19);
-
-var _FaBaseGlyph2 = _interopRequireDefault(_FaBaseGlyph);
-
-var _Path = __webpack_require__(12);
-
-var _Path2 = _interopRequireDefault(_Path);
-
-var _Polygon = __webpack_require__(20);
-
-var _Polygon2 = _interopRequireDefault(_Polygon);
+var _RatingItem2 = _interopRequireDefault(_RatingItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var raters = {
-    StarRating: _starRating2.default,
-    HeartRating: _heartRating2.default,
-    FaRating: _fontAwesomeRating2.default,
-    ImageRating: _imageRating2.default
+exports.default = {
+    Rating: _Rating2.default,
+    RatingItem: _RatingItem2.default
 };
-
-// export raters by default
-exports.default = raters;
-exports.mixins = _index2.default;
-exports.StarRating = _starRating2.default;
-exports.HeartRating = _heartRating2.default;
-exports.FaRating = _fontAwesomeRating2.default;
-exports.ImageRating = _imageRating2.default;
-exports.BaseRating = _BaseRating2.default;
-exports.FaBaseGlyph = _FaBaseGlyph2.default;
-exports.RateIt = _rateIt2.default;
-exports.Path = _Path2.default;
-exports.Polygon = _Polygon2.default;
 
 /***/ })
 /******/ ]);

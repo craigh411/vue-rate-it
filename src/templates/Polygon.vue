@@ -17,7 +17,6 @@ export default Vue.extend({
     mixins: [RatingItem],
     created() {
         this.calculatePoints()
-        console.log(this.rtl);
     },
     methods: {
         calculatePoints() {
