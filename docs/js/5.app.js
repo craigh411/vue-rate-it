@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -307,7 +307,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "color": "#aa5500"
     }
-  }, [_vm._v("'./comoponents/thumbs-up-glyph.vue'")]), _vm._v("\n\n"), _c('span', {
+  }, [_vm._v("'./components/thumbs-up-glyph.vue'")]), _vm._v("\n\n"), _c('span', {
     staticStyle: {
       "color": "#0000aa"
     }
@@ -336,7 +336,7 @@ var Component = __webpack_require__(0)(
   /* script */
   null,
   /* template */
-  __webpack_require__(68),
+  __webpack_require__(69),
   /* scopeId */
   null,
   /* cssModules */

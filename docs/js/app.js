@@ -9681,29 +9681,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _vue2.default.use(_vueRouter2.default);
 
 var Home = function Home(resolve) {
-    __webpack_require__.e/* require.ensure */(2).then((function () {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
         resolve(__webpack_require__(11));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var Stars = function Stars(resolve) {
-    __webpack_require__.e/* require.ensure */(0).then((function () {
+    __webpack_require__.e/* require.ensure */(2).then((function () {
         resolve(__webpack_require__(13));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var Hearts = function Hearts(resolve) {
-    __webpack_require__.e/* require.ensure */(3).then((function () {
+    __webpack_require__.e/* require.ensure */(4).then((function () {
         resolve(__webpack_require__(10));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var Images = function Images(resolve) {
-    __webpack_require__.e/* require.ensure */(1).then((function () {
+    __webpack_require__.e/* require.ensure */(3).then((function () {
         resolve(__webpack_require__(12));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
 var Fa = function Fa(resolve) {
-    __webpack_require__.e/* require.ensure */(4).then((function () {
+    __webpack_require__.e/* require.ensure */(1).then((function () {
         resolve(__webpack_require__(9));
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
