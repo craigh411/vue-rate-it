@@ -1,6 +1,15 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
+
+## Version 2.0.0 (2017-11-01)
+- Solved file size issue by seperating `font-awesome` port.
+- Updated font awesome build script to output individual glyph paths.
+- Change `fa-rating` functionailty
+- Change CDN build process
+- Update docs
+- Update README.md
+
 ## Version 1.1.5 (2017-05-31)
 - Fixed issue that causes div to be placed inside span.
 - Tidy up.
