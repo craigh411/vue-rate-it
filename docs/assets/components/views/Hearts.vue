@@ -149,6 +149,12 @@
                     <td>Sets the spacing between each heart. This should be set as an offset, so minus figures move hearts closer together and plus figures move them further apart.</td>
                     <td>0</td>
                 </tr>
+                 <tr>
+                    <td>rtl</td>
+                    <td>Boolean</td>
+                    <td>Pass true to display heart rating using rtl (right-to-left)</td>
+                    <td>false</td>
+                </tr>
             </tbody>
         </table>
 
