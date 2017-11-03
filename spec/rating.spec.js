@@ -69,6 +69,23 @@ describe('rating mixin', () => {
         expect(vm.$data.currentRating).toEqual(2.5)
     });
 
+    it('should set the rating based on the current mouse position when using rtl', () => {
+        let vm = new Vue({
+            mixins: [Rating]
+        });
+
+        vm.$props.increment = 0.5;
+        vm.$props.rtl = true;
+        // Mock mouse position
+        let event = {
+            position: 45, // percentage position within individual star
+            id: 3 // The star that is being moused over
+        }
+
+        vm.setRating(event);
+        expect(vm.$data.currentRating).toEqual(3)
+    });
+
     it('should emit the current rating', () => {
         let vm = new Vue({
             mixins: [Rating]
@@ -85,6 +102,28 @@ describe('rating mixin', () => {
         vm.setRating(event);
         expect(vm.$emit).toHaveBeenCalledWith('current-rating', 3);
     });
+
+
+    it('should emit the selected rating when using rtl', () => {
+        let vm = new Vue({
+            mixins: [Rating]
+        });
+        vm.$props.rtl = true;
+        vm.$props.increment = 0.5;
+
+        spyOn(vm, '$emit')
+
+        // Mock mouse position
+        let event = {
+            position: 45, // percentage position within individual star
+            id: 3 // The star that is being moused over
+        }
+
+        vm.setRating(event);
+        expect(vm.$emit).toHaveBeenCalledWith('current-rating', 3);
+    });
+
+
 
     it('should emit the selected rating', () => {
         let vm = new Vue({
@@ -103,6 +142,9 @@ describe('rating mixin', () => {
         expect(vm.$emit).toHaveBeenCalledWith('rating-selected', 3);
     });
 
+
+
+
     it('should not set the rating when readOnly', () => {
         let vm = new Vue({
             mixins: [Rating]
@@ -116,10 +158,11 @@ describe('rating mixin', () => {
     });
 
 
-    it('should set the current rating to the selected rating', () => {
+    it('should set the current rating to the selected rating when using rtl', () => {
         let vm = new Vue({
             mixins: [Rating]
         });
+        vm.$props.rtl = true;
 
         vm.$data.selectedRating = 3;
         vm.$data.currentRating = 4;

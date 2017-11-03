@@ -55,6 +55,10 @@ export default {
         fixedPoints: {
             type: Number,
             default: null
+        },
+        rtl: {
+            type: Boolean,
+            default: false
         }
     },
     model: {
@@ -70,7 +74,7 @@ export default {
     methods: {
         setRating($event, persist) {
             if (!this.readOnly) {
-                const position = Math.max(0, $event.position / 100)
+                const position = (this.rtl) ? (100 - $event.position) / 100 : $event.position / 100
                 this.currentRating = (($event.id + position) - 1).toFixed(2)
                 this.currentRating = (this.currentRating > this.maxRating) ? this.maxRating : this.currentRating
 

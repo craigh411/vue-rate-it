@@ -137,6 +137,12 @@
                     <td>Sets the spacing between each image. This should be set as an offset, so minus figures move images closer together and plus figures move them further apart.</td>
                     <td>0</td>
                 </tr>
+                <tr>
+                    <td>rtl</td>
+                    <td>Boolean</td>
+                    <td>Pass true to display image rating using rtl (right-to-left)</td>
+                    <td>false</td>
+                </tr>
             </tbody>
         </table>
 

@@ -15,6 +15,7 @@ Vue-rate-it is an extensible, highly customisable rating system for Vue.js 2. It
 - Create read-only ratings.
 - Uses scalable SVG images.
 - Supports v-model for easy syncing (vue 2.2+)
+- Supports RTL (right-to-left)
 
 [Check out the detailed docs with examples on the vue-rate-it Github Pages](https://craigh411.github.io/vue-rate-it/#/)
 

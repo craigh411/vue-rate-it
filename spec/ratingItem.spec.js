@@ -41,7 +41,7 @@ describe('RatingItem mixin', () => {
         expect(props.borderWidth).toEqual(0);
         expect(props.spacing).toEqual(0);
         expect(props.customProps).toEqual({});
-
+        expect(props.rtl).toBeFalsy();
     });
 
     it('should set a random fillId for the rating item', () => {
@@ -69,7 +69,34 @@ describe('RatingItem mixin', () => {
         expect(component.getFillId).toBe("url(#" + component.fillId + ")");
     })
 
-  
+  it('should return the current fill level percentage', () => {
+        // Use mixin and suppress prop warnings
+        var Component = Vue.extend({
+            mixins: [RatingItem],
+            props: dProps
+        })
+
+        var component = new Component();
+        component.fill = 45;
+
+        expect(component.getFill).toBe('45%');
+  });
+
+
+  it('should return the current fill level percentage when using rtl', () => {
+        // Use mixin and suppress prop warnings
+        var Component = Vue.extend({
+            mixins: [RatingItem],
+            props: dProps
+        })
+
+        var component = new Component();
+        component.fill = 45;
+        component.$props.rtl = true;
+
+        // RTL reverses the inactive and active colors, so this fill level actually refers the the inactive color
+        expect(component.getFill).toBe('55%');
+  });
 
     it('should emit the selected event', () => {
         // Use mixin and suppress prop warnings

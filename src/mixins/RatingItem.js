@@ -37,6 +37,10 @@ export default {
             default: function() {
                 return {}
             }
+        },
+        rtl:{
+            type: Boolean,
+            default: false
         }
     },
     created() {
@@ -56,7 +60,7 @@ export default {
             return (this.originalHeight / this.originalWidth) * this.getWidth
         },
         getFill() {
-            return this.fill + '%'
+            return (this.rtl) ? 100 - this.fill + '%' : this.fill + '%'
         },
         getSpacing() {
             return (this.spacing + (this.borderWidth / 2)) + 'px'
@@ -73,7 +77,9 @@ export default {
         getPosition($event) {
             // calculate position in percentage.
             var width = (92 / 100) * (this.size + this.borderWidth)
-            var position = Math.round((100 / width) * $event.offsetX)
+            const offset = (this.rtl) ? Math.min($event.offsetX, 45) : Math.max($event.offsetX, 1)
+            var position = Math.round((100 / width) * offset)
+
             return Math.min(position, 100)
         },
         selected($event) {

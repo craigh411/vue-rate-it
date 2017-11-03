@@ -88,4 +88,36 @@ describe('Path', () => {
         expect(component.getFill).toBe("55%");
     });
 
+    it('should return the fillLevel', () => {
+        var Component = Path.extend({
+            props: dProps,
+            data() {
+                return {
+                    points: [10, 20, 30, 40],
+                }
+            }
+        });
+
+        var component = new Component();
+        component.$props.fill = 55;
+
+        expect(component.getFill).toBe("55%");
+    });
+
+    it('should return the fillLevel when using rtl', () => {
+        var Component = Path.extend({
+            props: dProps,
+            data() {
+                return {
+                    points: [10, 20, 30, 40],
+                }
+            }
+        });
+
+        var component = new Component();
+        component.$props.rtl = true 
+        component.$props.fill = 55;
+
+        expect(component.getFill).toBe("45%");
+    });
 });

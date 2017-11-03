@@ -2,7 +2,7 @@ import Vue from 'vue'
 import ImageRating from '../src/raters/images/image-rating.vue'
 
 
-describe('heart-rating', () => {
+describe('image-rating', () => {
     it('should set the default value for the backgroundOpacity prop', () => {
     	spyOn(console, 'error'); // Quick and dirty way to suppress warnings about missing props
         let ir = new ImageRating();
@@ -20,4 +20,5 @@ describe('heart-rating', () => {
         });
         expect(ir.customProps.src).toBe("foo")
     })
+
 })
