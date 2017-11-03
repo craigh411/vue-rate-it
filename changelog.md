@@ -1,11 +1,12 @@
 # Change Log
 - Project follows [Semantic Versioning](http://semver.org/)
 
-## Unreleased
+## Version 2.1.0
 - Update class names in BaseRating to avoid name clashes
 - Add rtl support
 - Updgrade to webpack 3 - Unfortunately, hoisting with vue-loader 13 produces a larger bundle size, so sticking with vue-loader 11
 - Removed dead pixel column that allowed users to reset rating to 0
+- Add new tests
 
 
 ## Version 2.0.1 (2017-11-02)
