@@ -242,7 +242,7 @@ Then you can use it like:
                 <td>Sets the spacing between each glyph. This should be set as an offset, so minus figures move glyphs closer together and plus figures move them further apart.</td>
                 <td>0</td>
             </tr>
-             <tr>:
+             <tr>
                 <td>rtl</td>
                 <td>Boolean</td>
                 <td>Pass true to display fa rating using rtl (right-to-left)</td>
