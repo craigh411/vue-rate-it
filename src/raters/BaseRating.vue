@@ -16,7 +16,8 @@
               @selected="setRating($event, true)" 
               @mouse-move="setRating" 
               :custom-props="customProps" 
-              :rtl="rtl"></component>
+              :rtl="rtl"
+              tabindex="0"></component>
             </div>
             <span v-if="showRating" :class="['vue-rate-it-rating-text', textClass]"> {{formattedRating}}</span>
         </div>
