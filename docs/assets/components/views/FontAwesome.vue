@@ -61,19 +61,15 @@
     <div class="ui segment">
         <!-- HTML generated using hilite.me -->
         <div style="background: #ffffff; overflow:auto;width:auto;;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">import</span> {FaRating} from <span style="color: #aa5500">&#39;vue-rate-it&#39;</span>;
-<span style="color: #0000aa">import</span> {ThumbsUp} from <span style="color: #aa5500">&#39;vue-rate-it/glyphs/thumbs-up&#39;</span>;
+<span style="color: #0000aa">import</span> ThumbsUp from <span style="color: #aa5500">&#39;vue-rate-it/glyphs/thumbs-up&#39;</span>;
 
 <span style="color: #0000aa">export</span> <span style="color: #0000aa">default</span>{
   components:{
     FaRating
   },
-  created(){
-    // register the icon
-    this.thumbsUp = ThumbsUp
-  },
   data(){
     return{
-      thumbsUp: '' // declare the icon
+      thumbsUp: ThumbsUp // declare the icon
     } 
   } 
 }
