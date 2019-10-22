@@ -66,6 +66,6 @@
     "vue-router": "^2.4.0",
     "vue-template-compiler": "^2.2.1",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.2.0"
+    "webpack-dev-server": "^3.8.2"
   }
 }
